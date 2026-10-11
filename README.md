@@ -19,7 +19,7 @@
 
 > "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 181 resources in 10 categories.
 
-**At a glance:** 127 entries are 💚 safe for monetized content · 113 need ➖ no attribution · 139 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 127 entries are 💚 safe for monetized content · 113 need ➖ no attribution · 142 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -122,7 +122,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [SplitShire](https://www.splitshire.com/) | Free photos and videos by photographer Daniel Nanescu. _No redistribution as stock._ | SplitShire License (free) | — | 💚 Allowed | — |
 | [NASA Image and Video Library](https://images.nasa.gov/) | Public domain space footage, launch videos and Earth imagery. _NASA media is generally not copyrightable; identifiable people need care._ | Public Domain (with minor exceptions) | — | 💚 Allowed | — |
 | [Prelinger Archives](https://archive.org/details/prelinger) | Historic advertising, educational and amateur films, mostly public domain. | Public Domain (mostly) | — | 💚 Allowed | — |
-| [Pond5 Public Domain Project](https://www.pond5.com/free) | Free historic and archival media in the public domain. | Public Domain | — | 💚 Allowed | ❓ |
+| [Pond5 Public Domain Project](https://www.pond5.com/free) | Free historic and archival media in the public domain. | Public Domain | — | 💚 Allowed | 🔑 Yes |
 | [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | European Space Agency videos and images of Earth and space. _Free for educational, editorial and informational use with a credit; entertainment, advertising and merchandise need ESA's written authorisation._ | ESA terms; some items CC BY-SA 3.0 IGO | ✅ Required | ⚠️ Conditional | — |
 | [DVIDS](https://www.dvidshub.net/) | US military public-domain video and imagery from defense operations worldwide. _Identifiable people may not be shown endorsing anything._ | Public Domain (US Government works) | — | 💚 Allowed | — |
 | [Beachfront B-Roll](https://www.beachfrontbroll.com/) | Free HD and 4K B-roll clips from filmmaker Dustin Beckstrand. _Credit appreciated but not required; no reselling as stock._ | Free (custom) | — | 💚 Allowed | — |
@@ -157,8 +157,8 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Life of Pix](https://www.lifeofpix.com/) | Free high-resolution artistic photos from the Leeroy ad agency. _No mass redistribution as stock._ | Life of Pix License (free) | — | 💚 Allowed | — |
 | [Public Domain Pictures](https://www.publicdomainpictures.net/) | Free public-domain-style photo library with a premium high-res tier. _Some downloads need a free account; no redistributing as stock._ | Free license (per image) | — | 💚 Allowed | Optional |
 | [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | The Cleveland Museum of Art's collection images and metadata, released under CC0 with a public API. _High-resolution images and the JSON API are both reachable with no account._ | CC0 | — | 💚 Allowed | — |
-| [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | The Dutch national gallery's digitised collection; most objects are public domain, some CC-BY. _Rights are stated per object; the museum also waives its own photographic rights over public-domain works._ | Public domain (majority) / CC-BY | ❓ Varies | ❓ Varies | ❓ |
-| [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | Danish national gallery's open-access programme; about two-thirds of the collection is public domain. _Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions._ | Public domain (~2/3 of the collection) | — | ❓ Varies | ❓ |
+| [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | The Dutch national gallery's digitised collection; most objects are public domain, some CC-BY. _Rights are stated per object; the museum also waives its own photographic rights over public-domain works._ | Public domain (majority) / CC-BY | ❓ Varies | ❓ Varies | 🔑 Yes |
+| [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | Danish national gallery's open-access programme; about two-thirds of the collection is public domain. _Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions._ | Public domain (~2/3 of the collection) | — | ❓ Varies | — |
 | [Neurascapes](https://neurascapes.com/) | Free stock photos of nature, space and abstract subjects, usable commercially without permission. _Free for commercial use without attribution; you may not resell photos unmodified or compile them into a competing service._ | Neurascapes License (free, no attribution) | — | 💚 Allowed | ❓ |
 
 ## Fonts
@@ -184,7 +184,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Sarasa Gothic (更纱黑体)](https://github.com/be5invis/Sarasa-Gothic) | Source Han Sans merged with Iosevka to give CJK text fixed-width alignment in code and terminals. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
 | [Smiley Sans (得意黑)](https://atelier-anchor.com/typefaces/smiley-sans) | Open-source condensed Chinese display face from atelier Anchor, made for headlines and posters. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
 | [LXGW WenKai (霞鹜文楷)](https://github.com/lxgw/LxgwWenKai) | Open-source Chinese kai family derived from Klee One, suited to reading, subtitles and quotes. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
-| [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | Alibaba's Chinese text family with commercial rights opened to individuals and businesses. _Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing._ | Alibaba PuHuiTi License (free commercial use) | — | 💚 Allowed | ❓ |
+| [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | Alibaba's Chinese text family with commercial rights opened to individuals and businesses. _Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing._ | Alibaba PuHuiTi License (free commercial use) | — | 💚 Allowed | 🔑 Yes |
 
 ## Graphics & Icons
 
@@ -292,9 +292,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Free3D](https://free3d.com/) | Free-model section of a large 3D marketplace. | Per-model licenses | ❓ Varies | ❓ Varies | Optional |
 | [Quaternius](https://quaternius.com/) | Stylish CC0 low-poly packs: animals, dungeons, sci-fi and more. | CC0 | — | 💚 Allowed | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | Free 2D game assets: sprites, tilesets, GUI kits and more. _Free for commercial game projects; no reselling raw assets._ | CraftPix Free License | — | 💚 Allowed | Optional |
-| [3D Textures.me](https://3dtextures.me/) | Seamless PBR material scans for Blender, Unity, Unreal and Godot, all released as CC0. _Textures are downloaded one at a time from each post; a bulk folder is offered to supporters._ | CC0 | — | 💚 Allowed | ❓ |
+| [3D Textures.me](https://3dtextures.me/) | Seamless PBR material scans for Blender, Unity, Unreal and Godot, all released as CC0. _Textures are downloaded one at a time from each post; a bulk folder is offered to supporters._ | CC0 | — | 💚 Allowed | — |
 | [Open HDRI](https://openhdri.org/) | Real-world captured HDRIs released as CC0, in unclipped linear high-resolution form. _The site states the library is CC0 with no AI-generated content, no login and no ads._ | CC0 | — | 💚 Allowed | — |
-| [No Emotion HDRs](https://noemotionhdrs.net/) | Free HDR skies for lighting and sky replacement, shot on location rather than generated. _CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives._ | CC BY-ND 4.0 | ✅ Required | 💚 Allowed | ❓ |
+| [No Emotion HDRs](https://noemotionhdrs.net/) | Free HDR skies for lighting and sky replacement, shot on location rather than generated. _CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives._ | CC BY-ND 4.0 | ✅ Required | 💚 Allowed | — |
 | [Share Textures](https://www.sharetextures.com/) | PBR materials and 3D models under a custom CC0-based licence, up to 4K resolution. _Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site._ | Custom CC0-based license | — | 💚 Allowed | — |
 
 ## Search Engines

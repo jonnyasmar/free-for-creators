@@ -209,7 +209,7 @@
       "license_family": "site-free",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "unknown",
+      "signup": "required",
       "notes": "Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing.",
       "notes_zh": "官网声明向所有个人和商家开放商用；完整协议本次未能抓取，再分发前请自行核对。"
     }

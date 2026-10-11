@@ -295,7 +295,7 @@
       "contains_cc0": true,
       "attribution": "varies",
       "monetization": "varies",
-      "signup": "unknown",
+      "signup": "required",
       "notes": "Rights are stated per object; the museum also waives its own photographic rights over public-domain works.",
       "notes_zh": "每个作品单独标注权利；博物馆对公有领域作品的翻拍也一并放弃权利。"
     },
@@ -309,7 +309,7 @@
       "contains_cc0": true,
       "attribution": "not-required",
       "monetization": "varies",
-      "signup": "unknown",
+      "signup": "not-required",
       "notes": "Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions.",
       "notes_zh": "仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。"
     },

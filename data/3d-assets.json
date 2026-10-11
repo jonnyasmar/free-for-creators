@@ -238,7 +238,7 @@
       "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "unknown",
+      "signup": "not-required",
       "notes": "Textures are downloaded one at a time from each post; a bulk folder is offered to supporters.",
       "notes_zh": "纹理需在各自页面逐个下载；打包全部纹理的文件夹向赞助者提供。"
     },
@@ -264,7 +264,7 @@
       "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
-      "signup": "unknown",
+      "signup": "not-required",
       "notes": "CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives.",
       "notes_zh": "CC BY-ND：署名后可商用，但不得修改或作为演绎作品再分发这些 HDRI。"
     },

@@ -19,7 +19,7 @@
 
 > 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、181 个资源。
 
-**一眼看数据**：127 条 💚 可直接用于货币化内容 · 113 条 ➖ 无需署名 · 139 条 🔓 无需注册 · 29 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：127 条 💚 可直接用于货币化内容 · 113 条 ➖ 无需署名 · 142 条 🔓 无需注册 · 29 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -122,7 +122,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [SplitShire](https://www.splitshire.com/) | 摄影师 Daniel Nanescu 的免费照片与视频。 _不得作为图库二次分发。_ | SplitShire License (free) | — | 💚 可商用 | — |
 | [NASA Image and Video Library](https://images.nasa.gov/) | 公有领域的太空影像、发射视频与地球画面。 _NASA 素材一般不受版权保护；含可识别人物时需谨慎。_ | Public Domain (with minor exceptions) | — | 💚 可商用 | — |
 | [Prelinger Archives](https://archive.org/details/prelinger) | 历史广告、教育与业余影片，多为公有领域。 | Public Domain (mostly) | — | 💚 可商用 | — |
-| [Pond5 Public Domain Project](https://www.pond5.com/free) | 公有领域的历史与档案媒体。 | Public Domain | — | 💚 可商用 | ❓ |
+| [Pond5 Public Domain Project](https://www.pond5.com/free) | 公有领域的历史与档案媒体。 | Public Domain | — | 💚 可商用 | 🔑 需注册 |
 | [ESA Multimedia](https://www.esa.int/ESA_Multimedia/Videos) | 欧洲航天局的地球与太空视频、图片。 _教育、编辑与信息类用途免费（须署名，如「Video: ESA」或「©ESA」）；娱乐、广告、周边商品等商业使用需 ESA 书面单独授权。_ | ESA terms; some items CC BY-SA 3.0 IGO | ✅ 需署名 | ⚠️ 有条件 | — |
 | [DVIDS](https://www.dvidshub.net/) | 美军全球防务行动的公有领域视频与图片。 _含可识别人物时，不得暗示其为你背书。_ | Public Domain (US Government works) | — | 💚 可商用 | — |
 | [Beachfront B-Roll](https://www.beachfrontbroll.com/) | 电影人 Dustin Beckstrand 的免费高清/4K B-roll 片段。 _欢迎署名但不强制；不得作为图库转售。_ | Free (custom) | — | 💚 可商用 | — |
@@ -157,8 +157,8 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Life of Pix](https://www.lifeofpix.com/) | 广告工作室 Leeroy 的免费高分辨率艺术照片。 _不得批量二次分发为图库。_ | Life of Pix License (free) | — | 💚 可商用 | — |
 | [Public Domain Pictures](https://www.publicdomainpictures.net/) | 免费公共领域风格照片库，另有高级高分辨率档。 _部分下载需免费账号；不得作为图库二次分发。_ | Free license (per image) | — | 💚 可商用 | 可选 |
 | [Cleveland Museum of Art Open Access](https://www.clevelandart.org/open-access) | 克利夫兰艺术博物馆的馆藏图像与元数据，以 CC0 发布并提供公开 API。 _高分辨率图像与 JSON API 均无需账号即可访问。_ | CC0 | — | 💚 可商用 | — |
-| [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | 荷兰国家博物馆的数字化馆藏；多数作品属公有领域，部分为 CC-BY。 _每个作品单独标注权利；博物馆对公有领域作品的翻拍也一并放弃权利。_ | Public domain (majority) / CC-BY | ❓ 逐项而定 | ❓ 逐项而定 | ❓ |
-| [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | 丹麦国立美术馆的开放存取项目；约三分之二馆藏属公有领域。 _仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。_ | Public domain (~2/3 of the collection) | — | ❓ 逐项而定 | ❓ |
+| [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | 荷兰国家博物馆的数字化馆藏；多数作品属公有领域，部分为 CC-BY。 _每个作品单独标注权利；博物馆对公有领域作品的翻拍也一并放弃权利。_ | Public domain (majority) / CC-BY | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
+| [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | 丹麦国立美术馆的开放存取项目；约三分之二馆藏属公有领域。 _仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。_ | Public domain (~2/3 of the collection) | — | ❓ 逐项而定 | — |
 | [Neurascapes](https://neurascapes.com/) | 自然、太空与抽象题材的免费图库，无需许可即可商用。 _可免费商用且无需署名；但不得原样转售照片，也不得汇编成竞争性服务。_ | Neurascapes License (free, no attribution) | — | 💚 可商用 | ❓ |
 
 ## 字体
@@ -184,7 +184,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Sarasa Gothic (更纱黑体)](https://github.com/be5invis/Sarasa-Gothic) | 将思源黑体与 Iosevka 合并，使中日韩文字在代码与终端中等宽对齐。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
 | [Smiley Sans (得意黑)](https://atelier-anchor.com/typefaces/smiley-sans) | atelier Anchor 开源的中文窄斜标题黑体，适用于大标题与海报。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
 | [LXGW WenKai (霞鹜文楷)](https://github.com/lxgw/LxgwWenKai) | 基于 Klee One 的开源中文楷体家族，适合阅读、字幕与引文排版。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
-| [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | 阿里巴巴开放商业授权给个人与商家的中文字体家族。 _官网声明向所有个人和商家开放商用；完整协议本次未能抓取，再分发前请自行核对。_ | Alibaba PuHuiTi License (free commercial use) | — | 💚 可商用 | ❓ |
+| [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | 阿里巴巴开放商业授权给个人与商家的中文字体家族。 _官网声明向所有个人和商家开放商用；完整协议本次未能抓取，再分发前请自行核对。_ | Alibaba PuHuiTi License (free commercial use) | — | 💚 可商用 | 🔑 需注册 |
 
 ## 图形与图标
 
@@ -292,9 +292,9 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Free3D](https://free3d.com/) | 大型 3D 市场的免费模型专区。 | Per-model licenses | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [Quaternius](https://quaternius.com/) | 风格化 CC0 低多边形素材包：动物、地牢、科幻等。 | CC0 | — | 💚 可商用 | — |
 | [CraftPix Freebies](https://craftpix.net/freebies/) | 免费 2D 游戏素材：精灵图、tileset、GUI 套件等。 _可免费用于商业游戏项目；不得转售原始素材。_ | CraftPix Free License | — | 💚 可商用 | 可选 |
-| [3D Textures.me](https://3dtextures.me/) | 适用于 Blender、Unity、Unreal 与 Godot 的无缝 PBR 材质扫描，全部以 CC0 发布。 _纹理需在各自页面逐个下载；打包全部纹理的文件夹向赞助者提供。_ | CC0 | — | 💚 可商用 | ❓ |
+| [3D Textures.me](https://3dtextures.me/) | 适用于 Blender、Unity、Unreal 与 Godot 的无缝 PBR 材质扫描，全部以 CC0 发布。 _纹理需在各自页面逐个下载；打包全部纹理的文件夹向赞助者提供。_ | CC0 | — | 💚 可商用 | — |
 | [Open HDRI](https://openhdri.org/) | 实景拍摄的 HDRI，以 CC0 发布，提供未裁切的线性高分辨率文件。 _官网声明整站为 CC0，无 AI 生成内容、无需登录、无广告。_ | CC0 | — | 💚 可商用 | — |
-| [No Emotion HDRs](https://noemotionhdrs.net/) | 用于打光与天空替换的免费 HDRI 天空，实地拍摄而非生成。 _CC BY-ND：署名后可商用，但不得修改或作为演绎作品再分发这些 HDRI。_ | CC BY-ND 4.0 | ✅ 需署名 | 💚 可商用 | ❓ |
+| [No Emotion HDRs](https://noemotionhdrs.net/) | 用于打光与天空替换的免费 HDRI 天空，实地拍摄而非生成。 _CC BY-ND：署名后可商用，但不得修改或作为演绎作品再分发这些 HDRI。_ | CC BY-ND 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Share Textures](https://www.sharetextures.com/) | 采用自定义 CC0 类许可的 PBR 材质与 3D 模型，最高 4K 分辨率。 _自定义 CC0 条款：禁止再分发与热链，且许可只覆盖从其官网直接下载的文件。_ | Custom CC0-based license | — | 💚 可商用 | — |
 
 ## 聚合搜索
