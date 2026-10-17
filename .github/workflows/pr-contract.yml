@@ -1,0 +1,84 @@
+name: PR contract
+
+# The submission contract: one entry per PR, a title and body that describe that entry, a
+# completed checklist, and a file list a resource submission can produce. ci.yml judges the
+# data; this judges the submission.
+#
+# pull_request_target, for the same reason as pr-linkcheck.yml: it runs for fork PRs and can
+# write a comment. Safety is identical — the BASE ref is checked out and PR content is read
+# through git objects (git show <ref>:<file>). Nothing from the PR is ever checked out or
+# executed, which is also why scripts/check_pr.py may import build_readme from that checkout.
+#
+# "edited" is in the event list on purpose: a title or body fix must re-run the gate.
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-contract-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  contract:
+    name: Submission contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      # From the base checkout, before the gate runs: a gate whose own tests are never run
+      # is a gate that starts rejecting honest contributions the first time it is edited.
+      - name: Test the contract checker
+        run: python3 -m unittest discover -s tests -t . -p "test_pr_contract.py"
+      # Force-pushable ref, so the SHA the event announced is passed alongside it and
+      # check_pr.py refuses to judge a commit nobody saw.
+      - name: Fetch PR head ref
+        run: git fetch --no-tags origin "pull/${{ github.event.pull_request.number }}/head"
+      - name: Check the submission contract
+        id: check
+        continue-on-error: true
+        env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_REPORT: ${{ runner.temp }}/pr-contract-report.md
+        run: python3 scripts/check_pr.py --event "$GITHUB_EVENT_PATH"
+      - name: Comment the result on the PR
+        if: steps.check.outputs.skip != 'true'
+        uses: actions/github-script@v9
+        env:
+          PR_REPORT: ${{ runner.temp }}/pr-contract-report.md
+          CHECK_OUTCOME: ${{ steps.check.outcome }}
+        with:
+          script: |
+            const fs = require("fs");
+            const marker = "<!-- pr-contract -->";
+            const p = process.env.PR_REPORT;
+            const report = (p && fs.existsSync(p))
+              ? fs.readFileSync(p, "utf8")
+              : "_Checker crashed — see the workflow log._";
+            const body = `${marker}\n${report}`;
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner, repo, issue_number, per_page: 100,
+            });
+            const existing = comments.find((c) => c.body.startsWith(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
+      - name: Fail when the submission contract is broken
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "::error::PR does not follow the submission contract — see the bot comment."
+          exit 1
