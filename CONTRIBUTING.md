@@ -20,6 +20,21 @@ You can either open an issue with the [Suggest a resource](../../issues/new/choo
 
 4. Commit the JSON and the regenerated files, then open a PR. CI validates the data against `schema/entry.schema.json`, checks that the READMEs / `site/all.html` / banner counts are all in sync, and a bot link-checks the URLs your PR adds and comments the results on the PR (❌ broken links block the merge; ⚠️ *blocked* means the site refused our bot or needs a human in a browser — verify those once).
 
+### What CI checks on your PR
+
+Two bots judge a submission, and they judge different things:
+
+| Check | Workflow | Enforces |
+| --- | --- | --- |
+| Submission contract | [`pr-contract.yml`](.github/workflows/pr-contract.yml) | **One** entry per PR; a title of the form `[Resource name] -> [Category]` that matches that entry; a body carrying `Link: <the entry's URL>` and an answer to `Is this your product? Yes / No`; every checklist box ticked; and a file list limited to `data/**`, the two generated READMEs and `assets/social-preview.html` |
+| New-link check | [`pr-linkcheck.yml`](.github/workflows/pr-linkcheck.yml) | Every URL the PR adds resolves. ❌ broken blocks the merge; ⚠️ *blocked* is a bot wall (403/429/timeout) and needs one human look in a browser |
+
+Then [`ci.yml`](.github/workflows/ci.yml) re-validates the data against the schema, re-audits entry quality, checks the READMEs are in sync, rebuilds the site payload and re-renders every page in headless Chrome at each breakpoint.
+
+**Maintainers and bot accounts are exempt from the contract check**, because a category addition, a `CONTRIBUTING.md` edit and the weekly link-check commit are all legitimate PRs that are not resource submissions. If the file you need to change is outside that list, say so in the PR and a maintainer can merge it.
+
+The checker's own rules are tested (`python3 -m unittest discover -s tests -t .`), including one test that fails if [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) stops carrying a confirmation the checker requires — so the gate is literal-minded only as long as it reads the template you were actually given.
+
 ### Processing a suggestion (maintainer checklist)
 
 When something arrives through the issue template, run the *whole* loop — shipping the entry but leaving the issue open is the classic failure mode:
@@ -43,6 +58,26 @@ A resource belongs here when all of these hold:
 - **Not a duplicate** of an existing entry (URLs are checked globally by CI).
 
 Borderline AI-generated asset sites: include only when the site states an explicit license for its outputs.
+
+Two categories are deliberately wider than "an asset file you download": **Search Engines** lists meta-search over openly licensed media, and **Colors & Gradients** lists palettes and gradients as copyable values (a palette you paste into a design is an asset; the licence on the palette data is what the columns record). The test stays the same — does a creator use the thing *in* a project? A colour picker, a mockup generator or a file converter is not that, and stays out.
+
+### What does not count as free
+
+This list exists because "free" on an asset site is ambiguous, so the lower bound has to be written down. The linked functionality is **not** free in the sense this list means when any of these is true:
+
+- it is a **time-limited trial** — free for N days, then it stops working;
+- it runs on **credits that expire**;
+- it is capped by a **recurring quota** — N downloads a day, N exports a month, N minutes of render;
+- it is capped by **storage** — a free workspace that cannot hold a real project;
+- the output is **watermarked**, or exportable only at a resolution or format that is not usable;
+- the **essential step is paid** — you can create it for free but downloading, exporting or licensing it commercially costs money.
+
+Two things deliberately do **not** disqualify a resource, and rejecting them would empty this list:
+
+- **A pricing page, or paid features next to the free ones.** Describe only the functionality that works without payment. What is out is a product that is paid-only, or a free tier that locks the exact feature you are linking to.
+- **Repeatable per-use limits.** A file-size ceiling, a page limit per run, one project at a time — allowed, as long as the resource can be used again and again without paying. Record the limit in `notes` / `notes_zh`.
+
+State the limit, not just the verdict: `monetization: conditional` needs its condition written in `notes`, and a limit you could not establish stays unstated rather than guessed — a guess is the one error this repo must not make.
 
 ## Gaps already investigated
 
