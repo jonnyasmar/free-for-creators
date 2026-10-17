@@ -185,6 +185,7 @@ T = {
         ],
         "contributors_title": "## Contributors",
         "contributors_anchor": "Contributors",
+        "links_line": "*Links last verified {date}: {ok} ok \u00b7 {blocked} need a browser \u00b7 {broken} broken.*",
         "contributors_intro": "Thanks to everyone who suggested a resource:",
         "contributors_outro": "Suggestions are credited next to the entry they added; corrections and link fixes are credited in the issue or PR that landed them. See [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.",
         "contributing_title": "## Contributing",
@@ -231,6 +232,7 @@ T = {
         ],
         "contributors_title": "## \u8d21\u732e\u8005",
         "contributors_anchor": "\u8d21\u732e\u8005",
+        "links_line": "*\u94fe\u63a5\u6700\u8fd1\u6821\u9a8c\u4e8e {date}\uff1a{ok} \u6b63\u5e38 \u00b7 {blocked} \u9700\u4eba\u5de5\u786e\u8ba4 \u00b7 {broken} \u6b7b\u94fe\u3002*",
         "contributors_intro": "\u611f\u8c22\u63d0\u4f9b\u8d44\u6e90\u7684\u4eba\uff1a",
         "contributors_outro": "\u6295\u7a3f\u8005\u7684\u540d\u5b57\u4f1a\u51fa\u73b0\u5728\u5bf9\u5e94\u6761\u76ee\u65c1\uff1b\u7ea0\u6b63\u4e0e\u6b7b\u94fe\u4fee\u590d\u5219\u4ee5\u5bf9\u5e94 issue / PR \u4e3a\u51ed\u3002\u60f3\u52a0\u5165\u8fd9\u4efd\u540d\u5355\uff0c\u8bf7\u770b [CONTRIBUTING.md](CONTRIBUTING.md)\u3002",
         "contributing_title": "## \u53c2\u4e0e\u8d21\u732e",
@@ -410,6 +412,21 @@ def cat_desc(c, lang):
     return c["description"]
 
 
+LINKCHECK_STATUS_PATH = Path("linkcheck-status.json")
+
+
+def linkcheck_status():
+    """The weekly link check writes this file; the README badge reads it.
+
+    Missing or unreadable simply means no badge — a contributor running the generator
+    without a previous CI run should not get a traceback.
+    """
+    try:
+        return json.loads(LINKCHECK_STATUS_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
 def entry_row(e, lang):
     attr = ATTR_DISPLAY[lang]
     mon = MON_DISPLAY[lang]
@@ -472,6 +489,12 @@ def render(categories, lang):
     a('  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">')
     a("</p>")
     a("")
+    lc = linkcheck_status()
+    if lc:
+        broken = lc.get("broken", 0)
+        a(t["links_line"].format(date=lc.get("date", "?"), ok=lc.get("ok", "?"),
+                                 blocked=lc.get("blocked", "?"), broken=broken))
+        a("")
     a(t["tagline"].format(total=total, ncat=len(categories)))
     a("")
     a(t["glance"].format(**compute_stats(categories)))

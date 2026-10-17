@@ -267,6 +267,9 @@ def main():
     ap.add_argument("--no-proxy", action="store_true",
                     help="ignore environment/system proxies (changes which sites are "
                          "reachable; see the NO_PROXY comment — neither mode matches CI)")
+    ap.add_argument("--status-file", metavar="PATH",
+                    help="write a JSON summary (date/checked/ok/blocked/broken) for the "
+                         "README's link-verification badge; linkcheck.yml commits it")
     args = ap.parse_args()
 
     global NO_PROXY
@@ -325,6 +328,24 @@ def main():
         lines += ["", "OK: %d \u00b7 Blocked (manual check): %d" % (len(ok), len(blocked))]
         with open(report_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
+
+    status_path = args.status_file
+    if status_path:
+        # Written even when links are broken, so the badge can say so: a stale "0 broken"
+        # would be worse than a red one. build_readme.py reads this and refuses nothing —
+        # it renders the date next to the count precisely so an old run cannot pass as new.
+        import datetime
+        import json as _json
+        payload = {
+            "date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d"),
+            "checked": len(results),
+            "ok": len(ok),
+            "blocked": len(blocked),
+            "broken": len(broken),
+        }
+        with open(status_path, "w", encoding="utf-8") as f:
+            f.write(_json.dumps(payload, indent=2) + "\n")
+        print("Status: wrote %s %s" % (status_path, payload))
 
     sys.exit(1 if broken else 0)
 

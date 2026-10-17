@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write # the weekly run commits linkcheck-status.json, which READMEs render
   issues: write
 
 jobs:
@@ -21,7 +21,23 @@ jobs:
       - name: Check all resource links
         env:
           LINKCHECK_REPORT: ${{ runner.temp }}/linkcheck-report.md
-        run: python scripts/linkcheck.py
+        run: python scripts/linkcheck.py --status-file linkcheck-status.json
+      # Runs even when the check failed, so a red result is recorded rather than leaving the
+      # previous week's "0 broken" on display. Regenerating the READMEs here is what keeps
+      # `build_readme.py --check` in CI happy after the status file moves.
+      - name: Record the result for the README badge
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f linkcheck-status.json || { echo "no status file written"; exit 0; }
+          python3 scripts/build_readme.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add linkcheck-status.json README.md README.zh-CN.md
+          if git diff --cached --quiet; then echo "nothing to record"; exit 0; fi
+          git commit -m "chore: record link check ($(python3 -c "import json;print(json.load(open('linkcheck-status.json'))['broken'])") broken) [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
       - name: Hint on failure
         if: failure()
         run: |
