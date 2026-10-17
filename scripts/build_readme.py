@@ -183,6 +183,10 @@ T = {
             "- [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) \u2014 game development resources",
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 design resources for developers",
         ],
+        "contributors_title": "## Contributors",
+        "contributors_anchor": "Contributors",
+        "contributors_intro": "Thanks to everyone who suggested a resource, corrected a license or reported a dead link:",
+        "contributors_outro": "Community suggestions are credited next to the entry they added \u2014 see [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.",
         "contributing_title": "## Contributing",
         "contributing": "Found a great free resource? Spot a dead link or an outdated license? Please open a PR or use the issue templates \u2014 see [CONTRIBUTING.md](CONTRIBUTING.md). Entries are added to the JSON files in [`data/`](data); both READMEs are generated automatically. Not sure whether a resource fits your use case? Ask in [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions).",
         "star_title": "## Star History",
@@ -225,6 +229,10 @@ T = {
             "- [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) \u2014 \u6e38\u620f\u5f00\u53d1\u8d44\u6e90",
             "- [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) \u2014 \u9762\u5411\u5f00\u53d1\u8005\u7684\u8bbe\u8ba1\u8d44\u6e90",
         ],
+        "contributors_title": "## \u8d21\u732e\u8005",
+        "contributors_anchor": "\u8d21\u732e\u8005",
+        "contributors_intro": "\u611f\u8c22\u63d0\u4f9b\u8d44\u6e90\u3001\u7ea0\u6b63\u8bb8\u53ef\u4fe1\u606f\u6216\u4e3e\u62a5\u6b7b\u94fe\u7684\u4eba\uff1a",
+        "contributors_outro": "\u793e\u533a\u6295\u7a3f\u7684\u540d\u5b57\u4f1a\u51fa\u73b0\u5728\u5bf9\u5e94\u6761\u76ee\u65c1\u3002\u60f3\u52a0\u5165\u8fd9\u4efd\u540d\u5355\uff0c\u8bf7\u770b [CONTRIBUTING.md](CONTRIBUTING.md)\u3002",
         "contributing_title": "## \u53c2\u4e0e\u8d21\u732e",
         "contributing": "\u53d1\u73b0\u597d\u8d44\u6e90\uff1f\u9047\u5230\u6b7b\u94fe\u6216\u8bb8\u53ef\u8fc7\u671f\uff1f\u6b22\u8fce\u63d0 PR \u6216\u4f7f\u7528 Issue \u6a21\u677f\uff0c\u8be6\u89c1 [CONTRIBUTING.md](CONTRIBUTING.md)\u3002\u6761\u76ee\u6dfb\u52a0\u5728 [`data/`](data) \u7684 JSON \u4e2d\uff0c\u4e24\u4efd README \u5747\u81ea\u52a8\u751f\u6210\u3002想确认某个资源是否适合你的使用场景？欢迎到 [Discussions](https://github.com/skyzhao1223/free-for-creators/discussions) 提问。",
         "star_title": "## Star \u5386\u53f2",
@@ -310,6 +318,9 @@ def load_categories():
             for field in sorted(BOOL_FIELDS & set(e)):
                 if not isinstance(e[field], bool):
                     errors.append("%s: '%s' must be a boolean" % (where, field))
+            submitted_by = e.get("submitted_by")
+            if submitted_by is not None and not re.match(r"^[A-Za-z0-9][A-Za-z0-9-]*$", str(submitted_by)):
+                errors.append("%s: submitted_by '%s' is not a bare GitHub username" % (where, submitted_by))
             if e.get("contains_cc0") and e.get("license_family") != "mixed":
                 warnings.append("%s: contains_cc0 is only meaningful with license_family 'mixed' (got '%s')"
                                 % (where, e.get("license_family")))
@@ -413,9 +424,13 @@ def entry_row(e, lang):
     desc = desc.replace("|", "\\|")
     if notes:
         desc += " _%s_" % notes.replace("|", "\\|")
-    return "| [%s](%s) | %s | %s | %s | %s | %s |" % (
+    credit = ""
+    if e.get("submitted_by"):
+        credit = " <sup>[@%s](https://github.com/%s)</sup>" % (e["submitted_by"], e["submitted_by"])
+    return "| [%s](%s)%s | %s | %s | %s | %s | %s |" % (
         e["name"].replace("|", "\\|"),
         e["url"],
+        credit,
         desc,
         e["license"],
         attr[e["attribution"]],
@@ -427,6 +442,14 @@ def entry_row(e, lang):
 def render(categories, lang):
     t = T[lang]
     total = sum(len(c["entries"]) for c in categories)
+    contributors = []
+    seen_contributors = set()
+    for c in categories:
+        for e in c["entries"]:
+            handle = (e.get("submitted_by") or "").strip()
+            if handle and handle.lower() not in seen_contributors:
+                seen_contributors.add(handle.lower())
+                contributors.append(handle)
     lines = []
     a = lines.append
 
@@ -478,6 +501,8 @@ def render(categories, lang):
         name = cat_name(c, lang)
         a("- [%s](#%s) \u2014 %s \u00b7 %s" % (name, slugify(name), t["toc_suffix"].format(n=len(c["entries"])), cat_desc(c, lang)))
     a("- [%s](#%s)" % (t["related_anchor"], slugify(t["related_anchor"])))
+    if contributors:
+        a("- [%s](#%s)" % (t["contributors_anchor"], slugify(t["contributors_anchor"])))
     a("- [%s](#%s)" % (t["contributing_anchor"], slugify(t["contributing_anchor"])))
     a("")
     for c in categories:
@@ -495,6 +520,16 @@ def render(categories, lang):
     for row in t["related"]:
         a(row)
     a("")
+    if contributors:
+        a(t["contributors_title"])
+        a("")
+        a(t["contributors_intro"])
+        a("")
+        for handle in contributors:
+            a("- [@%s](https://github.com/%s)" % (handle, handle))
+        a("")
+        a(t["contributors_outro"])
+        a("")
     a(t["contributing_title"])
     a("")
     a(t["contributing"])

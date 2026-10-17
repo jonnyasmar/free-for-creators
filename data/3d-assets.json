@@ -292,7 +292,8 @@
       "signup": "not-required",
       "notes": "Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0.",
       "notes_zh": "付费包的免费单天空 Demo，成品项目可商用；不得作为素材包/素材站内容再分发或转售，不得用于 AI 训练；不是 CC0。",
-      "license_family": "mixed"
+      "license_family": "mixed",
+      "submitted_by": "omrishragaxyz"
     },
     {
       "name": "cgbookcase",

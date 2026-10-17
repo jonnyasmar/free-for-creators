@@ -87,6 +87,11 @@
           "type": "string",
           "description": "Chinese caveats. Optional — the zh README falls back to English."
         },
+        "submitted_by": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*$",
+          "description": "GitHub username of the person who suggested this entry. Rendered as a credit under Contributors and beside the entry."
+        },
         "skip_linkcheck": {
           "type": "boolean",
           "description": "Set true only when CI cannot check the URL (e.g. login walls). Justify in the PR."

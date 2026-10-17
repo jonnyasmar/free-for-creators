@@ -60,6 +60,7 @@ Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` re
 | `notes` | optional | string | Caveats: free-tier caps, platform restrictions, … |
 | `description_zh` | optional | ≤160 chars | Chinese description; `README.zh-CN.md` falls back to English without it |
 | `notes_zh` | optional | string | Chinese caveats (fallback: `notes`) |
+| `submitted_by` | optional | GitHub username | Credits whoever suggested the entry: it appears under [Contributors](#contributors) and beside the entry in both READMEs. Use it for community submissions — omit it when the maintainer adds an entry themselves |
 | `contains_cc0` | optional | boolean | With `license_family: mixed` only: the site *does* host CC0/public-domain items, but they must be filtered per asset |
 | `skip_linkcheck` | optional | boolean | Only for login-walled URLs; justify in the PR |
 | `linkcheck_js` | optional | boolean | The page is a JavaScript app whose HTML contains no `<title>`/`<h1>`, so the checker cannot confirm content from a plain fetch. Status, redirects and soft-404s are still checked |

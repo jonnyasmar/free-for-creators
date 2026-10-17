@@ -57,6 +57,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [3D 与游戏素材](#3d-与游戏素材) — 27 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 6 个资源 · 跨开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
+- [贡献者](#贡献者)
 - [参与贡献](#参与贡献)
 
 ## 音乐
@@ -104,8 +105,8 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Freesfx.co.uk](https://www.freesfx.co.uk/) | 免费音效，使用时需署名。 _可用于商业与广播制作，但署名中必须包含 freesfx.co.uk 网址。_ | freesfx.co.uk License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | 高产素材库 Kenney 的 CC0 音频包（UI、科幻、RPG）。 | CC0 | — | 💚 可商用 | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | 适合跑团、直播与播客的氛围循环音。 _仅限非商业：可用于个人及未货币化内容。_ | CC BY-NC-ND 4.0 | ✅ 需署名 | 🚫 禁止商用 | — |
-| [SFXMint](https://sfxmint.com/) | 免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。 _站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。_ | CC0 | — | 💚 可商用 | — |
-| [Soundza](https://soundza.com/) | 免费音效、音乐循环与环境音库（WAV/MP3）；免署名、可商用。 _前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。_ | Soundza Standard License | — | 💚 可商用 | 🔑 需注册 |
+| [SFXMint](https://sfxmint.com/) <sup>[@flreey](https://github.com/flreey)</sup> | 免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。 _站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。_ | CC0 | — | 💚 可商用 | — |
+| [Soundza](https://soundza.com/) <sup>[@vfseanm](https://github.com/vfseanm)</sup> | 免费音效、音乐循环与环境音库（WAV/MP3）；免署名、可商用。 _前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。_ | Soundza Standard License | — | 💚 可商用 | 🔑 需注册 |
 | [99Sounds](https://99sounds.org/) | 免费免版税音效包与插件；个人与商业项目可用，无需署名。 _许可页允许不限量商用且免署名；但禁止用其素材制作白噪音或助眠类 App。_ | 99Sounds license (royalty-free) | — | 💚 可商用 | — |
 
 ## 视频素材
@@ -311,7 +312,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Open HDRI](https://openhdri.org/) | 实景拍摄的 HDRI，以 CC0 发布，提供未裁切的线性高分辨率文件。 _官网声明整站为 CC0，无 AI 生成内容、无需登录、无广告。_ | CC0 | — | 💚 可商用 | — |
 | [No Emotion HDRs](https://noemotionhdrs.net/) | 用于打光与天空替换的免费 HDRI 天空，实地拍摄而非生成。 _CC BY-ND：署名后可商用，但不得修改或作为演绎作品再分发这些 HDRI。_ | CC BY-ND 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Share Textures](https://www.sharetextures.com/) | 采用自定义 CC0 类许可的 PBR 材质与 3D 模型，最高 4K 分辨率。 _自定义 CC0 条款：禁止再分发与热链，且许可只覆盖从其官网直接下载的文件。_ | Custom CC0-based license | — | 💚 可商用 | — |
-| [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) | Godot 4.5+ 免费 HDR 天空环境（单天空 Demo）：2048×1024 半浮点 EXR、WorldEnvironment 场景与导入文档。 _付费包的免费单天空 Demo，成品项目可商用；不得作为素材包/素材站内容再分发或转售，不得用于 AI 训练；不是 CC0。_ | Custom royalty-free (image) / MIT (resource files) | ❓ 逐项而定 | 💚 可商用 | — |
+| [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) <sup>[@omrishragaxyz](https://github.com/omrishragaxyz)</sup> | Godot 4.5+ 免费 HDR 天空环境（单天空 Demo）：2048×1024 半浮点 EXR、WorldEnvironment 场景与导入文档。 _付费包的免费单天空 Demo，成品项目可商用；不得作为素材包/素材站内容再分发或转售，不得用于 AI 训练；不是 CC0。_ | Custom royalty-free (image) / MIT (resource files) | ❓ 逐项而定 | 💚 可商用 | — |
 | [cgbookcase](https://www.cgbookcase.com/) | CC0 授权的 PBR 贴图、HDRI 与 3D 资源，适用于游戏引擎与渲染。 _首页声明 CC0，贴图可免费商用。_ | CC0 1.0 | — | 💚 可商用 | — |
 | [Sketchfab](https://sketchfab.com/) | 3D 模型平台，可按许可筛选，含大量可免费下载的 CC0 与 CC BY 模型。 _下载需注册免费账号；使用前务必查看模型页的许可标签。_ | Mixed (CC0 / CC BY per model) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [BlenderKit](https://www.blenderkit.com/) | Blender 资产库插件：15 万+ 模型、材质与 HDRI，含大量免费资产。 _需安装 BlenderKit 插件并注册免费账号；每个资产页会标注其许可。_ | Mixed (CC0 and royalty-free, per asset) | ❓ 逐项而定 | 💚 可商用 | 🔑 需注册 |
@@ -336,6 +337,16 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) — 经典图库/视频素材合集
 - [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) — 游戏开发资源
 - [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — 面向开发者的设计资源
+
+## 贡献者
+
+感谢提供资源、纠正许可信息或举报死链的人：
+
+- [@flreey](https://github.com/flreey)
+- [@vfseanm](https://github.com/vfseanm)
+- [@omrishragaxyz](https://github.com/omrishragaxyz)
+
+社区投稿的名字会出现在对应条目旁。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 参与贡献
 

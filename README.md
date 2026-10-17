@@ -57,6 +57,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [3D & Game Assets](#3d--game-assets) — 27 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across openly licensed images, audio and media.
 - [Related Lists](#related-lists)
+- [Contributors](#contributors)
 - [Contributing](#contributing)
 
 ## Music
@@ -104,8 +105,8 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Freesfx.co.uk](https://www.freesfx.co.uk/) | Free sound effects usable with a credit. _Free for commercial and broadcast use, but the credit must include the freesfx.co.uk URL._ | freesfx.co.uk License | ✅ Required | ⚠️ Conditional | — |
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | CC0 audio packs (UI, sci-fi, RPG) from the prolific Kenney library. | CC0 | — | 💚 Allowed | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | Ambience loops for tabletop RPG sessions, streams and podcasts. _NonCommercial only: fine for personal and non-monetized use._ | CC BY-NC-ND 4.0 | ✅ Required | 🚫 Not allowed | — |
-| [SFXMint](https://sfxmint.com/) | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
-| [Soundza](https://soundza.com/) | Free royalty-free sound effects, music loops and ambience in WAV/MP3; no attribution, commercial use allowed. _Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models._ | Soundza Standard License | — | 💚 Allowed | 🔑 Yes |
+| [SFXMint](https://sfxmint.com/) <sup>[@flreey](https://github.com/flreey)</sup> | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
+| [Soundza](https://soundza.com/) <sup>[@vfseanm](https://github.com/vfseanm)</sup> | Free royalty-free sound effects, music loops and ambience in WAV/MP3; no attribution, commercial use allowed. _Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models._ | Soundza Standard License | — | 💚 Allowed | 🔑 Yes |
 | [99Sounds](https://99sounds.org/) | Free royalty-free sound packs and plugins; personal and commercial use, credit not required. _License page allows unlimited commercial use without credit, but forbids using the sounds to build white-noise or sleep-sound apps._ | 99Sounds license (royalty-free) | — | 💚 Allowed | — |
 
 ## Stock Footage
@@ -311,7 +312,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Open HDRI](https://openhdri.org/) | Real-world captured HDRIs released as CC0, in unclipped linear high-resolution form. _The site states the library is CC0 with no AI-generated content, no login and no ads._ | CC0 | — | 💚 Allowed | — |
 | [No Emotion HDRs](https://noemotionhdrs.net/) | Free HDR skies for lighting and sky replacement, shot on location rather than generated. _CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives._ | CC BY-ND 4.0 | ✅ Required | 💚 Allowed | — |
 | [Share Textures](https://www.sharetextures.com/) | PBR materials and 3D models under a custom CC0-based licence, up to 4K resolution. _Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site._ | Custom CC0-based license | — | 💚 Allowed | — |
-| [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) | Free HDR sky environment for Godot 4.5+: 2048x1024 half-float EXR, WorldEnvironment scene and import docs (one-sky demo). _Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0._ | Custom royalty-free (image) / MIT (resource files) | ❓ Varies | 💚 Allowed | — |
+| [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) <sup>[@omrishragaxyz](https://github.com/omrishragaxyz)</sup> | Free HDR sky environment for Godot 4.5+: 2048x1024 half-float EXR, WorldEnvironment scene and import docs (one-sky demo). _Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0._ | Custom royalty-free (image) / MIT (resource files) | ❓ Varies | 💚 Allowed | — |
 | [cgbookcase](https://www.cgbookcase.com/) | CC0 PBR textures, HDRIs and 3D assets for game engines and 3D rendering. _Homepage states CC0; textures are free for commercial projects._ | CC0 1.0 | — | 💚 Allowed | — |
 | [Sketchfab](https://sketchfab.com/) | 3D model platform with a license filter; thousands of CC0 and CC-BY models download free. _Downloads need a free account; always check the per-model license badge before shipping._ | Mixed (CC0 / CC BY per model) | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [BlenderKit](https://www.blenderkit.com/) | Blender asset-library add-on: 150,000+ models, materials and HDRIs with a large free tier. _Requires the BlenderKit add-on and a free account; each asset page states its license._ | Mixed (CC0 and royalty-free, per asset) | ❓ Varies | 💚 Allowed | 🔑 Yes |
@@ -336,6 +337,16 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) — classic stock photo/video collection
 - [GameDev-Resources](https://github.com/Kavex/GameDev-Resources) — game development resources
 - [design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) — design resources for developers
+
+## Contributors
+
+Thanks to everyone who suggested a resource, corrected a license or reported a dead link:
+
+- [@flreey](https://github.com/flreey)
+- [@vfseanm](https://github.com/vfseanm)
+- [@omrishragaxyz](https://github.com/omrishragaxyz)
+
+Community suggestions are credited next to the entry they added — see [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.
 
 ## Contributing
 
