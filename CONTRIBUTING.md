@@ -20,6 +20,17 @@ You can either open an issue with the [Suggest a resource](../../issues/new/choo
 
 4. Commit the JSON and the regenerated files, then open a PR. CI validates the data against `schema/entry.schema.json`, checks that the READMEs / `site/all.html` / banner counts are all in sync, and a bot link-checks the URLs your PR adds and comments the results on the PR (❌ broken links block the merge; ⚠️ *blocked* means the site refused our bot or needs a human in a browser — verify those once).
 
+### Processing a suggestion (maintainer checklist)
+
+When something arrives through the issue template, run the *whole* loop — shipping the entry but leaving the issue open is the classic failure mode:
+
+1. **Verify against the source, not the submission text.** Fetch the homepage and the license page named in the issue. For open-source projects the repo's own `LICENSE` is authoritative: `gh api repos/OWNER/REPO/license --jq .license.spdx_id`.
+2. **Add the entry** with the `license`, `license_family`, `attribution`, `monetization` and `signup` values verification actually supports, and put the limits (no resale, no AI training, credit required, account needed after N downloads) in `notes` / `notes_zh`.
+3. **Regenerate** both derived sets: `python3 scripts/build_readme.py && python3 scripts/build_site.py`.
+4. **Commit with `Closes #N`** in the message and push. Without that keyword GitHub will not close the issue for you.
+5. **Comment on the issue** with what you verified, where the entry now lives, and the limits you recorded — then close it by hand if step 4 did not catch it.
+6. **Cannot verify the license? Say so and leave the issue open.** Guessing a license is worse than a missing entry; note what was ambiguous so it can be revisited.
+
 ## Inclusion criteria
 
 A resource belongs here when all of these hold:
