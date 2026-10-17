@@ -77,16 +77,18 @@ def write_short(cats, out):
     lines = [
         "# Free for Creators",
         "",
-        "> A license-verified directory of %d free assets for creators, across 10 categories:" % total,
-        "> music, sound effects, stock footage, photos, fonts, icons and illustrations, LUTs and",
-        "> edit templates, mockups, 3D/game assets, and search engines. Every entry records the",
+        "> A license-verified directory of %d free assets for creators, across %d categories:"
+        % (total, len(cats)),
+        "> music, sound effects, stock footage, photos, fonts, icons and illustrations, colour",
+        "> palettes and gradients, LUTs and edit templates, mockups, 3D/game assets, and search",
+        "> engines. Every entry records the",
         "> four things the word \"free\" usually hides — the license, whether attribution is",
         "> required, whether the asset is safe in monetized content, and whether an account is",
         "> needed. The data is CC0 and a weekly CI job link-checks every URL.",
         "",
         "## Facts",
         "",
-        "- %d entries in 10 categories" % total,
+        "- %d entries in %d categories" % (total, len(cats)),
         "- %d safe in monetized content · %d need no attribution · %d need no account · "
         "%d need neither attribution nor an account"
         % (s["monetizable"], s["no_attribution"], s["no_signup"],

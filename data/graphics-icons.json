@@ -523,6 +523,39 @@
       "signup": "not-required",
       "notes": "Community-maintained fork of Twitter's Twemoji. Artwork requires attribution; the code is MIT.",
       "notes_zh": "Twitter Twemoji 的社区维护分支；图形需署名，代码为 MIT。"
+    },
+    {
+      "name": "Eva Icons",
+      "url": "https://akveo.github.io/eva-icons/",
+      "description": "Open-source icon set in outline and fill styles, with SVG, font and framework builds.",
+      "description_zh": "开源图标集，含线框与填充两种风格，提供 SVG、字体与框架版本。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Ionicons",
+      "url": "https://ionic.io/ionicons",
+      "description": "Icon set with iOS and Material styles, as SVG, webfont and framework components.",
+      "description_zh": "含 iOS 与 Material 两种风格的图标集，提供 SVG、Webfont 与框架组件。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Radix Icons",
+      "url": "https://www.radix-ui.com/icons",
+      "description": "15x15 icon set drawn on a consistent grid, as React components and SVG.",
+      "description_zh": "统一的 15x15 图标集，提供 React 组件与 SVG。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }

@@ -1,0 +1,77 @@
+{
+  "category": "Colors & Gradients",
+  "category_zh": "配色与渐变",
+  "slug": "colors",
+  "description": "Palettes and gradients you can copy into a design, each with a stated license.",
+  "description_zh": "可复制到设计中的配色与渐变，每项都注明许可证。",
+  "entries": [
+    {
+      "name": "Open Color",
+      "url": "https://yeun.github.io/open-color/",
+      "description": "13-step colour scheme for interface work, shipped as CSS, Sass, Less and JSON.",
+      "description_zh": "13 级界面配色方案，提供 CSS、Sass、Less 与 JSON 格式。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Nord",
+      "url": "https://www.nordtheme.com/",
+      "description": "16-colour arctic palette with ports for editors, terminals and design tools.",
+      "description_zh": "16 色北极配色，提供编辑器、终端与设计工具的适配版本。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Catppuccin",
+      "url": "https://catppuccin.com/",
+      "description": "Pastel palette in four flavours, with community ports for apps, editors and terminals.",
+      "description_zh": "四种口味的柔和配色，社区提供应用、编辑器与终端的适配主题。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "Radix Colors",
+      "url": "https://www.radix-ui.com/colors",
+      "description": "12-step colour scales with dark and alpha variants, for interfaces and charts.",
+      "description_zh": "12 级色阶，含深色与透明变体，适用于界面与图表。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    },
+    {
+      "name": "WebGradients",
+      "url": "https://webgradients.com/",
+      "description": "180 linear gradients as CSS, with Sketch and PSD downloads.",
+      "description_zh": "180 个线性渐变，提供 CSS 以及 Sketch、PSD 下载。",
+      "license": "MIT (site states free commercial use)",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The site states free commercial use; the repository carries an MIT licence.",
+      "notes_zh": "站点声明可免费商用；代码仓库采用 MIT 许可。"
+    },
+    {
+      "name": "uiGradients",
+      "url": "https://uigradients.com/",
+      "description": "Gradient library with copyable CSS and SVG for each preset.",
+      "description_zh": "渐变库，每个预设都提供可复制的 CSS 与 SVG。",
+      "license": "MIT",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
+    }
+  ]
+}
