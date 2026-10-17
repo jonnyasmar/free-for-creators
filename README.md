@@ -340,13 +340,13 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 
 ## Contributors
 
-Thanks to everyone who suggested a resource, corrected a license or reported a dead link:
+Thanks to everyone who suggested a resource:
 
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
 - [@omrishragaxyz](https://github.com/omrishragaxyz)
 
-Community suggestions are credited next to the entry they added — see [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.
+Suggestions are credited next to the entry they added; corrections and link fixes are credited in the issue or PR that landed them. See [CONTRIBUTING.md](CONTRIBUTING.md) to join the list.
 
 ## Contributing
 

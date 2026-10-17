@@ -67,6 +67,8 @@ Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` re
 
 ¹ Not enforced by the validator, but every current entry sets it — please fill it in. `unknown` renders as ❓ on the website, so use it only when you genuinely could not tell.
 
+Deliberately **one** credits list: the README's [Contributors](#contributors) section is derived from `submitted_by` alone. Corrections and dead-link fixes that add no entry are credited in the issue or PR that landed them, so there is never a second list to keep in sync with the first.
+
 Semantics we use consistently:
 
 - `monetization: conditional` — free commercial use **only under conditions** (credit link, free-tier caps, specific platforms like YouTube/Twitch). Put the condition in `notes`.

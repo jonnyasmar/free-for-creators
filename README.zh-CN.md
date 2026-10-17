@@ -340,13 +340,13 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 
 ## 贡献者
 
-感谢提供资源、纠正许可信息或举报死链的人：
+感谢提供资源的人：
 
 - [@flreey](https://github.com/flreey)
 - [@vfseanm](https://github.com/vfseanm)
 - [@omrishragaxyz](https://github.com/omrishragaxyz)
 
-社区投稿的名字会出现在对应条目旁。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
+投稿者的名字会出现在对应条目旁；纠正与死链修复则以对应 issue / PR 为凭。想加入这份名单，请看 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 参与贡献
 
