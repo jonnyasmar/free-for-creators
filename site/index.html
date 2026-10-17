@@ -444,6 +444,22 @@ footer a:hover { text-decoration: underline; }
   .pal-panel { margin-top: 8vh; }
   #to-top { right: 14px; bottom: 14px; }
 }
+
+/* Below ~430px the table could not shrink past ~380px, and the constraint was not the
+   data: the four remaining header labels are uppercase mono with `white-space: nowrap`
+   plus letter-spacing, so their combined min-content set the floor and the document
+   scrolled sideways by 80px at 280px (found by scripts/check_responsive.py, which named
+   the <th> as the element to fix). Let the labels wrap, shrink the two fixed-width
+   cells, and let long resource names break rather than widen the table. */
+@media (max-width: 430px) {
+  .tbl th { white-space: normal; letter-spacing: .04em; padding: 6px 4px; }
+  .tbl td { padding: 5px 4px; }
+  .c-dot { width: 20px; }
+  .c-name { max-width: none; }
+  .c-name a { overflow-wrap: anywhere; }
+  .c-act { width: auto; }
+  .act, .fav { padding: 3px 4px; }
+}
 </style>
 <!-- Privacy-friendly analytics: GoatCounter — no cookies, no consent banner, no PII.
      Loads on the canonical host only, so local previews and forks never pollute the
