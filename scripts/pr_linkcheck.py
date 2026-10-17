@@ -64,8 +64,39 @@ def write_report(text):
             f.write(text)
 
 
+def assert_head_is_pinned(head, expected=None):
+    """Refuse to check a ref that is not the commit the event announced.
+
+    `pull_request_target` checks out the trusted base and reads PR content as data, but
+    `pull/<N>/head` is a mutable ref: the PR author can force-push it between the event
+    being queued and this job fetching it, so the report could describe a commit nobody
+    reviewed. In CI the head SHA from the event is therefore required, not best-effort.
+    A local run passes BASE_REF instead and is only warned.
+    """
+    if expected is None:
+        expected = os.environ.get("PR_HEAD_SHA") or ""
+    expected = expected.strip()
+    actual = git("rev-parse", head).strip()
+    if expected:
+        if actual != expected:
+            raise SystemExit(
+                "PR_REF %s resolves to %s but the event announced head %s — refusing to "
+                "check a moved or mismatched ref." % (head, actual, expected)
+            )
+        return actual
+    message = (
+        "PR_HEAD_SHA is not set, so %s was not pinned to the commit the event announced."
+        % head
+    )
+    if os.environ.get("GITHUB_ACTIONS") or not os.environ.get("BASE_REF"):
+        raise SystemExit(message + " Set PR_HEAD_SHA (CI) or BASE_REF (local run).")
+    print("WARNING: %s (local run)" % message)
+    return actual
+
+
 def main():
     head = os.environ.get("PR_REF", "FETCH_HEAD")
+    assert_head_is_pinned(head)
     base = os.environ.get("BASE_REF") or git("merge-base", "HEAD", head).strip()
 
     old_urls = urls_at(base)

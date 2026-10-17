@@ -29,13 +29,16 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
+      # Force-pushable ref, so the SHA the event announced is passed alongside it and
+      # pr_linkcheck.py refuses to run if FETCH_HEAD is not that commit.
       - name: Fetch PR head ref
-        run: git fetch origin pull/${{ github.event.pull_request.number }}/head
+        run: git fetch --no-tags origin "pull/${{ github.event.pull_request.number }}/head"
       - name: Link-check URLs added by this PR
         id: check
         continue-on-error: true
         env:
           PR_REF: FETCH_HEAD
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_REPORT: ${{ runner.temp }}/pr-link-report.md
         run: python scripts/pr_linkcheck.py
       - name: Comment result on PR
