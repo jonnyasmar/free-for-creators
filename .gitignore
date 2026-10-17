@@ -10,6 +10,9 @@ __pycache__/
 site/data/
 site/all.html
 site/sitemap.xml
+# llms.txt / llms-full.txt embed today's counts, same reason as all.html above.
+site/llms.txt
+site/llms-full.txt
 # og:image must be served from the Pages domain — copied from assets/ at deploy time.
 site/social-preview.png
 # local render intermediate — assets/banner.png IS this file (see CONTRIBUTING.md)

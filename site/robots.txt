@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://skyzhao1223.github.io/free-for-creators/sitemap.xml
+
+# Machine-readable summary for language models (llmstxt.org convention):
+# /llms.txt — the short map; /llms-full.txt — every entry with its license columns.
