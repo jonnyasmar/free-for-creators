@@ -97,6 +97,11 @@ nav.toc a:hover { border-color: #6d28d9; color: #6d28d9; }
 p.cat { margin: 0 0 10px; color: #555a6b; font-size: 14px; }
 table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid #e4e6ef;
   border-radius: 10px; overflow: hidden; font-size: 13.5px; }
+/* A table's auto layout will not shrink below its min-content width (520-630px with the
+   secondary columns hidden), so on a phone it used to push the whole page sideways —
+   up to 329px of document scroll at 320px wide. Scrolling the table inside its own box
+   keeps the page width honest and leaves the <table> semantics the page exists for. */
+.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 caption { caption-side: bottom; text-align: left; color: #6b7080; font-size: 12px; padding: 8px 2px; }
 th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eef0f5; vertical-align: top; }
 th { background: #f4f5fa; font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em;
@@ -122,9 +127,13 @@ footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e4e6ef;
   a { color: #c4b5fd; }
   footer { border-color: #262636; color: #8b93b5; }
 }
+/* Six columns want ~900px. A 768px iPad in portrait is below that, so drop License
+   and Sign-up there (the four that remain still fit) rather than scrolling them off. */
+@media (max-width: 900px) {
+  .hide-sm { display: none; }
+}
 @media (max-width: 720px) {
   th, td { padding: 6px 7px; }
-  .hide-sm { display: none; }
 }
 """.strip()
 
@@ -270,6 +279,7 @@ def render_all_html(categories, total, lastmod):
         a('<h2 id="h-%s">%s <span aria-hidden="true">·</span> %d</h2>'
           % (esc(c["slug"]), esc(c["category"]), len(c["entries"])))
         a('<p class="cat">%s</p>' % esc(c["description"]))
+        a('<div class="tbl-scroll">')
         a("<table>")
         a("<caption>%s</caption>" % esc(c["category"]))
         a("<thead><tr>" + "".join(
@@ -289,6 +299,7 @@ def render_all_html(categories, total, lastmod):
             a('<td class="hide-sm">%s</td>' % esc(sig.get(e.get("signup", "unknown"), "?")))
             a("</tr>")
         a("</tbody></table>")
+        a("</div>")
         a("</section>")
     a("</main>")
     a("<footer>")

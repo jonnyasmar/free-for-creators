@@ -319,6 +319,11 @@ section .cd { font-size: 11.5px; color: var(--muted); margin: 1px 0 9px 18px; }
 .card {
   position: relative; background: var(--card); border: 1px solid var(--border); border-radius: 11px;
   padding: 10px 12px; display: flex; flex-direction: column;
+  /* Grid items default to min-width:auto, so the card could not shrink past its own
+     min-content: the nowrap name anchor wants 321px for the longest entry ("SMK Open
+     (National Gallery of Denmark)"), which made the 1-column phone grid 347px wide on a
+     320px screen. min-width:0 lets the anchor ellipsize instead. */
+  min-width: 0;
   transition: transform .14s ease, border-color .14s, box-shadow .14s;
 }
 .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
@@ -392,6 +397,21 @@ footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
 @media (max-width: 900px) { .tagline, .stats { display: none; } }
+/* The 7-column table needs ~900px. Below that, drop the secondary columns and let the
+   name column shrink; otherwise its 900px min-width pushed the page sideways — an iPad
+   mini (768px) scrolled 98px, which is exactly the default view the page opens in. */
+@media (max-width: 900px) {
+  /* must out-specify the base `table.tbl { min-width: 900px }` — a plain .tbl here
+     loses, which is why the table stayed 900px wide on every phone. */
+  table.tbl { min-width: 0; }
+  .tbl td { padding: 6px; }
+  .tbl th { padding: 7px 6px; }
+  .c-dot { width: 28px; }
+  .c-name { max-width: 44vw; }
+  .c-name a { margin-left: 6px; font-size: 12.5px; }
+  .c-cat, .c-lic, .c-sig, .tbl th:nth-child(3), .tbl th:nth-child(4), .tbl th:nth-child(7) { display: none; }
+  .c-st { font-size: 12.5px; }
+}
 @media (max-width: 760px) {
   /* horizontal pill rails instead of wrapping — saves vertical space */
   .chips, .filters {
@@ -412,15 +432,6 @@ footer a:hover { text-decoration: underline; }
   .fav { font-size: 15px; padding: 3px 5px; }
   /* the search box is enough on touch — hide the ⌘K button */
   #pal-open { display: none; }
-  /* table fits without horizontal scroll: icon-only status columns */
-  .tbl { min-width: 0; }
-  .tbl td { padding: 6px; }
-  .tbl th { padding: 7px 6px; }
-  .c-dot { width: 28px; }
-  .c-name { max-width: 44vw; }
-  .c-name a { margin-left: 6px; font-size: 12.5px; }
-  .c-cat, .c-lic, .c-sig, .tbl th:nth-child(3), .tbl th:nth-child(4), .tbl th:nth-child(7) { display: none; }
-  .c-st { font-size: 12.5px; }
   .grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
