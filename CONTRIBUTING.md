@@ -142,7 +142,7 @@ Run `python3 scripts/build_site.py --check` any time to find out whether your lo
 
 Nothing else can see that class of bug. It is invisible in a diff, absent from any desktop screenshot in a PR, and it only appears at a boundary width. Two shipped: `site/all.html`'s tables could not shrink below their ~520-630px min-content, so a 320px phone got a 649px document (329px of sideways scroll on every table); and `site/index.html`'s table kept `min-width: 900px` because the intended `@media (max-width: 760px)` override was written as `.tbl` and quietly lost the specificity fight with the base rule `table.tbl`, which put 98px of sideways scroll on a 768px iPad — in the view that page *defaults* to at that width.
 
-It needs the built payload (`python3 scripts/build_site.py`) and any Chrome on your `PATH`; `--chrome /path/to/chrome` overrides the search, `--widths 320,760` narrows the run while you iterate, and `--verbose` prints every case. Both this and `CAT_COLORS` are enforced by the [`responsive` job](.github/workflows/ci.yml) in CI.
+It needs the built payload (`python3 scripts/build_site.py`) and any Chrome on your `PATH`; `--chrome /path/to/chrome` overrides the search, `--widths 320,760` narrows the run while you iterate, and `--verbose` prints every case. CI runs it as the `responsive` job in [`ci.yml`](.github/workflows/ci.yml).
 
 ## Adding a category
 

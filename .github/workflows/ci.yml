@@ -40,6 +40,51 @@ jobs:
       - name: Build site payload
         run: python scripts/build_site.py --out "${{ runner.temp }}/site-data"
 
+  # Nothing in the build can see this class of bug, and the diff cannot either: a static
+  # page is only wrong at a width nobody happened to open. Two shipped. site/all.html's
+  # tables cannot shrink below their ~520-630px min-content and nothing scrolled them, so a
+  # 320px phone got a 649px document — 329px of sideways scroll on every table. And
+  # site/index.html's table kept `min-width: 900px` because the intended override was
+  # written as `.tbl` and lost the specificity fight with the base rule `table.tbl`,
+  # leaving a 768px iPad 98px wide of its own viewport — in the view that page *defaults*
+  # to at that width. So drive the real pages in headless Chrome and fail on any width
+  # where the document itself can scroll sideways.
+  responsive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      # Build into site/ itself, the way pages.yml does — not into a throwaway directory.
+      # The interactive page fetches site/data/all.json, and a missing payload renders an
+      # empty state, which cannot overflow: this check would then pass exactly when the
+      # payload was broken. check_responsive.py also refuses to run without it.
+      - name: Build the site payload
+        run: python3 scripts/build_site.py
+      - name: Locate a Chrome binary
+        id: chrome
+        run: |
+          set -euo pipefail
+          # Same probe as banner.yml: ubuntu-latest ships Google Chrome preinstalled, and
+          # this repo adds no third-party setup action where it can avoid one.
+          found=""
+          for c in google-chrome google-chrome-stable chromium-browser chromium chrome; do
+            if command -v "$c" >/dev/null 2>&1; then found="$(command -v "$c")"; break; fi
+          done
+          if [ -z "$found" ]; then
+            echo "::error::No Chrome/Chromium binary found on this runner."
+            exit 1
+          fi
+          echo "path=$found" >> "$GITHUB_OUTPUT"
+          echo "Chrome: $found"
+          "$found" --version
+      - name: Check no page scrolls sideways at any supported width
+        run: python3 scripts/check_responsive.py --chrome "${{ steps.chrome.outputs.path }}"
+
   # The description carries the entry count, so it drifts every time data/ grows (it once
   # advertised 158 while the READMEs said 172). Regenerate it from the same source of truth
   # and PATCH it back. Push-to-main only: fork PRs get a read-only token, and a PR should not
