@@ -235,8 +235,8 @@
     {
       "name": "Soundimage.org",
       "url": "https://soundimage.org/",
-      "description": "Thousands of free music tracks and texture images by Eric Matyas; credit required.",
-      "description_zh": "Eric Matyas 提供的数千首免费音乐与贴图素材；使用时需署名。",
+      "description": "Free music tracks and texture images by Eric Matyas; credit required.",
+      "description_zh": "Eric Matyas 提供的免费音乐与贴图素材；使用时需署名。",
       "license": "Custom free license (attribution required)",
       "license_family": "site-free",
       "attribution": "required",
@@ -246,17 +246,17 @@
       "notes_zh": "署名页要求在使用作品的说明中署名；曲目可免费用于商业项目。"
     },
     {
-      "name": "Filmmusic.io",
-      "url": "https://filmmusic.io/",
-      "description": "Royalty-free music by Sascha Ende under CC BY 4.0; download without registration.",
-      "description_zh": "Sascha Ende 的免版税音乐库，CC BY 4.0 授权，免注册下载。",
+      "name": "Ende (formerly Filmmusic.io)",
+      "url": "https://ende.app/en",
+      "description": "Royalty-free production music by Sascha Ende under CC BY 4.0, commercial use included.",
+      "description_zh": "Sascha Ende 的免版税制作音乐，CC BY 4.0 授权，含商业使用。",
       "license": "CC BY 4.0",
       "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
-      "signup": "not-required",
-      "notes": "Site states CC BY 4.0 and no registration required; attribution is mandatory.",
-      "notes_zh": "站点声明 CC BY 4.0、免注册；必须署名。"
+      "signup": "unknown",
+      "notes": "Renamed from filmmusic.io. CC BY 4.0 with commercial use allowed; download opens a 'License ticket' step, account requirement unverified.",
+      "notes_zh": "由 filmmusic.io 改名而来。CC BY 4.0、允许商用；下载会弹出「License ticket」步骤，是否需要账号未验证。"
     },
     {
       "name": "Tunetank",

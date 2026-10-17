@@ -19,7 +19,7 @@
 
 > 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、200 个资源。
 
-**一眼看数据**：145 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 157 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：145 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 156 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -84,8 +84,8 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Purple Planet](https://www.purple-planet.com/) | 按情绪分类的免费曲目，适合小型创作者与非广播用途。 _署名后可免费用于 YouTube 等网络视频；其他用途需购买许可。_ | Purple Planet Free License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Chosic](https://www.chosic.com/free-music/all/) | 免费与 CC 音乐聚合站，支持按许可证筛选。 | Various (per track) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Thematic](https://hellothematic.com/) | 以署名链接换免费音乐，专为视频/播客创作者设计。 _每首使用的曲目都需按站方要求在简介放置署名链接。_ | Thematic License | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
-| [Soundimage.org](https://soundimage.org/) | Eric Matyas 提供的数千首免费音乐与贴图素材；使用时需署名。 _署名页要求在使用作品的说明中署名；曲目可免费用于商业项目。_ | Custom free license (attribution required) | ✅ 需署名 | 💚 可商用 | — |
-| [Filmmusic.io](https://filmmusic.io/) | Sascha Ende 的免版税音乐库，CC BY 4.0 授权，免注册下载。 _站点声明 CC BY 4.0、免注册；必须署名。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
+| [Soundimage.org](https://soundimage.org/) | Eric Matyas 提供的免费音乐与贴图素材；使用时需署名。 _署名页要求在使用作品的说明中署名；曲目可免费用于商业项目。_ | Custom free license (attribution required) | ✅ 需署名 | 💚 可商用 | — |
+| [Ende (formerly Filmmusic.io)](https://ende.app/en) | Sascha Ende 的免版税制作音乐，CC BY 4.0 授权，含商业使用。 _由 filmmusic.io 改名而来。CC BY 4.0、允许商用；下载会弹出「License ticket」步骤，是否需要账号未验证。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | ❓ |
 | [Tunetank](https://tunetank.com/) | 面向视频创作者的免版税音乐与音效；免费档可用于商业项目。 _许可页允许免费商用；请逐曲确认条款，并注意频道可能需加入白名单以避免版权投诉。_ | Tunetank license (free tier) | ❓ 逐项而定 | 💚 可商用 | 🔑 需注册 |
 
 ## 音效
@@ -166,9 +166,9 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | 荷兰国家博物馆的数字化馆藏；多数作品属公有领域，部分为 CC-BY。 _每个作品单独标注权利；博物馆对公有领域作品的翻拍也一并放弃权利。_ | Public domain (majority) / CC-BY | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | 丹麦国立美术馆的开放存取项目；约三分之二馆藏属公有领域。 _仅公有领域作品可自由使用；SMK 放弃自身翻拍权利，这些图像不受任何限制。_ | Public domain (~2/3 of the collection) | — | ❓ 逐项而定 | — |
 | [Neurascapes](https://neurascapes.com/) | 自然、太空与抽象题材的免费图库，无需许可即可商用。 _可免费商用且无需署名；但不得原样转售照片，也不得汇编成竞争性服务。_ | Neurascapes License (free, no attribution) | — | 💚 可商用 | ❓ |
-| [Paris Musees Collections](https://www.parismuseescollections.paris.fr/) | 巴黎市博物馆联盟线上藏品库，数万件作品以 CC0 发布。 _检索时可筛选标注 CC0（sans restriction）的作品。_ | CC0 1.0 | — | 💚 可商用 | — |
+| [Paris Musees Collections](https://www.parismuseescollections.paris.fr/) | 巴黎市博物馆联盟线上藏品库，公有领域作品以 CC0 发布。 _检索时可筛选标注 CC0（sans restriction）的作品。_ | CC0 1.0 | — | 💚 可商用 | — |
 | [Getty Open Content Program](https://www.getty.edu/projects/open-content-program/) | 盖蒂博物馆开放内容计划：公有领域艺术品高清图像，官方不限制使用。 _官方不限制使用，署名非必需（欢迎但非强制）。_ | Public domain (Open Content Program) | — | 💚 可商用 | — |
-| [Pixnio](https://pixnio.com/) | 数千张公有领域免费照片；无需署名。 _站点声明图片为公有领域，可自由使用。_ | Public domain | — | 💚 可商用 | — |
+| [Pixnio](https://pixnio.com/) | 公有领域免费照片；无需署名。 _站点声明图片为公有领域，可自由使用。_ | Public domain | — | 💚 可商用 | — |
 
 ## 字体
 
@@ -314,8 +314,8 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Share Textures](https://www.sharetextures.com/) | 采用自定义 CC0 类许可的 PBR 材质与 3D 模型，最高 4K 分辨率。 _自定义 CC0 条款：禁止再分发与热链，且许可只覆盖从其官网直接下载的文件。_ | Custom CC0-based license | — | 💚 可商用 | — |
 | [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) <sup>[@omrishragaxyz](https://github.com/omrishragaxyz)</sup> | Godot 4.5+ 免费 HDR 天空环境（单天空 Demo）：2048×1024 半浮点 EXR、WorldEnvironment 场景与导入文档。 _付费包的免费单天空 Demo，成品项目可商用；不得作为素材包/素材站内容再分发或转售，不得用于 AI 训练；不是 CC0。_ | Custom royalty-free (image) / MIT (resource files) | ❓ 逐项而定 | 💚 可商用 | — |
 | [cgbookcase](https://www.cgbookcase.com/) | CC0 授权的 PBR 贴图、HDRI 与 3D 资源，适用于游戏引擎与渲染。 _首页声明 CC0，贴图可免费商用。_ | CC0 1.0 | — | 💚 可商用 | — |
-| [Sketchfab](https://sketchfab.com/) | 3D 模型平台，可按许可筛选，含大量可免费下载的 CC0 与 CC BY 模型。 _下载需注册免费账号；使用前务必查看模型页的许可标签。_ | Mixed (CC0 / CC BY per model) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
-| [BlenderKit](https://www.blenderkit.com/) | Blender 资产库插件：15 万+ 模型、材质与 HDRI，含大量免费资产。 _需安装 BlenderKit 插件并注册免费账号；每个资产页会标注其许可。_ | Mixed (CC0 and royalty-free, per asset) | ❓ 逐项而定 | 💚 可商用 | 🔑 需注册 |
+| [Sketchfab](https://sketchfab.com/) | 3D 模型平台，可按许可筛选，CC0 与 CC BY 模型可免费下载。 _下载需注册免费账号；使用前务必查看模型页的许可标签。_ | Mixed (CC0 / CC BY per model) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
+| [Blendkit (formerly BlenderKit)](https://www.blendkit.com/) | Blender 资产库插件，免费提供大量模型、材质与 HDRI。 _需安装 Blendkit 插件并注册免费账号；每个资产页会标注其许可。Royalty-free 资产不得作为模型转售。_ | Mixed (CC0 and royalty-free, per asset) | ❓ 逐项而定 | 💚 可商用 | 🔑 需注册 |
 
 ## 聚合搜索
 

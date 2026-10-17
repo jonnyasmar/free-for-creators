@@ -2,15 +2,25 @@
 """Link-check every URL in data/*.json. Stdlib only (Python >= 3.9). License: CC0.
 
 Classification:
-    ok         HTTP 2xx/3xx AND the page looks like a real page
-    blocked    HTTP 401/403/405/429/501/503/999, SSL errors, timeouts (bot protection),
-               OR a 200 that needs a human: a JS shell with no <title>/<h1> in the HTML,
-               or a redirect onto a different domain (rebrand?).
+    ok         HTTP 200/2xx-with-content AND the page looks like a real page
+    blocked    HTTP 401/403/405/429/999, any 5xx that survives retries, 202/204 (the
+               server accepted the request but returned no document), SSL errors,
+               timeouts (bot protection), OR a 200 that needs a human: a JS shell with no
+               <title>/<h1> in the HTML, or a redirect onto a different domain (rebrand?).
                Needs a human, does NOT fail CI.
-    broken     HTTP 404/410, other persistent 4xx/5xx, DNS failure, a connection that
-               is still refused after retries on BOTH methods, OR a 200 whose own
+    broken     HTTP 404/410, another persistent 4xx, DNS failure, a connection that is
+               still refused after retries on BOTH methods, OR a 200 whose own
                <title>/<h1> says "not found" (soft 404).
                Fails CI with exit code 1.
+
+The line between the last two is evidence, not inconvenience. `broken` means the resource
+is gone and the entry should be removed, so it is reserved for verdicts that cannot be
+explained by a bad day: a 404/410 from the origin, a name that does not resolve, or the
+page itself saying "not found". A 5xx is the server's own state and proves nothing about
+the resource — fontsquirrel.com answered 502 for an entire run and 202 a minute later,
+with the origin merely unwell. Filing a dead-link issue for that would train maintainers
+to ignore the issue, which is worse than missing a genuinely dead 5xx; a persistent one
+shows up as `blocked` week after week and gets looked at.
 
 A status code alone is not enough: some SPAs answer 200 for any path and render
 "Page not found" client-side, and some sites 301 to a new domain after a rebrand.
@@ -43,9 +53,25 @@ USER_AGENT = (
 )
 TIMEOUT = 20
 RETRIES = 2
+
+# Set by --no-proxy. build_opener() otherwise inherits the environment's proxies, and on
+# macOS that includes a system-wide proxy with no env var set, so `env | grep -i proxy`
+# shows nothing while every request still leaves through it. That matters because the
+# proxy's exit IP gets bot-walled differently than a direct connection does: of ten
+# "HTTP 403" verdicts sampled on a machine using 127.0.0.1:7897, eight were reachable
+# straight from the host (two of them plain 200). GitHub Actions runners use no proxy, so
+# a local run and CI can disagree for reasons that have nothing to do with the resource.
+NO_PROXY = False
 MAX_WORKERS = 8
 
-BLOCKED_CODES = {401, 403, 405, 429, 501, 503, 999}
+# 5xx is deliberately absent: every 5xx now goes through the retry ladder below and ends
+# as `blocked`, so 501/503 no longer need special-casing here (they used to skip retries).
+BLOCKED_CODES = {401, 403, 405, 429, 999}
+
+# A 2xx that carries no document. 202 means "accepted, still processing" — what a bot
+# queue or challenge returns instead of the page — and 204 is explicitly empty. Neither
+# proves the resource is alive, and neither proves it is gone.
+CONTENTLESS_OK = {202, 204}
 
 # How much of a GET body to inspect for soft-404 signals. <title> and the first <h1>
 # are essentially always inside the first 64 KB of server-rendered HTML.
@@ -122,7 +148,12 @@ def probe(url, method):
         "Accept-Language": "en-US,en;q=0.9",
     })
     ctx = ssl.create_default_context()
-    opener = urllib.request.build_opener(Redirect308, urllib.request.HTTPSHandler(context=ctx))
+    handlers = [Redirect308, urllib.request.HTTPSHandler(context=ctx)]
+    if NO_PROXY:
+        # build_opener inherits the environment's proxies otherwise, including the
+        # system-wide one macOS exposes through getproxies() with no env var set.
+        handlers.insert(0, urllib.request.ProxyHandler({}))
+    opener = urllib.request.build_opener(*handlers)
     with opener.open(req, timeout=TIMEOUT) as r:
         body = r.read(BODY_BYTES).decode("utf-8", "replace") if method == "GET" else ""
         return r.status, r.geturl(), body
@@ -164,9 +195,16 @@ def check_one(url, expect_js=False):
                         return ("broken", last)
                     verdict = None  # 404 on HEAD only: confirm with GET
                     break
-                if 500 <= e.code < 600 and attempt < RETRIES:
-                    time.sleep(2 * (attempt + 1))
-                    continue
+                if 500 <= e.code < 600:
+                    if attempt < RETRIES:
+                        time.sleep(2 * (attempt + 1))
+                        continue
+                    # Retries exhausted. A 5xx reports the server's own state and proves
+                    # nothing about whether the resource still exists, so it is
+                    # indeterminate (`blocked`) rather than dead (`broken`).
+                    verdict = ("blocked", "%s after %d attempts (server error, not a dead link)"
+                               % (last, RETRIES + 1))
+                    break
                 return ("broken", last)
             except ssl.SSLError as e:
                 last = "SSL: %s" % e
@@ -194,6 +232,9 @@ def check_one(url, expect_js=False):
             fin = urlsplit(final or url)
             if registrable(fin.netloc) != registrable(orig.netloc):
                 return ("blocked", "%d but redirects to another domain: %s" % (code, final))
+            if code in CONTENTLESS_OK:
+                return ("blocked", "%d: accepted but no document returned (bot queue or empty "
+                                   "response) — open in a browser" % code)
             if body:
                 soft, text, had_marker = inspect_body(body)
                 if soft:
@@ -216,7 +257,21 @@ def check_one(url, expect_js=False):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--slug", action="append", help="only check this category slug (repeatable)")
+    ap.add_argument("--no-proxy", action="store_true",
+                    help="ignore environment/system proxies, matching how CI runs")
     args = ap.parse_args()
+
+    global NO_PROXY
+    NO_PROXY = args.no_proxy
+    proxies = urllib.request.getproxies()
+    if NO_PROXY:
+        print("Proxy: disabled (--no-proxy), matching CI.")
+    elif proxies:
+        print("Proxy: using %s — verdicts may differ from CI, which runs with no proxy. "
+              "Re-run with --no-proxy to reproduce it." % (proxies.get("https") or proxies),
+              file=sys.stderr)
+    else:
+        print("Proxy: none.")
 
     items = collect(args.slug)
     if not items:

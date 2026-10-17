@@ -311,8 +311,8 @@
     {
       "name": "Sketchfab",
       "url": "https://sketchfab.com/",
-      "description": "3D model platform with a license filter; thousands of CC0 and CC-BY models download free.",
-      "description_zh": "3D 模型平台，可按许可筛选，含大量可免费下载的 CC0 与 CC BY 模型。",
+      "description": "3D model platform with a license filter; CC0 and CC-BY models download free.",
+      "description_zh": "3D 模型平台，可按许可筛选，CC0 与 CC BY 模型可免费下载。",
       "license": "Mixed (CC0 / CC BY per model)",
       "license_family": "mixed",
       "attribution": "varies",
@@ -322,17 +322,17 @@
       "notes_zh": "下载需注册免费账号；使用前务必查看模型页的许可标签。"
     },
     {
-      "name": "BlenderKit",
-      "url": "https://www.blenderkit.com/",
-      "description": "Blender asset-library add-on: 150,000+ models, materials and HDRIs with a large free tier.",
-      "description_zh": "Blender 资产库插件：15 万+ 模型、材质与 HDRI，含大量免费资产。",
+      "name": "Blendkit (formerly BlenderKit)",
+      "url": "https://www.blendkit.com/",
+      "description": "Blender asset-library add-on with a large free tier of models, materials and HDRIs.",
+      "description_zh": "Blender 资产库插件，免费提供大量模型、材质与 HDRI。",
       "license": "Mixed (CC0 and royalty-free, per asset)",
       "license_family": "mixed",
       "attribution": "varies",
       "monetization": "allowed",
       "signup": "required",
-      "notes": "Requires the BlenderKit add-on and a free account; each asset page states its license.",
-      "notes_zh": "需安装 BlenderKit 插件并注册免费账号；每个资产页会标注其许可。"
+      "notes": "Needs the Blendkit add-on and a free account; each asset page states its license. Royalty-free items may not be resold as models.",
+      "notes_zh": "需安装 Blendkit 插件并注册免费账号；每个资产页会标注其许可。Royalty-free 资产不得作为模型转售。"
     }
   ]
 }

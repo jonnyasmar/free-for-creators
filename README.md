@@ -19,7 +19,7 @@
 
 > "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 200 resources in 10 categories.
 
-**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 157 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 156 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -84,8 +84,8 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Purple Planet](https://www.purple-planet.com/) | Mood-based free tracks for small creators and non-broadcast use. _Free for YouTube and online video with credit; other uses need a paid license._ | Purple Planet Free License | ✅ Required | ⚠️ Conditional | — |
 | [Chosic](https://www.chosic.com/free-music/all/) | Aggregator of free and CC music with handy license filters. | Various (per track) | ❓ Varies | ❓ Varies | — |
 | [Thematic](https://hellothematic.com/) | Free songs for creators in exchange for a simple credit link. _Each track used needs its credit link in your description._ | Thematic License | ✅ Required | 💚 Allowed | 🔑 Yes |
-| [Soundimage.org](https://soundimage.org/) | Thousands of free music tracks and texture images by Eric Matyas; credit required. _Attribution page requires crediting the author in the game/video/podcast description; tracks are free for commercial projects._ | Custom free license (attribution required) | ✅ Required | 💚 Allowed | — |
-| [Filmmusic.io](https://filmmusic.io/) | Royalty-free music by Sascha Ende under CC BY 4.0; download without registration. _Site states CC BY 4.0 and no registration required; attribution is mandatory._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
+| [Soundimage.org](https://soundimage.org/) | Free music tracks and texture images by Eric Matyas; credit required. _Attribution page requires crediting the author in the game/video/podcast description; tracks are free for commercial projects._ | Custom free license (attribution required) | ✅ Required | 💚 Allowed | — |
+| [Ende (formerly Filmmusic.io)](https://ende.app/en) | Royalty-free production music by Sascha Ende under CC BY 4.0, commercial use included. _Renamed from filmmusic.io. CC BY 4.0 with commercial use allowed; download opens a 'License ticket' step, account requirement unverified._ | CC BY 4.0 | ✅ Required | 💚 Allowed | ❓ |
 | [Tunetank](https://tunetank.com/) | Royalty-free music and sound effects for video creators; free tier for commercial projects. _License page allows free commercial use; check each track's terms and be aware channels may need whitelisting to avoid copyright claims._ | Tunetank license (free tier) | ❓ Varies | 💚 Allowed | 🔑 Yes |
 
 ## Sound Effects
@@ -166,9 +166,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | The Dutch national gallery's digitised collection; most objects are public domain, some CC-BY. _Rights are stated per object; the museum also waives its own photographic rights over public-domain works._ | Public domain (majority) / CC-BY | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | Danish national gallery's open-access programme; about two-thirds of the collection is public domain. _Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions._ | Public domain (~2/3 of the collection) | — | ❓ Varies | — |
 | [Neurascapes](https://neurascapes.com/) | Free stock photos of nature, space and abstract subjects, usable commercially without permission. _Free for commercial use without attribution; you may not resell photos unmodified or compile them into a competing service._ | Neurascapes License (free, no attribution) | — | 💚 Allowed | ❓ |
-| [Paris Musees Collections](https://www.parismuseescollections.paris.fr/) | Online collections of the Paris museums; tens of thousands of artworks released as CC0. _Filter results by CC0 (sans restriction) when browsing._ | CC0 1.0 | — | 💚 Allowed | — |
+| [Paris Musees Collections](https://www.parismuseescollections.paris.fr/) | Online collections of the Paris museums, with public-domain artworks released as CC0. _Filter results by CC0 (sans restriction) when browsing._ | CC0 1.0 | — | 💚 Allowed | — |
 | [Getty Open Content Program](https://www.getty.edu/projects/open-content-program/) | Getty Museum open access: high-resolution public-domain artwork images, no restrictions. _Getty places no restrictions on use and requests only an optional credit line._ | Public domain (Open Content Program) | — | 💚 Allowed | — |
-| [Pixnio](https://pixnio.com/) | Thousands of free photos released into the public domain; no attribution required. _Site states images are public domain and free to use._ | Public domain | — | 💚 Allowed | — |
+| [Pixnio](https://pixnio.com/) | Free photos released into the public domain; no attribution required. _Site states images are public domain and free to use._ | Public domain | — | 💚 Allowed | — |
 
 ## Fonts
 
@@ -314,8 +314,8 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Share Textures](https://www.sharetextures.com/) | PBR materials and 3D models under a custom CC0-based licence, up to 4K resolution. _Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site._ | Custom CC0-based license | — | 💚 Allowed | — |
 | [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) <sup>[@omrishragaxyz](https://github.com/omrishragaxyz)</sup> | Free HDR sky environment for Godot 4.5+: 2048x1024 half-float EXR, WorldEnvironment scene and import docs (one-sky demo). _Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0._ | Custom royalty-free (image) / MIT (resource files) | ❓ Varies | 💚 Allowed | — |
 | [cgbookcase](https://www.cgbookcase.com/) | CC0 PBR textures, HDRIs and 3D assets for game engines and 3D rendering. _Homepage states CC0; textures are free for commercial projects._ | CC0 1.0 | — | 💚 Allowed | — |
-| [Sketchfab](https://sketchfab.com/) | 3D model platform with a license filter; thousands of CC0 and CC-BY models download free. _Downloads need a free account; always check the per-model license badge before shipping._ | Mixed (CC0 / CC BY per model) | ❓ Varies | ❓ Varies | 🔑 Yes |
-| [BlenderKit](https://www.blenderkit.com/) | Blender asset-library add-on: 150,000+ models, materials and HDRIs with a large free tier. _Requires the BlenderKit add-on and a free account; each asset page states its license._ | Mixed (CC0 and royalty-free, per asset) | ❓ Varies | 💚 Allowed | 🔑 Yes |
+| [Sketchfab](https://sketchfab.com/) | 3D model platform with a license filter; CC0 and CC-BY models download free. _Downloads need a free account; always check the per-model license badge before shipping._ | Mixed (CC0 / CC BY per model) | ❓ Varies | ❓ Varies | 🔑 Yes |
+| [Blendkit (formerly BlenderKit)](https://www.blendkit.com/) | Blender asset-library add-on with a large free tier of models, materials and HDRIs. _Needs the Blendkit add-on and a free account; each asset page states its license. Royalty-free items may not be resold as models._ | Mixed (CC0 and royalty-free, per asset) | ❓ Varies | 💚 Allowed | 🔑 Yes |
 
 ## Search Engines
 

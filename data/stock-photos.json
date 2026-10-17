@@ -329,8 +329,8 @@
     {
       "name": "Paris Musees Collections",
       "url": "https://www.parismuseescollections.paris.fr/",
-      "description": "Online collections of the Paris museums; tens of thousands of artworks released as CC0.",
-      "description_zh": "巴黎市博物馆联盟线上藏品库，数万件作品以 CC0 发布。",
+      "description": "Online collections of the Paris museums, with public-domain artworks released as CC0.",
+      "description_zh": "巴黎市博物馆联盟线上藏品库，公有领域作品以 CC0 发布。",
       "license": "CC0 1.0",
       "license_family": "cc0",
       "attribution": "not-required",
@@ -355,8 +355,8 @@
     {
       "name": "Pixnio",
       "url": "https://pixnio.com/",
-      "description": "Thousands of free photos released into the public domain; no attribution required.",
-      "description_zh": "数千张公有领域免费照片；无需署名。",
+      "description": "Free photos released into the public domain; no attribution required.",
+      "description_zh": "公有领域免费照片；无需署名。",
       "license": "Public domain",
       "license_family": "cc0",
       "attribution": "not-required",
