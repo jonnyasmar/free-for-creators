@@ -44,6 +44,42 @@ A resource belongs here when all of these hold:
 
 Borderline AI-generated asset sites: include only when the site states an explicit license for its outputs.
 
+## Gaps already investigated
+
+Some absences in the data are not oversights. These paths have been walked; do not re-walk them without new information — and if you do have new information (a different network, a licence page that has since appeared), the missing piece is almost always the same: **a first-party licence statement you can quote**. With that, an entry takes minutes.
+
+### Streamer overlays, panels, emotes and stingers — nothing qualifies
+
+The tagline names streamers and the data does cover what a streamer needs for music, sound effects, icons, fonts and video. There is no overlay or emote entry, because every candidate failed a criterion above:
+
+| Resource | Why it is not here |
+| --- | --- |
+| OWN3D | Purchase-based — its own terms say the "product remains property of own3d.tv until payment completed". `/en/free` is a client-side soft 404 and the domain 301s to `hi.own3d.pro`. |
+| Nerd Or Die, Visuals by Impulse | Cloudflare answers "Just a moment..." to curl, to a second egress IP, and to headless Chrome alike. No terms reachable, so nothing to quote. |
+| Placeit | `/c/free`, `/c/free-templates`, `/c/free-designs` and `/c/gaming` all answer 200 and then render a 404 client-side. |
+| StreamElements, Streamlabs | Reachable, but neither publishes licence terms for its overlay gallery — 1.1 KB of shell and 71 KB of ToS with no asset-licence wording respectively. |
+| Twitch brand assets | `twitch.tv/p/brand/` refuses the connection; `brand.twitch.tv` does not resolve. |
+| Elgato Marketplace, StreamScheme, Mediamodifier | 404 on the pages tried. |
+| itch.io `/tag-twitch-overlay`, `/tag-overlays` | Real but empty or near-empty (0 and 3 results, against 69 for `/tag-twitch`), and tag URLs are excluded anyway — see *Style*. |
+| Figma Community | A JS shell; no licence text in the served HTML. |
+| GitHub "twitch overlay" / "twitch emote" projects | Almost all are tools — timers, resizers, chat overlays, emote walls — which the scope rule excludes. The one genuine asset bundle found had single-digit stars. |
+
+### Other candidates ruled out, grouped by the reason
+
+Recording these by *reason* rather than as a flat list, because the reason is what tells you whether a retry is worth it.
+
+| Reason | Resources |
+| --- | --- |
+| Bot-walled; no licence text reachable from here | Nerd Or Die, Visuals by Impulse, Picryl, Everypixel, Libre Stock, Motion Array, Fab, NGA (`/collection/open-access.html` and `/en/...` both 404, `sitemap.xml` 403 while `robots.txt` is 200), Wellcome Collection ("Human Verification"), ActionVFX (429 Vercel Security Checkpoint on the homepage, the licence page and the free section alike) |
+| Marketing claim only, no terms behind it | MiSans (only "全球免费商用字体"; its agreement reportedly restricts modification, redistribution of the font files and uncredited embedding, but that is second-hand), HarmonyOS Sans |
+| Licence page missing or 404 | Free To Use Sounds (`/license`, `/terms-of-use`), HDRI Skies (`/legal`), Paris Musées (`/en/content/download-images`), Lordicon `/free-icons`, uisdc, SMK API (500 for every parameterisation) |
+| Dead, or moved somewhere that is not the resource | FreshLuts (DNS), RocketStock Free LUTs (302 → a paid Shutterstock product page; **was listed, removed**), Anthony Boyd Graphics (→ a "Be back soon." placeholder; **was listed, removed**), the DingTalk JinBuTi campaign page (302 → `err.tmall.com`), StreamScheme, Mediamodifier, Elgato Marketplace, Unity Asset Store `/free` and `/free-assets` |
+| Client-side soft 404 — 200 to the checker, error page in a browser | Placeit's free sections, `fontworks.co.jp/fontsearch/klee` |
+| Out of scope: a tool or a tools directory, not an asset | The Stocks, most GitHub overlay/emote projects |
+| Unreachable from this network, verdict unknown | itch.io, Gumroad, jsDelivr, `pretendard.co.kr`, `zhiziqu.com`, `cangerfonts.com` — the last three do not resolve at all here (an earlier pass reported TLS errors for them, which was not reproducible and is not asserted). Pretendard the *font* is listed regardless, via its GitHub home `orioncactus/pretendard`, whose `LICENSE` and release assets are reachable even when the marketing domain is not. |
+
+Two of these are worth re-testing rather than avoiding: **BlenderKit** looked like a hijacked domain (it 302s to `blendkit.com`) but is the same product renamed, and is now listed under that name; **Filmmusic.io** became `ende.app` and kept its CC BY 4.0 terms. A cross-domain redirect is a prompt to look, not a verdict.
+
 ## Entry schema
 
 Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` reads the required-field list, every enum and the description length limits out of that file, so editing the schema changes what CI enforces — there is no second copy to keep in sync.
@@ -88,7 +124,17 @@ Semantics we use consistently:
   python3 scripts/linkcheck.py --slug fonts  # one category
   ```
 
-  CI runs it every Monday. Links returning 403/429 etc. are reported as *blocked* (bot walls, manual check) and do not fail the build; 404/DNS failures do. When the weekly check fails, a bot opens (or updates) an issue labeled [`link-check`](https://github.com/skyzhao1223/free-for-creators/labels/link-check) with the full broken-link report — fixing one of those is a great first contribution.
+  CI runs it every Monday. Links returning 403/429, any 5xx, or a 202/204 (accepted, no document) are reported as *blocked* — bot walls and server-side states, manual check, and they do not fail the build. Only verdicts that cannot be explained by a bad day fail it: 404/410, DNS failure, a connection still refused on both methods, and a 200 whose own title says "not found". When the weekly check fails, a bot opens (or updates) an issue labeled [`link-check`](https://github.com/skyzhao1223/free-for-creators/labels/link-check) with the full broken-link report — fixing one of those is a great first contribution.
+
+  **A local run is indicative; CI's run is the baseline.** `build_opener` inherits the environment's proxies, and on macOS that includes a system-wide proxy with no environment variable set — so `env | grep -i proxy` shows nothing while every request still leaves through it. The checker prints which proxy it is using, and `--no-proxy` turns it off. Neither mode reproduces CI, and they disagree in opposite directions; measured against all 200 entries on one machine:
+
+  | Run | Result |
+  | --- | --- |
+  | through a local proxy | 146 ok / 52 blocked / 1 broken (3 network failures) |
+  | direct, `--no-proxy` | 134 ok / 64 blocked / 1 broken (20 network failures) |
+  | CI, US runner, no proxy | 127 ok / 53 blocked / **0 broken** |
+
+  The proxy's exit IP is bot-walled by some sites — of ten `HTTP 403` verdicts sampled, eight were reachable straight from the host and two were plain 200 — while its routing reaches sites the host cannot: `itch.io` timed out on both paths and refused port 443 locally, yet CI has never reported it broken. Before concluding that a resource is dead, check it the other way and remember that CI is the run that gates the build.
 
   A status code alone is not enough, so the checker also looks at what came back:
 

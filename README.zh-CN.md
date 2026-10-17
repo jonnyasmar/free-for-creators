@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-204-blue" alt="204 resources">
+  <img src="https://img.shields.io/badge/resources-205-blue" alt="205 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *链接最近校验于 2026-10-17：147 正常 · 52 需人工确认 · 0 死链。*
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、204 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、205 个资源。
 
-**一眼看数据**：146 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 160 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：147 条 💚 可直接用于货币化内容 · 123 条 ➖ 无需署名 · 161 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -52,7 +52,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [音效](#音效) — 14 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
 - [图片素材](#图片素材) — 30 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
-- [字体](#字体) — 20 个资源 · 可免费商用的字体，含中日韩字体家族。
+- [字体](#字体) — 21 个资源 · 可免费商用的字体，含中日韩字体家族。
 - [图形与图标](#图形与图标) — 44 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 10 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
@@ -198,6 +198,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | 阿里巴巴开放商业授权给个人与商家的中文字体家族。 _官网声明向所有个人和商家开放商用；完整协议本次未能抓取，再分发前请自行核对。_ | Alibaba PuHuiTi License (free commercial use) | — | 💚 可商用 | 🔑 需注册 |
 | [MiSans](https://hyperos.mi.com/font/) | 小米 MiSans 字体家族，覆盖中文、拉丁等多语言；官方声明全球免费商用。 _官方页面标注全球免费商用，无需署名。_ | MiSans Font License (free commercial use) | — | 💚 可商用 | — |
 | [Fontsource](https://fontsource.org/) | 以 npm 包或 CDN 文件自托管开源字体，覆盖 2000+ 字体家族。 _字体许可随各家族（多为 OFL）；平台本身为 MIT，文件自托管。_ | OFL / Apache / MIT (per family); tooling under MIT | ❓ 逐项而定 | 💚 可商用 | — |
+| [Pretendard](https://github.com/orioncactus/pretendard) | 基于 Inter 与思源黑体的韩文新无衬线字体家族，九个字重并提供可变字体。 | SIL Open Font License 1.1 | — | 💚 可商用 | — |
 
 ## 图形与图标
 

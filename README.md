@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-204-blue" alt="204 resources">
+  <img src="https://img.shields.io/badge/resources-205-blue" alt="205 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *Links last verified 2026-10-17: 147 ok · 52 need a browser · 0 broken.*
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 204 resources in 10 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 205 resources in 10 categories.
 
-**At a glance:** 146 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 160 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 147 entries are 💚 safe for monetized content · 123 need ➖ no attribution · 161 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -52,7 +52,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [Sound Effects](#sound-effects) — 14 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
 - [Stock Photos](#stock-photos) — 30 resources · Free photography, from modern stock to museum-grade public domain archives.
-- [Fonts](#fonts) — 20 resources · Typefaces free for commercial use, including CJK families.
+- [Fonts](#fonts) — 21 resources · Typefaces free for commercial use, including CJK families.
 - [Graphics & Icons](#graphics--icons) — 44 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 10 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
@@ -198,6 +198,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | Alibaba's Chinese text family with commercial rights opened to individuals and businesses. _Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing._ | Alibaba PuHuiTi License (free commercial use) | — | 💚 Allowed | 🔑 Yes |
 | [MiSans](https://hyperos.mi.com/font/) | Xiaomi's MiSans typeface family covering Chinese, Latin and more; free for commercial use. _Official page states global free commercial use; no attribution required._ | MiSans Font License (free commercial use) | — | 💚 Allowed | — |
 | [Fontsource](https://fontsource.org/) | Self-host open-source fonts as npm packages or CDN files; 2,000+ families. _Font licenses follow each family (mostly OFL); the platform itself is MIT, and files are self-hosted._ | OFL / Apache / MIT (per family); tooling under MIT | ❓ Varies | 💚 Allowed | — |
+| [Pretendard](https://github.com/orioncactus/pretendard) | Korean neo-grotesque family based on Inter and Source Han Sans, in nine weights plus a variable font. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
 
 ## Graphics & Icons
 

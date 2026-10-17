@@ -238,6 +238,17 @@
       "signup": "not-required",
       "notes": "Font licenses follow each family (mostly OFL); the platform itself is MIT, and files are self-hosted.",
       "notes_zh": "字体许可随各家族（多为 OFL）；平台本身为 MIT，文件自托管。"
+    },
+    {
+      "name": "Pretendard",
+      "url": "https://github.com/orioncactus/pretendard",
+      "description": "Korean neo-grotesque family based on Inter and Source Han Sans, in nine weights plus a variable font.",
+      "description_zh": "基于 Inter 与思源黑体的韩文新无衬线字体家族，九个字重并提供可变字体。",
+      "license": "SIL Open Font License 1.1",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required"
     }
   ]
 }
