@@ -19,7 +19,7 @@
 
 > "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 200 resources in 10 categories.
 
-**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 156 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 157 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -85,7 +85,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Chosic](https://www.chosic.com/free-music/all/) | Aggregator of free and CC music with handy license filters. | Various (per track) | ❓ Varies | ❓ Varies | — |
 | [Thematic](https://hellothematic.com/) | Free songs for creators in exchange for a simple credit link. _Each track used needs its credit link in your description._ | Thematic License | ✅ Required | 💚 Allowed | 🔑 Yes |
 | [Soundimage.org](https://soundimage.org/) | Free music tracks and texture images by Eric Matyas; credit required. _Attribution page requires crediting the author in the game/video/podcast description; tracks are free for commercial projects._ | Custom free license (attribution required) | ✅ Required | 💚 Allowed | — |
-| [Ende (formerly Filmmusic.io)](https://ende.app/en) | Royalty-free production music by Sascha Ende under CC BY 4.0, commercial use included. _Renamed from filmmusic.io. CC BY 4.0 with commercial use allowed; download opens a 'License ticket' step, account requirement unverified._ | CC BY 4.0 | ✅ Required | 💚 Allowed | ❓ |
+| [Ende (formerly Filmmusic.io)](https://ende.app/en) | Royalty-free production music by Sascha Ende under CC BY 4.0, commercial use included. _Renamed from filmmusic.io. CC BY 4.0 with commercial use allowed; download opens a 'License ticket' step, account requirement unverified._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
 | [Tunetank](https://tunetank.com/) | Royalty-free music and sound effects for video creators; free tier for commercial projects. _License page allows free commercial use; check each track's terms and be aware channels may need whitelisting to avoid copyright claims._ | Tunetank license (free tier) | ❓ Varies | 💚 Allowed | 🔑 Yes |
 
 ## Sound Effects
@@ -254,7 +254,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 
 | Resource | About | License | Attribution | Monetization | Sign-up |
 | --- | --- | --- | --- | --- | --- |
-| [IWLTBAP Free LUTs](https://iwltbap.com/free-luts/) | Free filmic LUTs from a well-known color grading shop. | Free (IWLTBAP) | — | 💚 Allowed | ❓ |
+| [IWLTBAP Free LUTs](https://iwltbap.com/free-luts/) | Free filmic LUTs from a well-known color grading shop. | Free (IWLTBAP) | — | 💚 Allowed | 🔑 Yes |
 | [FreshLuts](https://freshluts.com/) | Community site for sharing and downloading free LUTs. _Community uploads: check the usage rights of each LUT._ | Various (community uploads) | ❓ Varies | 💚 Allowed | — |
 | [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | Open DNG/DCP profiles and LUTs matching Fujifilm film simulations. | Open (see repository) | — | 💚 Allowed | — |
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | Free After Effects, Premiere, DaVinci and Final Cut templates and transitions. | Mixkit License | — | 💚 Allowed | — |

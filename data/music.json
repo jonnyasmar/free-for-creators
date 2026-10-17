@@ -254,7 +254,7 @@
       "license_family": "cc-by",
       "attribution": "required",
       "monetization": "allowed",
-      "signup": "unknown",
+      "signup": "not-required",
       "notes": "Renamed from filmmusic.io. CC BY 4.0 with commercial use allowed; download opens a 'License ticket' step, account requirement unverified.",
       "notes_zh": "由 filmmusic.io 改名而来。CC BY 4.0、允许商用；下载会弹出「License ticket」步骤，是否需要账号未验证。"
     },

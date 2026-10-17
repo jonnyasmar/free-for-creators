@@ -68,10 +68,29 @@ body:
         - "No"
     validations:
       required: true
+  - type: dropdown
+    id: signup
+    attributes:
+      label: Is an account needed to download?
+      options:
+        - "No"
+        - "Yes — a free account"
+        - Only for some downloads
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: disclosure
+    attributes:
+      label: Are you connected to this resource?
+      description: Disclosed self-submissions are welcome — if you maintain the site, say so. You get credited for it.
+      placeholder: Maintainer / Regular user / Other
+    validations:
+      required: false
   - type: textarea
     id: details
     attributes:
       label: Anything else maintainers should know?
-      description: Free-tier caps, signup requirements, conditions for commercial use, link to the license page…
+      description: Free-tier caps, conditions for commercial use, link to the license page…
     validations:
       required: false

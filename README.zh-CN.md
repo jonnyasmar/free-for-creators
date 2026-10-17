@@ -19,7 +19,7 @@
 
 > 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、200 个资源。
 
-**一眼看数据**：145 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 156 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：145 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 157 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -85,7 +85,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Chosic](https://www.chosic.com/free-music/all/) | 免费与 CC 音乐聚合站，支持按许可证筛选。 | Various (per track) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Thematic](https://hellothematic.com/) | 以署名链接换免费音乐，专为视频/播客创作者设计。 _每首使用的曲目都需按站方要求在简介放置署名链接。_ | Thematic License | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
 | [Soundimage.org](https://soundimage.org/) | Eric Matyas 提供的免费音乐与贴图素材；使用时需署名。 _署名页要求在使用作品的说明中署名；曲目可免费用于商业项目。_ | Custom free license (attribution required) | ✅ 需署名 | 💚 可商用 | — |
-| [Ende (formerly Filmmusic.io)](https://ende.app/en) | Sascha Ende 的免版税制作音乐，CC BY 4.0 授权，含商业使用。 _由 filmmusic.io 改名而来。CC BY 4.0、允许商用；下载会弹出「License ticket」步骤，是否需要账号未验证。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | ❓ |
+| [Ende (formerly Filmmusic.io)](https://ende.app/en) | Sascha Ende 的免版税制作音乐，CC BY 4.0 授权，含商业使用。 _由 filmmusic.io 改名而来。CC BY 4.0、允许商用；下载会弹出「License ticket」步骤，是否需要账号未验证。_ | CC BY 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Tunetank](https://tunetank.com/) | 面向视频创作者的免版税音乐与音效；免费档可用于商业项目。 _许可页允许免费商用；请逐曲确认条款，并注意频道可能需加入白名单以避免版权投诉。_ | Tunetank license (free tier) | ❓ 逐项而定 | 💚 可商用 | 🔑 需注册 |
 
 ## 音效
@@ -254,7 +254,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 
 | 资源 | 简介 | 许可 | 署名 | 商用 | 注册 |
 | --- | --- | --- | --- | --- | --- |
-| [IWLTBAP Free LUTs](https://iwltbap.com/free-luts/) | 知名调色商店的免费电影感 LUT。 | Free (IWLTBAP) | — | 💚 可商用 | ❓ |
+| [IWLTBAP Free LUTs](https://iwltbap.com/free-luts/) | 知名调色商店的免费电影感 LUT。 | Free (IWLTBAP) | — | 💚 可商用 | 🔑 需注册 |
 | [FreshLuts](https://freshluts.com/) | 社区分享与下载免费 LUT 的站点。 _社区上传：请逐个核对使用权限。_ | Various (community uploads) | ❓ 逐项而定 | 💚 可商用 | — |
 | [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | 匹配富士胶片模拟的开放 DNG/DCP 配置与 LUT。 | Open (see repository) | — | 💚 可商用 | — |
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | 免费的 AE、Premiere、DaVinci 与 Final Cut 模板与转场。 | Mixkit License | — | 💚 可商用 | — |
