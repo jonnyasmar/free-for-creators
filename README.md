@@ -152,7 +152,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Smithsonian Open Access](https://www.si.edu/openaccess) | CC0 images from Smithsonian museums and archives. | CC0 | — | 💚 Allowed | — |
 | [The Met Open Access](https://www.metmuseum.org/art/collection/open-access) | Public domain artworks from the Metropolitan Museum of Art. | CC0 (Open Access works) | — | 💚 Allowed | — |
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | Public domain artworks including famous Impressionist pieces. | CC0 (public domain works) | — | 💚 Allowed | — |
-| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | Public domain photo sets from US history and culture. | Public Domain (curated sets) | — | 💚 Allowed | — |
+| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | Public domain photo sets from US history and culture. | Public Domain | — | 💚 Allowed | — |
 | [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | Public domain book illustrations, maps and photos. | Public Domain | — | 💚 Allowed | — |
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | Digitized vintage art, posters and book illustrations. _Free account has a monthly download limit._ | Public Domain / rawpixel free tier | ❓ Varies | 💚 Allowed | Optional |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | Public domain scans of illustrations from old books. | Public Domain | — | 💚 Allowed | — |
@@ -220,7 +220,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Lucide](https://lucide.dev/) | Community-maintained fork of Feather with active development. | ISC | — | 💚 Allowed | — |
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | Free SVG icon library, usable with any framework. | MIT | — | 💚 Allowed | — |
 | [bioicons](https://bioicons.com/) | Gallery of free open-license icons for science and biology illustration. _Mixed CC0 / CC BY / CC BY-SA / MIT — the BY and BY-SA subsets need credit; each icon's license is listed on site._ | Various open licenses (per icon) | ❓ Varies | 💚 Allowed | — |
-| [Flaticon](https://www.flaticon.com/) | Enormous icon catalog; the free plan requires attribution. _Free downloads need attribution; Premium removes it and lifts the free-user cap on edited icons per collection._ | Flaticon Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
+| [Flaticon](https://www.flaticon.com/) | Icon catalog whose free plan requires attribution. _Free downloads need attribution; Premium removes it and lifts the free-user cap on edited icons per collection._ | Flaticon Free License | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [The Noun Project](https://thenounproject.com/) | Icons for every idea; free downloads require attribution. _Free-account downloads require attribution; attribution-free downloads are a Noun Pro benefit._ | Free with attribution (paid removes it) | ✅ Required | ⚠️ Conditional | 🔑 Yes |
 | [Icons8](https://icons8.com/icons) | Consistent icon, illustration and music families; free tier needs a link. _Free tier needs a visible link to icons8.com wherever the asset appears — footer, app About/Settings, game credits or the listing._ | Icons8 Free License | ✅ Required | ⚠️ Conditional | — |
 | [Heroicons](https://heroicons.com/) | Beautiful hand-crafted SVG icons by the makers of Tailwind CSS. | MIT | — | 💚 Allowed | — |
@@ -275,7 +275,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | High-quality free device and scene mockups from a premium shop. | ls.graphics Free License | — | 💚 Allowed | — |
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | Free design resources: mockups, icons, UI kits. _Free downloads need a free account; the $10/mo Plus tier is the unlimited option, not a gate on the free files._ | Various (per item) | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [Canva Templates](https://www.canva.com/templates/) | Free templates for thumbnails, posts, decks and shorts. _Canva content has resale and redistribution restrictions; read the Content License._ | Canva Content License | — | ⚠️ Conditional | 🔑 Yes |
-| [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ⚠️ Conditional | 🔑 Yes |
+| [Adobe Express Templates](https://www.adobe.com/express/templates) | Free templates for social media graphics and branding. | Adobe Stock/Express License | — | ❓ Varies | 🔑 Yes |
 | [Smartmockups](https://www.canva.com/mockups/) | Browser-based mockup generator with free templates, now under Canva. _Free tier limits resolution and template count._ | Smartmockups Free License | — | ⚠️ Conditional | 🔑 Yes |
 | [Pixeden](https://www.pixeden.com/) | Free PSD mockups, graphics and web design resources. _Check the license note on each free item page._ | Pixeden License (per item) | ❓ Varies | ❓ Varies | Optional |
 | [HTML5 UP](https://html5up.net/) | Sleek, fully responsive HTML5 site templates by AJ. _CC BY 3.0: credit HTML5 UP for the design. Attribution-free versions are sold via the author's Pixelarity._ | CC BY 3.0 | ✅ Required | 💚 Allowed | — |
@@ -292,7 +292,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Poly Haven](https://polyhaven.com/) | 100% CC0 HDRIs, PBR textures and 3D models. | CC0 | — | 💚 Allowed | — |
 | [ambientCG](https://ambientcg.com/) | 2,000+ CC0 PBR materials for any engine or renderer. | CC0 | — | 💚 Allowed | — |
 | [FreePBR](https://www.freepbr.com/) | Free PBR textures and 3D models. _Redistribution of the raw files is not allowed._ | FreePBR License | — | 💚 Allowed | — |
-| [Textures.com](https://www.textures.com/) | Enormous material library with a free daily-credit tier. _Free credits cap resolution; some commercial uses need a paid license._ | Free account license | — | ⚠️ Conditional | 🔑 Yes |
+| [Textures.com](https://www.textures.com/) | Material library with a free daily-credit tier. _Free credits cap resolution; some commercial uses need a paid license._ | Free account license | — | ⚠️ Conditional | 🔑 Yes |
 | [Quixel Megascans](https://quixel.com/megascans) | Photorealistic scanned assets; free for Unreal Engine projects. _Free usage is tied to Unreal Engine under current terms; verify before other engines._ | Epic/Quixel License | — | ⚠️ Conditional | 🔑 Yes |
 | [Mixamo](https://www.mixamo.com/) | Auto-rigged characters and ready-made animations from Adobe. | Mixamo License | — | 💚 Allowed | 🔑 Yes |
 | [Kenney](https://kenney.nl/assets) | CC0 2D/3D game assets, UI packs and audio. | CC0 | — | 💚 Allowed | — |

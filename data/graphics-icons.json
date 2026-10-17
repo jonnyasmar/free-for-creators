@@ -205,8 +205,8 @@
     {
       "name": "Flaticon",
       "url": "https://www.flaticon.com/",
-      "description": "Enormous icon catalog; the free plan requires attribution.",
-      "description_zh": "超大图标目录；免费档需署名。",
+      "description": "Icon catalog whose free plan requires attribution.",
+      "description_zh": "图标目录，免费档需署名。",
       "license": "Flaticon Free License",
       "license_family": "site-free",
       "attribution": "required",

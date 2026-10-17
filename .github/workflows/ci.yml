@@ -24,6 +24,13 @@ jobs:
           python-version: "3.12"
       - name: Validate data files
         run: python scripts/build_readme.py --validate-only
+      # The schema proves an entry is well-formed; this proves it is well-written and
+      # internally coherent — no unverifiable quantity claims, no empty superlatives, no
+      # "conditional" monetization with nothing recording the condition, no duplicate or
+      # tracked URL. Offline on purpose: the live link check is linkcheck.yml's job, and
+      # repeating 200 requests here would only make this workflow slow.
+      - name: Audit entry quality
+        run: python scripts/check_entry.py --all --offline
       - name: Check README is in sync with data/
         run: python scripts/build_readme.py --check
       # site/all.html, site/sitemap.xml and site/data/ are all deploy-time artifacts

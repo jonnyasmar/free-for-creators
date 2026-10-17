@@ -81,10 +81,12 @@
         },
         "notes": {
           "type": "string",
-          "description": "Optional caveats shown in italics after the description."
+          "maxLength": 200,
+          "description": "Optional caveats shown in italics after the description. Bounded so a note stays a caveat rather than becoming a terms-of-service digest; the longest in the data is 174."
         },
         "notes_zh": {
           "type": "string",
+          "maxLength": 200,
           "description": "Chinese caveats. Optional — the zh README falls back to English."
         },
         "submitted_by": {

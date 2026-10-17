@@ -56,11 +56,18 @@ RETRIES = 2
 
 # Set by --no-proxy. build_opener() otherwise inherits the environment's proxies, and on
 # macOS that includes a system-wide proxy with no env var set, so `env | grep -i proxy`
-# shows nothing while every request still leaves through it. That matters because the
-# proxy's exit IP gets bot-walled differently than a direct connection does: of ten
-# "HTTP 403" verdicts sampled on a machine using 127.0.0.1:7897, eight were reachable
-# straight from the host (two of them plain 200). GitHub Actions runners use no proxy, so
-# a local run and CI can disagree for reasons that have nothing to do with the resource.
+# shows nothing while every request still leaves through it.
+#
+# The flag exists to make that visible and controllable, NOT to reproduce CI. Measured on
+# one machine against all 200 entries, the two modes disagree in both directions and
+# neither matches the weekly CI run:
+#   through 127.0.0.1:7897   146 ok / 52 blocked / 1 broken   (3 network failures)
+#   direct, no proxy         134 ok / 64 blocked / 1 broken   (20 network failures)
+#   CI, US runner, no proxy  127 ok / 53 blocked / 0 broken
+# The proxy's exit IP is bot-walled by some sites (eight of ten sampled 403s were reachable
+# straight from the host, two of them plain 200), while its routing reaches sites the host
+# cannot: itch.io timed out on both paths here and refused port 443 outright, yet CI has
+# never reported it broken. Treat a local run as indicative and CI's as the baseline.
 NO_PROXY = False
 MAX_WORKERS = 8
 
@@ -258,17 +265,18 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--slug", action="append", help="only check this category slug (repeatable)")
     ap.add_argument("--no-proxy", action="store_true",
-                    help="ignore environment/system proxies, matching how CI runs")
+                    help="ignore environment/system proxies (changes which sites are "
+                         "reachable; see the NO_PROXY comment — neither mode matches CI)")
     args = ap.parse_args()
 
     global NO_PROXY
     NO_PROXY = args.no_proxy
     proxies = urllib.request.getproxies()
     if NO_PROXY:
-        print("Proxy: disabled (--no-proxy), matching CI.")
+        print("Proxy: disabled (--no-proxy). Note this is not how CI runs either; see NO_PROXY.")
     elif proxies:
-        print("Proxy: using %s — verdicts may differ from CI, which runs with no proxy. "
-              "Re-run with --no-proxy to reproduce it." % (proxies.get("https") or proxies),
+        print("Proxy: using %s — its exit IP is bot-walled by some sites, so verdicts are "
+              "indicative only. CI's weekly run is the baseline." % (proxies.get("https") or proxies),
               file=sys.stderr)
     else:
         print("Proxy: none.")

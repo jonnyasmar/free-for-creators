@@ -88,7 +88,7 @@
       "name": "DaFont",
       "url": "https://www.dafont.com/",
       "description": "Catalog of user-submitted fonts; many are demo or personal-use only.",
-      "description_zh": "超大字体目录；许多字体仅限演示或个人使用。",
+      "description_zh": "用户上传的字体目录，许多仅为演示或限个人使用。",
       "license": "Various (per font)",
       "license_family": "mixed",
       "attribution": "varies",

@@ -152,7 +152,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Smithsonian Open Access](https://www.si.edu/openaccess) | 史密森尼博物馆与档案馆的 CC0 图像。 | CC0 | — | 💚 可商用 | — |
 | [The Met Open Access](https://www.metmuseum.org/art/collection/open-access) | 大都会艺术博物馆的公有领域藏品图像。 | CC0 (Open Access works) | — | 💚 可商用 | — |
 | [Art Institute of Chicago](https://www.artic.edu/open-access/open-access-images) | 公有领域艺术藏品，含印象派名作。 | CC0 (public domain works) | — | 💚 可商用 | — |
-| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | 美国历史与文化主题的公有领域照片集。 | Public Domain (curated sets) | — | 💚 可商用 | — |
+| [Library of Congress: Free to Use](https://www.loc.gov/free-to-use/) | 美国历史与文化主题的公有领域照片集。 | Public Domain | — | 💚 可商用 | — |
 | [British Library on Flickr](https://www.flickr.com/photos/britishlibrary) | 公有领域的书籍插画、地图与照片。 | Public Domain | — | 💚 可商用 | — |
 | [rawpixel Public Domain](https://www.rawpixel.com/public-domain) | 数字化的复古艺术、海报与书籍插画。 _免费账户每月下载有限额。_ | Public Domain / rawpixel free tier | ❓ 逐项而定 | 💚 可商用 | 可选 |
 | [Old Book Illustrations](https://www.oldbookillustrations.com/) | 古籍插画公有领域扫描件。 | Public Domain | — | 💚 可商用 | — |
@@ -183,7 +183,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [The League of Moveable Type](https://www.theleagueofmoveabletype.com/) | 最早的开源字体铸造厂。 | OFL | — | 💚 可商用 | — |
 | [Velvetyne](https://velvetyne.fr/) | 实验性、风格独特的免费开源字体。 | OFL / custom open licenses | — | 💚 可商用 | — |
 | [Font Library](https://fontlibrary.org/) | 社区维护的自由字体目录。 | OFL / CC (per family) | ❓ 逐项而定 | 💚 可商用 | — |
-| [DaFont](https://www.dafont.com/) | 超大字体目录；许多字体仅限演示或个人使用。 _商用前务必逐字核对许可文件。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [DaFont](https://www.dafont.com/) | 用户上传的字体目录，许多仅为演示或限个人使用。 _商用前务必逐字核对许可文件。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [1001 Fonts](https://www.1001fonts.com/) | 10,000+ 字体，支持按许可筛选。 | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [free-font (CJK)](https://github.com/jaywcjlove/free-font) | 中英文可商用免费字体清单。 _绝大多数为 OFL 等开源许可，但少数字体标记为「个人免费」「个人非商业」「CC BY-NC」或「需要授权」——商用前请逐个核对许可标签。_ | Various (per font) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Use & Modify](https://usemodify.com/) | 瑞士设计师整理的可商用免费字体目录，支持筛选。 | OFL / open licenses (per family) | — | 💚 可商用 | — |
@@ -220,7 +220,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Lucide](https://lucide.dev/) | Feather 的社区维护分支，更新活跃。 | ISC | — | 💚 可商用 | — |
 | [Bootstrap Icons](https://icons.getbootstrap.com/) | 免费 SVG 图标库，任何框架可用。 | MIT | — | 💚 可商用 | — |
 | [bioicons](https://bioicons.com/) | 科学与生物插画用免费开放许可图标库。 _混合 CC0 / CC BY / CC BY-SA / MIT——其中 BY 与 BY-SA 子集需要署名；站内会标注每个图标的许可。_ | Various open licenses (per icon) | ❓ 逐项而定 | 💚 可商用 | — |
-| [Flaticon](https://www.flaticon.com/) | 超大图标目录；免费档需署名。 _免费下载需署名；Premium 可免署名，并解除免费用户每个合集的可编辑图标上限。_ | Flaticon Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
+| [Flaticon](https://www.flaticon.com/) | 图标目录，免费档需署名。 _免费下载需署名；Premium 可免署名，并解除免费用户每个合集的可编辑图标上限。_ | Flaticon Free License | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [The Noun Project](https://thenounproject.com/) | 万物皆有图标；免费下载需署名。 _免费账号下载需署名；免署名下载属 Noun Pro 付费权益。_ | Free with attribution (paid removes it) | ✅ 需署名 | ⚠️ 有条件 | 🔑 需注册 |
 | [Icons8](https://icons8.com/icons) | 风格一致的图标、插画与音乐；免费档需挂链接。 _免费档需在使用处放置可见的 icons8.com 链接——页脚、App 的关于/设置、游戏 Credits 或商品详情页均可。_ | Icons8 Free License | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Heroicons](https://heroicons.com/) | Tailwind 团队手工打造的 SVG 图标。 | MIT | — | 💚 可商用 | — |
@@ -275,7 +275,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [ls.graphics Free Mockups](https://www.ls.graphics/free-mockups) | 高端商店的免费高质量设备与场景样机。 | ls.graphics Free License | — | 💚 可商用 | — |
 | [Pixelbuddha Free](https://pixelbuddha.net/free) | 免费设计资源：样机、图标、UI 套件。 _下载免费素材需先注册免费账号；$10/月的 Plus 是无限下载档，并非免费文件的门槛。_ | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 🔑 需注册 |
 | [Canva Templates](https://www.canva.com/templates/) | 免费模板：封面图、帖子、演示文稿与短视频。 _Canva 素材有转售与再分发限制；请阅读内容许可。_ | Canva Content License | — | ⚠️ 有条件 | 🔑 需注册 |
-| [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ⚠️ 有条件 | 🔑 需注册 |
+| [Adobe Express Templates](https://www.adobe.com/express/templates) | 免费的社媒图形与品牌模板。 | Adobe Stock/Express License | — | ❓ 逐项而定 | 🔑 需注册 |
 | [Smartmockups](https://www.canva.com/mockups/) | 浏览器样机生成器，含免费模板（Canva 旗下）。 _免费档限制分辨率与模板数量。_ | Smartmockups Free License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [Pixeden](https://www.pixeden.com/) | 免费 PSD 样机、图形与网页设计资源。 _免费条目以下载页许可说明为准。_ | Pixeden License (per item) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |
 | [HTML5 UP](https://html5up.net/) | AJ 制作的精美全响应式 HTML5 网站模板。 _CC BY 3.0：需为设计署名 HTML5 UP；作者的 Pixelarity 提供免署名版本。_ | CC BY 3.0 | ✅ 需署名 | 💚 可商用 | — |

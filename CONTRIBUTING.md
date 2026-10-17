@@ -26,10 +26,11 @@ When something arrives through the issue template, run the *whole* loop — ship
 
 1. **Verify against the source, not the submission text.** Fetch the homepage and the license page named in the issue. For open-source projects the repo's own `LICENSE` is authoritative: `gh api repos/OWNER/REPO/license --jq .license.spdx_id`.
 2. **Add the entry** with the `license`, `license_family`, `attribution`, `monetization` and `signup` values verification actually supports, and put the limits (no resale, no AI training, credit required, account needed after N downloads) in `notes` / `notes_zh`.
-3. **Regenerate** both derived sets: `python3 scripts/build_readme.py && python3 scripts/build_site.py`.
-4. **Commit with `Closes #N`** in the message and push. Without that keyword GitHub will not close the issue for you.
-5. **Comment on the issue** with what you verified, where the entry now lives, and the limits you recorded — then close it by hand if step 4 did not catch it.
-6. **Cannot verify the license? Say so and leave the issue open.** Guessing a license is worse than a missing entry; note what was ambiguous so it can be revisited.
+3. **Run the gate:** `python3 scripts/check_entry.py --all --offline`. It enforces the parts of the criteria a schema cannot: no unverifiable quantity claims ("thousands of") or empty superlatives, `conditional` monetization must have its condition recorded somewhere, `contains_cc0` implies `license_family: mixed`, `noncommercial` implies `not-allowed`, URLs canonical and untracked and unique, and every entry has a `description_zh`. CI runs the same command, so a violation cannot reach `main` — but catching it here saves a red build. To check a candidate *before* it is written into `data/`, use `--candidates` with a JSON file of `{file, entry, evidence}` objects; that mode additionally requires `evidence.quote` (the licence wording you read), `evidence.source` (where you read it) and, whenever `signup` is not `"unknown"`, `evidence.signup_how`.
+4. **Regenerate** both derived sets: `python3 scripts/build_readme.py && python3 scripts/build_site.py`.
+5. **Commit with `Closes #N`** in the message and push. Without that keyword GitHub will not close the issue for you.
+6. **Comment on the issue** with what you verified, where the entry now lives, and the limits you recorded — then close it by hand if step 5 did not catch it.
+7. **Cannot verify the license? Say so and leave the issue open.** Guessing a license is worse than a missing entry; note what was ambiguous so it can be revisited.
 
 ## Inclusion criteria
 
