@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-203-blue" alt="203 resources">
+  <img src="https://img.shields.io/badge/resources-204-blue" alt="204 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *Links last verified 2026-10-17: 147 ok · 52 need a browser · 0 broken.*
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 203 resources in 10 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 204 resources in 10 categories.
 
-**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 160 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 146 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 160 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -54,7 +54,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [Stock Photos](#stock-photos) — 30 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 20 resources · Typefaces free for commercial use, including CJK families.
 - [Graphics & Icons](#graphics--icons) — 44 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
-- [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
+- [Video Production](#video-production) — 10 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 27 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 9 resources · Meta-search across openly licensed images, audio and media.
@@ -109,7 +109,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Tabletop Audio](https://tabletopaudio.com/) | Ambience loops for tabletop RPG sessions, streams and podcasts. _NonCommercial only: fine for personal and non-monetized use._ | CC BY-NC-ND 4.0 | ✅ Required | 🚫 Not allowed | — |
 | [SFXMint](https://sfxmint.com/) <sup>[@flreey](https://github.com/flreey)</sup> | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
 | [Soundza](https://soundza.com/) <sup>[@vfseanm](https://github.com/vfseanm)</sup> | Free royalty-free sound effects, music loops and ambience in WAV/MP3; no attribution, commercial use allowed. _Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models._ | Soundza Standard License | — | 💚 Allowed | 🔑 Yes |
-| [99Sounds](https://99sounds.org/) | Free royalty-free sound packs and plugins; personal and commercial use, credit not required. _License page allows unlimited commercial use without credit, but forbids using the sounds to build white-noise or sleep-sound apps._ | 99Sounds license (royalty-free) | — | 💚 Allowed | — |
+| [99Sounds](https://99sounds.org/) | Free royalty-free sound packs and plugins; personal and commercial use, credit not required. _License page allows unlimited commercial use without credit, but the files may not be resold or redistributed on their own, nor used to build white-noise or sleep-sound apps._ | 99Sounds license (royalty-free) | — | 💚 Allowed | — |
 
 ## Stock Footage
 
@@ -265,6 +265,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [FootageCrate](https://footagecrate.com/) | Free VFX elements, overlays and action footage from ProductionCrew. _Free tier: 5 downloads/day; commercial use allowed within limits._ | FootageCrate Free License | — | ⚠️ Conditional | 🔑 Yes |
 | [MotionElements](https://www.motionelements.com/free/stock-footage) | Marketplace with a rotating free section: templates, SFX, video. _Free items rotate weekly; check the license per item._ | MotionElements Free License | — | ❓ Varies | 🔑 Yes |
 | [Envato Free Files](https://elements.envato.com/free-files) | Rotating monthly free assets from Envato Elements: templates, video, audio, fonts. _Each month's free files carry the standard Envato license; check the download page._ | Envato free-file license | — | 💚 Allowed | 🔑 Yes |
+| [LUTify.me Free LUTs](https://lutify.me/free-luts/) | Free scene-referred LUTs from a commercial LUT maker, released under CC BY-SA 4.0. _CC BY-SA: credit is required and derivatives must carry the same licence. Downloads go through a free fylm.ai Lite account._ | CC BY-SA 4.0 (free downloads) | ✅ Required | 💚 Allowed | 🔑 Yes |
 
 ## Mockups & Design Templates
 

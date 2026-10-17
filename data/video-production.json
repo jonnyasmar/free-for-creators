@@ -113,6 +113,19 @@
       "signup": "required",
       "notes": "Each month's free files carry the standard Envato license; check the download page.",
       "notes_zh": "每月免费文件采用 Envato 标准许可；以下载页为准。"
+    },
+    {
+      "name": "LUTify.me Free LUTs",
+      "url": "https://lutify.me/free-luts/",
+      "description": "Free scene-referred LUTs from a commercial LUT maker, released under CC BY-SA 4.0.",
+      "description_zh": "商业 LUT 厂商提供的免费场景参照 LUT，采用 CC BY-SA 4.0 发布。",
+      "license": "CC BY-SA 4.0 (free downloads)",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "CC BY-SA: credit is required and derivatives must carry the same licence. Downloads go through a free fylm.ai Lite account.",
+      "notes_zh": "CC BY-SA：需署名，且演绎作品须沿用同一许可。下载需注册免费的 fylm.ai Lite 账号。"
     }
   ]
 }

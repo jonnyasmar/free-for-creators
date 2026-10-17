@@ -176,8 +176,8 @@
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required",
-      "notes": "License page allows unlimited commercial use without credit, but forbids using the sounds to build white-noise or sleep-sound apps.",
-      "notes_zh": "许可页允许不限量商用且免署名；但禁止用其素材制作白噪音或助眠类 App。"
+      "notes": "License page allows unlimited commercial use without credit, but the files may not be resold or redistributed on their own, nor used to build white-noise or sleep-sound apps.",
+      "notes_zh": "许可页允许不限量商用且免署名；但不得单独转售或再分发这些音频文件，也不得用其素材制作白噪音或助眠类 App。"
     }
   ]
 }

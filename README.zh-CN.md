@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-203-blue" alt="203 resources">
+  <img src="https://img.shields.io/badge/resources-204-blue" alt="204 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *链接最近校验于 2026-10-17：147 正常 · 52 需人工确认 · 0 死链。*
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、203 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、204 个资源。
 
-**一眼看数据**：145 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 160 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：146 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 160 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -54,7 +54,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [图片素材](#图片素材) — 30 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 20 个资源 · 可免费商用的字体，含中日韩字体家族。
 - [图形与图标](#图形与图标) — 44 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
-- [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
+- [视频制作](#视频制作) — 10 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
 - [3D 与游戏素材](#3d-与游戏素材) — 27 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 9 个资源 · 跨开放许可图片、音频与媒体的聚合搜索。
@@ -109,7 +109,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Tabletop Audio](https://tabletopaudio.com/) | 适合跑团、直播与播客的氛围循环音。 _仅限非商业：可用于个人及未货币化内容。_ | CC BY-NC-ND 4.0 | ✅ 需署名 | 🚫 禁止商用 | — |
 | [SFXMint](https://sfxmint.com/) <sup>[@flreey](https://github.com/flreey)</sup> | 免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。 _站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。_ | CC0 | — | 💚 可商用 | — |
 | [Soundza](https://soundza.com/) <sup>[@vfseanm](https://github.com/vfseanm)</sup> | 免费音效、音乐循环与环境音库（WAV/MP3）；免署名、可商用。 _前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。_ | Soundza Standard License | — | 💚 可商用 | 🔑 需注册 |
-| [99Sounds](https://99sounds.org/) | 免费免版税音效包与插件；个人与商业项目可用，无需署名。 _许可页允许不限量商用且免署名；但禁止用其素材制作白噪音或助眠类 App。_ | 99Sounds license (royalty-free) | — | 💚 可商用 | — |
+| [99Sounds](https://99sounds.org/) | 免费免版税音效包与插件；个人与商业项目可用，无需署名。 _许可页允许不限量商用且免署名；但不得单独转售或再分发这些音频文件，也不得用其素材制作白噪音或助眠类 App。_ | 99Sounds license (royalty-free) | — | 💚 可商用 | — |
 
 ## 视频素材
 
@@ -265,6 +265,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [FootageCrate](https://footagecrate.com/) | ProductionCrew 出品的免费 VFX 元素、叠加特效与动作素材。 _免费档每日 5 次下载；限额内可商用。_ | FootageCrate Free License | — | ⚠️ 有条件 | 🔑 需注册 |
 | [MotionElements](https://www.motionelements.com/free/stock-footage) | 素材市场，每周轮换免费专区：模板、音效、视频。 _免费条目每周轮换，逐项核对许可。_ | MotionElements Free License | — | ❓ 逐项而定 | 🔑 需注册 |
 | [Envato Free Files](https://elements.envato.com/free-files) | Envato Elements 每月轮换免费素材：模板、视频、音频、字体。 _每月免费文件采用 Envato 标准许可；以下载页为准。_ | Envato free-file license | — | 💚 可商用 | 🔑 需注册 |
+| [LUTify.me Free LUTs](https://lutify.me/free-luts/) | 商业 LUT 厂商提供的免费场景参照 LUT，采用 CC BY-SA 4.0 发布。 _CC BY-SA：需署名，且演绎作品须沿用同一许可。下载需注册免费的 fylm.ai Lite 账号。_ | CC BY-SA 4.0 (free downloads) | ✅ 需署名 | 💚 可商用 | 🔑 需注册 |
 
 ## 样机与设计模板
 
