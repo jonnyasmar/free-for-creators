@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-200-blue" alt="200 resources">
+  <img src="https://img.shields.io/badge/resources-203-blue" alt="203 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *链接最近校验于 2026-10-17：147 正常 · 52 需人工确认 · 0 死链。*
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、200 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、203 个资源。
 
-**一眼看数据**：145 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 157 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：145 条 💚 可直接用于货币化内容 · 122 条 ➖ 无需署名 · 160 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -57,7 +57,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
 - [3D 与游戏素材](#3d-与游戏素材) — 27 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
-- [聚合搜索](#聚合搜索) — 6 个资源 · 跨开放许可图片、音频与媒体的聚合搜索。
+- [聚合搜索](#聚合搜索) — 9 个资源 · 跨开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
 - [贡献者](#贡献者)
 - [参与贡献](#参与贡献)
@@ -331,6 +331,9 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [The Public Domain Review](https://publicdomainreview.org/) | 公有领域作品的策展站点，附背景文章。 _属发现/策展站点而非素材托管；请逐件核对作品状态。_ | Public Domain works | — | 💚 可商用 | — |
 | [DPLA](https://dp.la/) | 美国数字公共图书馆：聚合全美图书馆与博物馆的藏品。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 | [Europeana](https://www.europeana.eu/) | 欧洲文化遗产：3,000+ 机构的艺术品、照片与声音。 | Various (per item) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [All The Free Stock](https://allthefreestock.com/) | 免费照片、视频、音频、图标、字体与样机的目录，每条都带通俗许可标签。 _站点声明所收录资源均无需注册；每条各带许可标签，取用前按标签核对。_ | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [Stock Up](https://stockup.sitebuilderreport.com/) | 跨已授权的免费图库站点做聚合搜索，仅图片。 _仅收录明确授权并回链的站点；结果是图片，不含视频与音频。_ | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
+| [O-DAN](https://o-dan.net/en/) | 跨免费图库站点的聚合搜索，结果限定为可商用许可。 _只展示其判定可商用的结果，但实际许可仍由各源站决定。_ | Aggregator (per-source licenses) | ❓ 逐项而定 | ❓ 逐项而定 | — |
 
 ## 相关清单
 

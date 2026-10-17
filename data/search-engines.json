@@ -76,6 +76,45 @@
       "attribution": "varies",
       "monetization": "varies",
       "signup": "not-required"
+    },
+    {
+      "name": "All The Free Stock",
+      "url": "https://allthefreestock.com/",
+      "description": "Directory of free photos, video, audio, icons, fonts and mockups, each carrying a plain-language licence tag.",
+      "description_zh": "免费照片、视频、音频、图标、字体与样机的目录，每条都带通俗许可标签。",
+      "license": "Aggregator (per-source licenses)",
+      "license_family": "mixed",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "States that no listed resource needs a sign-up; each entry carries its own licence tag, so check that tag per asset.",
+      "notes_zh": "站点声明所收录资源均无需注册；每条各带许可标签，取用前按标签核对。"
+    },
+    {
+      "name": "Stock Up",
+      "url": "https://stockup.sitebuilderreport.com/",
+      "description": "Meta-search across free stock photo sites that have granted it permission; images only.",
+      "description_zh": "跨已授权的免费图库站点做聚合搜索，仅图片。",
+      "license": "Aggregator (per-source licenses)",
+      "license_family": "mixed",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "Only includes sites that explicitly gave permission and links back to each; results are photos, not video or audio.",
+      "notes_zh": "仅收录明确授权并回链的站点；结果是图片，不含视频与音频。"
+    },
+    {
+      "name": "O-DAN",
+      "url": "https://o-dan.net/en/",
+      "description": "Cross-search across free stock photo sites, filtered to results carrying a commercial-use licence.",
+      "description_zh": "跨免费图库站点的聚合搜索，结果限定为可商用许可。",
+      "license": "Aggregator (per-source licenses)",
+      "license_family": "mixed",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "not-required",
+      "notes": "Shows only results it judges commercially usable, but the underlying licence still comes from each source site.",
+      "notes_zh": "只展示其判定可商用的结果，但实际许可仍由各源站决定。"
     }
   ]
 }

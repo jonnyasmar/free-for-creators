@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-200-blue" alt="200 resources">
+  <img src="https://img.shields.io/badge/resources-203-blue" alt="203 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *Links last verified 2026-10-17: 147 ok · 52 need a browser · 0 broken.*
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 200 resources in 10 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 203 resources in 10 categories.
 
-**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 157 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 160 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -57,7 +57,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
 - [3D & Game Assets](#3d--game-assets) — 27 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
-- [Search Engines](#search-engines) — 6 resources · Meta-search across openly licensed images, audio and media.
+- [Search Engines](#search-engines) — 9 resources · Meta-search across openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributors](#contributors)
 - [Contributing](#contributing)
@@ -331,6 +331,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [The Public Domain Review](https://publicdomainreview.org/) | Essays and collections about rediscovered public-domain works. _A discovery/curation site, not a stock host; check each work._ | Public Domain works | — | 💚 Allowed | — |
 | [DPLA](https://dp.la/) | Digital Public Library of America: aggregated items from US libraries and museums. | Various (per item) | ❓ Varies | ❓ Varies | — |
 | [Europeana](https://www.europeana.eu/) | European cultural heritage: artworks, photos and sounds from 3,000+ institutions. | Various (per item) | ❓ Varies | ❓ Varies | — |
+| [All The Free Stock](https://allthefreestock.com/) | Directory of free photos, video, audio, icons, fonts and mockups, each carrying a plain-language licence tag. _States that no listed resource needs a sign-up; each entry carries its own licence tag, so check that tag per asset._ | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
+| [Stock Up](https://stockup.sitebuilderreport.com/) | Meta-search across free stock photo sites that have granted it permission; images only. _Only includes sites that explicitly gave permission and links back to each; results are photos, not video or audio._ | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
+| [O-DAN](https://o-dan.net/en/) | Cross-search across free stock photo sites, filtered to results carrying a commercial-use licence. _Shows only results it judges commercially usable, but the underlying licence still comes from each source site._ | Aggregator (per-source licenses) | ❓ Varies | ❓ Varies | — |
 
 ## Related Lists
 
