@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-181-blue" alt="181 resources">
+  <img src="https://img.shields.io/badge/resources-183-blue" alt="183 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、181 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。10 个分类、183 个资源。
 
-**一眼看数据**：127 条 💚 可直接用于货币化内容 · 113 条 ➖ 无需署名 · 142 条 🔓 无需注册 · 29 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：129 条 💚 可直接用于货币化内容 · 114 条 ➖ 无需署名 · 143 条 🔓 无需注册 · 29 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -47,14 +47,14 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 ## 目录
 
 - [音乐](#音乐) — 18 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
-- [音效](#音效) — 12 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
+- [音效](#音效) — 13 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
 - [图片素材](#图片素材) — 27 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 18 个资源 · 可免费商用的字体，含中日韩字体家族。
 - [图形与图标](#图形与图标) — 40 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [视频制作](#视频制作) — 9 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 11 个资源 · PSD/设备样机、封面图与社交媒体模板。
-- [3D 与游戏素材](#3d-与游戏素材) — 23 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
+- [3D 与游戏素材](#3d-与游戏素材) — 24 个资源 · 模型、HDRI、PBR 材质、角色与游戏即用素材包。
 - [聚合搜索](#聚合搜索) — 6 个资源 · 跨开放许可图片、音频与媒体的聚合搜索。
 - [相关清单](#相关清单)
 - [参与贡献](#参与贡献)
@@ -102,6 +102,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | 高产素材库 Kenney 的 CC0 音频包（UI、科幻、RPG）。 | CC0 | — | 💚 可商用 | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | 适合跑团、直播与播客的氛围循环音。 _仅限非商业：可用于个人及未货币化内容。_ | CC BY-NC-ND 4.0 | ✅ 需署名 | 🚫 禁止商用 | — |
 | [SFXMint](https://sfxmint.com/) | 免费 CC0 游戏与 UI 音效库，提供 WAV/MP3 下载；素材由 AI 生成或程序合成。 _站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。_ | CC0 | — | 💚 可商用 | — |
+| [Soundza](https://soundza.com/) | 免费音效、音乐循环与环境音库（WAV/MP3）；免署名、可商用。 _前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。_ | Soundza Standard License | — | 💚 可商用 | 🔑 需注册 |
 
 ## 视频素材
 
@@ -296,6 +297,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Open HDRI](https://openhdri.org/) | 实景拍摄的 HDRI，以 CC0 发布，提供未裁切的线性高分辨率文件。 _官网声明整站为 CC0，无 AI 生成内容、无需登录、无广告。_ | CC0 | — | 💚 可商用 | — |
 | [No Emotion HDRs](https://noemotionhdrs.net/) | 用于打光与天空替换的免费 HDRI 天空，实地拍摄而非生成。 _CC BY-ND：署名后可商用，但不得修改或作为演绎作品再分发这些 HDRI。_ | CC BY-ND 4.0 | ✅ 需署名 | 💚 可商用 | — |
 | [Share Textures](https://www.sharetextures.com/) | 采用自定义 CC0 类许可的 PBR 材质与 3D 模型，最高 4K 分辨率。 _自定义 CC0 条款：禁止再分发与热链，且许可只覆盖从其官网直接下载的文件。_ | Custom CC0-based license | — | 💚 可商用 | — |
+| [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) | Godot 4.5+ 免费 HDR 天空环境（单天空 Demo）：2048×1024 半浮点 EXR、WorldEnvironment 场景与导入文档。 _付费包的免费单天空 Demo，成品项目可商用；不得作为素材包/素材站内容再分发或转售，不得用于 AI 训练；不是 CC0。_ | Custom royalty-free (image) / MIT (resource files) | ❓ 逐项而定 | 💚 可商用 | — |
 
 ## 聚合搜索
 

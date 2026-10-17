@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-181-blue" alt="181 resources">
+  <img src="https://img.shields.io/badge/resources-183-blue" alt="183 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 181 resources in 10 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 183 resources in 10 categories.
 
-**At a glance:** 127 entries are 💚 safe for monetized content · 113 need ➖ no attribution · 142 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 129 entries are 💚 safe for monetized content · 114 need ➖ no attribution · 143 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -47,14 +47,14 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 ## Table of Contents
 
 - [Music](#music) — 18 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
-- [Sound Effects](#sound-effects) — 12 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
+- [Sound Effects](#sound-effects) — 13 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
 - [Stock Photos](#stock-photos) — 27 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families.
 - [Graphics & Icons](#graphics--icons) — 40 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
-- [3D & Game Assets](#3d--game-assets) — 23 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
+- [3D & Game Assets](#3d--game-assets) — 24 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributing](#contributing)
@@ -102,6 +102,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Kenney Audio](https://kenney.nl/assets?type=audio) | CC0 audio packs (UI, sci-fi, RPG) from the prolific Kenney library. | CC0 | — | 💚 Allowed | — |
 | [Tabletop Audio](https://tabletopaudio.com/) | Ambience loops for tabletop RPG sessions, streams and podcasts. _NonCommercial only: fine for personal and non-monetized use._ | CC BY-NC-ND 4.0 | ✅ Required | 🚫 Not allowed | — |
 | [SFXMint](https://sfxmint.com/) | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
+| [Soundza](https://soundza.com/) | Free royalty-free sound effects, music loops and ambience in WAV/MP3; no attribution, commercial use allowed. _Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models._ | Soundza Standard License | — | 💚 Allowed | 🔑 Yes |
 
 ## Stock Footage
 
@@ -296,6 +297,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Open HDRI](https://openhdri.org/) | Real-world captured HDRIs released as CC0, in unclipped linear high-resolution form. _The site states the library is CC0 with no AI-generated content, no login and no ads._ | CC0 | — | 💚 Allowed | — |
 | [No Emotion HDRs](https://noemotionhdrs.net/) | Free HDR skies for lighting and sky replacement, shot on location rather than generated. _CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives._ | CC BY-ND 4.0 | ✅ Required | 💚 Allowed | — |
 | [Share Textures](https://www.sharetextures.com/) | PBR materials and 3D models under a custom CC0-based licence, up to 4K resolution. _Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site._ | Custom CC0-based license | — | 💚 Allowed | — |
+| [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) | Free HDR sky environment for Godot 4.5+: 2048x1024 half-float EXR, WorldEnvironment scene and import docs (one-sky demo). _Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0._ | Custom royalty-free (image) / MIT (resource files) | ❓ Varies | 💚 Allowed | — |
 
 ## Search Engines
 

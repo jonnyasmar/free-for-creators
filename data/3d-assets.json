@@ -280,6 +280,19 @@
       "signup": "not-required",
       "notes": "Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site.",
       "notes_zh": "自定义 CC0 条款：禁止再分发与热链，且许可只覆盖从其官网直接下载的文件。"
+    },
+    {
+      "name": "NebulaKit Deep Field 11",
+      "url": "https://nebulakit.itch.io/nebula-skyboxes-vol1",
+      "description": "Free HDR sky environment for Godot 4.5+: 2048x1024 half-float EXR, WorldEnvironment scene and import docs (one-sky demo).",
+      "description_zh": "Godot 4.5+ 免费 HDR 天空环境（单天空 Demo）：2048×1024 半浮点 EXR、WorldEnvironment 场景与导入文档。",
+      "license": "Custom royalty-free (image) / MIT (resource files)",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0.",
+      "notes_zh": "付费包的免费单天空 Demo，成品项目可商用；不得作为素材包/素材站内容再分发或转售，不得用于 AI 训练；不是 CC0。",
+      "license_family": "mixed"
     }
   ]
 }

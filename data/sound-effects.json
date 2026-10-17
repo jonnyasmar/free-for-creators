@@ -150,6 +150,19 @@
       "signup": "not-required",
       "notes": "Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping.",
       "notes_zh": "站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。"
+    },
+    {
+      "name": "Soundza",
+      "url": "https://soundza.com/",
+      "description": "Free royalty-free sound effects, music loops and ambience in WAV/MP3; no attribution, commercial use allowed.",
+      "description_zh": "免费音效、音乐循环与环境音库（WAV/MP3）；免署名、可商用。",
+      "license": "Soundza Standard License",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models.",
+      "notes_zh": "前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。",
+      "license_family": "site-free"
     }
   ]
 }
