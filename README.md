@@ -12,14 +12,14 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-183-blue" alt="183 resources">
+  <img src="https://img.shields.io/badge/resources-200-blue" alt="200 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 183 resources in 10 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 200 resources in 10 categories.
 
-**At a glance:** 129 entries are 💚 safe for monetized content · 114 need ➖ no attribution · 143 need 🔓 no account · 29 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 145 entries are 💚 safe for monetized content · 122 need ➖ no attribution · 157 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -46,15 +46,15 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 
 ## Table of Contents
 
-- [Music](#music) — 18 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
-- [Sound Effects](#sound-effects) — 13 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
+- [Music](#music) — 21 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
+- [Sound Effects](#sound-effects) — 14 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
-- [Stock Photos](#stock-photos) — 27 resources · Free photography, from modern stock to museum-grade public domain archives.
-- [Fonts](#fonts) — 18 resources · Typefaces free for commercial use, including CJK families.
-- [Graphics & Icons](#graphics--icons) — 40 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
+- [Stock Photos](#stock-photos) — 30 resources · Free photography, from modern stock to museum-grade public domain archives.
+- [Fonts](#fonts) — 20 resources · Typefaces free for commercial use, including CJK families.
+- [Graphics & Icons](#graphics--icons) — 44 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Video Production](#video-production) — 9 resources · LUTs, color grading assets, transitions and editor templates.
-- [Mockups & Design Templates](#mockups--design-templates) — 11 resources · PSD/device mockups, thumbnail and social media templates.
-- [3D & Game Assets](#3d--game-assets) — 24 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
+- [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
+- [3D & Game Assets](#3d--game-assets) — 27 resources · Models, HDRIs, PBR textures, characters and game-ready asset packs.
 - [Search Engines](#search-engines) — 6 resources · Meta-search across openly licensed images, audio and media.
 - [Related Lists](#related-lists)
 - [Contributing](#contributing)
@@ -83,6 +83,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Purple Planet](https://www.purple-planet.com/) | Mood-based free tracks for small creators and non-broadcast use. _Free for YouTube and online video with credit; other uses need a paid license._ | Purple Planet Free License | ✅ Required | ⚠️ Conditional | — |
 | [Chosic](https://www.chosic.com/free-music/all/) | Aggregator of free and CC music with handy license filters. | Various (per track) | ❓ Varies | ❓ Varies | — |
 | [Thematic](https://hellothematic.com/) | Free songs for creators in exchange for a simple credit link. _Each track used needs its credit link in your description._ | Thematic License | ✅ Required | 💚 Allowed | 🔑 Yes |
+| [Soundimage.org](https://soundimage.org/) | Thousands of free music tracks and texture images by Eric Matyas; credit required. _Attribution page requires crediting the author in the game/video/podcast description; tracks are free for commercial projects._ | Custom free license (attribution required) | ✅ Required | 💚 Allowed | — |
+| [Filmmusic.io](https://filmmusic.io/) | Royalty-free music by Sascha Ende under CC BY 4.0; download without registration. _Site states CC BY 4.0 and no registration required; attribution is mandatory._ | CC BY 4.0 | ✅ Required | 💚 Allowed | — |
+| [Tunetank](https://tunetank.com/) | Royalty-free music and sound effects for video creators; free tier for commercial projects. _License page allows free commercial use; check each track's terms and be aware channels may need whitelisting to avoid copyright claims._ | Tunetank license (free tier) | ❓ Varies | 💚 Allowed | 🔑 Yes |
 
 ## Sound Effects
 
@@ -103,6 +106,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Tabletop Audio](https://tabletopaudio.com/) | Ambience loops for tabletop RPG sessions, streams and podcasts. _NonCommercial only: fine for personal and non-monetized use._ | CC BY-NC-ND 4.0 | ✅ Required | 🚫 Not allowed | — |
 | [SFXMint](https://sfxmint.com/) | Free CC0 game and UI sound effects in WAV/MP3; AI-generated or procedurally synthesized. _Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping._ | CC0 | — | 💚 Allowed | — |
 | [Soundza](https://soundza.com/) | Free royalty-free sound effects, music loops and ambience in WAV/MP3; no attribution, commercial use allowed. _Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models._ | Soundza Standard License | — | 💚 Allowed | 🔑 Yes |
+| [99Sounds](https://99sounds.org/) | Free royalty-free sound packs and plugins; personal and commercial use, credit not required. _License page allows unlimited commercial use without credit, but forbids using the sounds to build white-noise or sleep-sound apps._ | 99Sounds license (royalty-free) | — | 💚 Allowed | — |
 
 ## Stock Footage
 
@@ -161,6 +165,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Rijksmuseum (Amsterdam)](https://www.rijksmuseum.nl/en/collection) | The Dutch national gallery's digitised collection; most objects are public domain, some CC-BY. _Rights are stated per object; the museum also waives its own photographic rights over public-domain works._ | Public domain (majority) / CC-BY | ❓ Varies | ❓ Varies | 🔑 Yes |
 | [SMK Open (National Gallery of Denmark)](https://www.smk.dk/article/smk-open/) | Danish national gallery's open-access programme; about two-thirds of the collection is public domain. _Only the public-domain works are free; SMK waives its own photographic rights, so those images carry no restrictions._ | Public domain (~2/3 of the collection) | — | ❓ Varies | — |
 | [Neurascapes](https://neurascapes.com/) | Free stock photos of nature, space and abstract subjects, usable commercially without permission. _Free for commercial use without attribution; you may not resell photos unmodified or compile them into a competing service._ | Neurascapes License (free, no attribution) | — | 💚 Allowed | ❓ |
+| [Paris Musees Collections](https://www.parismuseescollections.paris.fr/) | Online collections of the Paris museums; tens of thousands of artworks released as CC0. _Filter results by CC0 (sans restriction) when browsing._ | CC0 1.0 | — | 💚 Allowed | — |
+| [Getty Open Content Program](https://www.getty.edu/projects/open-content-program/) | Getty Museum open access: high-resolution public-domain artwork images, no restrictions. _Getty places no restrictions on use and requests only an optional credit line._ | Public domain (Open Content Program) | — | 💚 Allowed | — |
+| [Pixnio](https://pixnio.com/) | Thousands of free photos released into the public domain; no attribution required. _Site states images are public domain and free to use._ | Public domain | — | 💚 Allowed | — |
 
 ## Fonts
 
@@ -186,6 +193,8 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Smiley Sans (得意黑)](https://atelier-anchor.com/typefaces/smiley-sans) | Open-source condensed Chinese display face from atelier Anchor, made for headlines and posters. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
 | [LXGW WenKai (霞鹜文楷)](https://github.com/lxgw/LxgwWenKai) | Open-source Chinese kai family derived from Klee One, suited to reading, subtitles and quotes. | SIL Open Font License 1.1 | — | 💚 Allowed | — |
 | [Alibaba PuHuiTi (阿里巴巴普惠体)](https://www.alibabafonts.com/) | Alibaba's Chinese text family with commercial rights opened to individuals and businesses. _Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing._ | Alibaba PuHuiTi License (free commercial use) | — | 💚 Allowed | 🔑 Yes |
+| [MiSans](https://hyperos.mi.com/font/) | Xiaomi's MiSans typeface family covering Chinese, Latin and more; free for commercial use. _Official page states global free commercial use; no attribution required._ | MiSans Font License (free commercial use) | — | 💚 Allowed | — |
+| [Fontsource](https://fontsource.org/) | Self-host open-source fonts as npm packages or CDN files; 2,000+ families. _Font licenses follow each family (mostly OFL); the platform itself is MIT, and files are self-hosted._ | OFL / Apache / MIT (per family); tooling under MIT | ❓ Varies | 💚 Allowed | — |
 
 ## Graphics & Icons
 
@@ -233,6 +242,10 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Use Animations](https://useanimations.com/) | Free animated icons for web and mobile, delivered as Lottie JSON plus React components. _Free files are CC BY unless stated otherwise; commercial use in web and mobile apps is explicitly permitted._ | CC BY (free files) | ✅ Required | 💚 Allowed | — |
 | [typicons.font](https://www.s-ings.com/typicons/) | Open-source interface icon set distributed as a webfont and SVG under a split licence. _Split licence: font files are SIL OFL 1.1 while the artwork is CC BY-SA, so credit is required._ | Fonts SIL OFL 1.1; artwork CC BY-SA | ✅ Required | 💚 Allowed | — |
 | [illlustrations](https://illlustrations.co/) | Open-source illustration set of everyday human situations, in PNG and Figma formats. | MIT | — | 💚 Allowed | — |
+| [OpenMoji](https://openmoji.org/) | Open-source emoji set with 4,000+ icons in SVG and PNG; CC BY-SA 4.0. _Attribution required; derivative emoji collections must keep the same CC BY-SA terms._ | CC BY-SA 4.0 | ✅ Required | 💚 Allowed | — |
+| [Game-icons.net](https://game-icons.net/) | 4,000+ free game icons as SVG/PNG, CC BY 3.0; attribution required. _Attribution (link to game-icons.net) is required; icons are free for commercial projects._ | CC BY 3.0 | ✅ Required | 💚 Allowed | — |
+| [Noto Emoji](https://github.com/googlefonts/noto-emoji) | Google's open emoji set (Noto Emoji font and PNG/SVG artwork) under the SIL OFL. _GitHub LICENSE verified as OFL-1.1: free to use and embed including commercially; the font itself may not be sold standalone._ | SIL OFL 1.1 | — | 💚 Allowed | — |
+| [Twemoji](https://github.com/jdecked/twemoji) | Open-source emoji artwork (SVG/PNG) and libraries; CC BY 4.0 graphics, MIT code. _Community-maintained fork of Twitter's Twemoji. Artwork requires attribution; the code is MIT._ | CC BY 4.0 (graphics) / MIT (code) | ✅ Required | 💚 Allowed | — |
 
 ## Video Production
 
@@ -267,6 +280,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [HTML5 UP](https://html5up.net/) | Sleek, fully responsive HTML5 site templates by AJ. _CC BY 3.0: credit HTML5 UP for the design. Attribution-free versions are sold via the author's Pixelarity._ | CC BY 3.0 | ✅ Required | 💚 Allowed | — |
 | [Start Bootstrap](https://startbootstrap.com/) | Free MIT-licensed Bootstrap themes, templates and snippets. | MIT | — | 💚 Allowed | — |
 | [SlidesCarnival](https://www.slidescarnival.com/) | Free presentation templates for PowerPoint and Google Slides. _Most templates are free for commercial use; check each template's license note._ | Various (per template) | ❓ Varies | ❓ Varies | — |
+| [GraphicBurger](https://graphicburger.com/) | Mockups, UI kits and design resources; royalty-free for personal and commercial work, no attribution. _License page allows unlimited personal/commercial projects with no credit; reselling the resources themselves is prohibited._ | GraphicBurger free license | — | 💚 Allowed | — |
 
 ## 3D & Game Assets
 
@@ -298,6 +312,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [No Emotion HDRs](https://noemotionhdrs.net/) | Free HDR skies for lighting and sky replacement, shot on location rather than generated. _CC BY-ND: commercial use with credit is fine, but the HDRIs must not be modified or redistributed as derivatives._ | CC BY-ND 4.0 | ✅ Required | 💚 Allowed | — |
 | [Share Textures](https://www.sharetextures.com/) | PBR materials and 3D models under a custom CC0-based licence, up to 4K resolution. _Custom CC0-based terms: no redistribution or hotlinking, and the licence covers only files downloaded from their own site._ | Custom CC0-based license | — | 💚 Allowed | — |
 | [NebulaKit Deep Field 11](https://nebulakit.itch.io/nebula-skyboxes-vol1) | Free HDR sky environment for Godot 4.5+: 2048x1024 half-float EXR, WorldEnvironment scene and import docs (one-sky demo). _Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0._ | Custom royalty-free (image) / MIT (resource files) | ❓ Varies | 💚 Allowed | — |
+| [cgbookcase](https://www.cgbookcase.com/) | CC0 PBR textures, HDRIs and 3D assets for game engines and 3D rendering. _Homepage states CC0; textures are free for commercial projects._ | CC0 1.0 | — | 💚 Allowed | — |
+| [Sketchfab](https://sketchfab.com/) | 3D model platform with a license filter; thousands of CC0 and CC-BY models download free. _Downloads need a free account; always check the per-model license badge before shipping._ | Mixed (CC0 / CC BY per model) | ❓ Varies | ❓ Varies | 🔑 Yes |
+| [BlenderKit](https://www.blenderkit.com/) | Blender asset-library add-on: 150,000+ models, materials and HDRIs with a large free tier. _Requires the BlenderKit add-on and a free account; each asset page states its license._ | Mixed (CC0 and royalty-free, per asset) | ❓ Varies | 💚 Allowed | 🔑 Yes |
 
 ## Search Engines
 

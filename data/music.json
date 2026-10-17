@@ -231,6 +231,45 @@
       "signup": "required",
       "notes": "Each track used needs its credit link in your description.",
       "notes_zh": "每首使用的曲目都需按站方要求在简介放置署名链接。"
+    },
+    {
+      "name": "Soundimage.org",
+      "url": "https://soundimage.org/",
+      "description": "Thousands of free music tracks and texture images by Eric Matyas; credit required.",
+      "description_zh": "Eric Matyas 提供的数千首免费音乐与贴图素材；使用时需署名。",
+      "license": "Custom free license (attribution required)",
+      "license_family": "site-free",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Attribution page requires crediting the author in the game/video/podcast description; tracks are free for commercial projects.",
+      "notes_zh": "署名页要求在使用作品的说明中署名；曲目可免费用于商业项目。"
+    },
+    {
+      "name": "Filmmusic.io",
+      "url": "https://filmmusic.io/",
+      "description": "Royalty-free music by Sascha Ende under CC BY 4.0; download without registration.",
+      "description_zh": "Sascha Ende 的免版税音乐库，CC BY 4.0 授权，免注册下载。",
+      "license": "CC BY 4.0",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Site states CC BY 4.0 and no registration required; attribution is mandatory.",
+      "notes_zh": "站点声明 CC BY 4.0、免注册；必须署名。"
+    },
+    {
+      "name": "Tunetank",
+      "url": "https://tunetank.com/",
+      "description": "Royalty-free music and sound effects for video creators; free tier for commercial projects.",
+      "description_zh": "面向视频创作者的免版税音乐与音效；免费档可用于商业项目。",
+      "license": "Tunetank license (free tier)",
+      "license_family": "site-free",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "License page allows free commercial use; check each track's terms and be aware channels may need whitelisting to avoid copyright claims.",
+      "notes_zh": "许可页允许免费商用；请逐曲确认条款，并注意频道可能需加入白名单以避免版权投诉。"
     }
   ]
 }

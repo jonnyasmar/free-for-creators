@@ -163,6 +163,19 @@
       "notes": "Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models.",
       "notes_zh": "前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。",
       "license_family": "site-free"
+    },
+    {
+      "name": "99Sounds",
+      "url": "https://99sounds.org/",
+      "description": "Free royalty-free sound packs and plugins; personal and commercial use, credit not required.",
+      "description_zh": "免费免版税音效包与插件；个人与商业项目可用，无需署名。",
+      "license": "99Sounds license (royalty-free)",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "License page allows unlimited commercial use without credit, but forbids using the sounds to build white-noise or sleep-sound apps.",
+      "notes_zh": "许可页允许不限量商用且免署名；但禁止用其素材制作白噪音或助眠类 App。"
     }
   ]
 }

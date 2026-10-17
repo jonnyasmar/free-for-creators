@@ -293,6 +293,45 @@
       "notes": "Free one-sky demo from a paid pack; finished projects may use it commercially. No resale/redistribution as stock or asset pack, and no AI training. Not CC0.",
       "notes_zh": "付费包的免费单天空 Demo，成品项目可商用；不得作为素材包/素材站内容再分发或转售，不得用于 AI 训练；不是 CC0。",
       "license_family": "mixed"
+    },
+    {
+      "name": "cgbookcase",
+      "url": "https://www.cgbookcase.com/",
+      "description": "CC0 PBR textures, HDRIs and 3D assets for game engines and 3D rendering.",
+      "description_zh": "CC0 授权的 PBR 贴图、HDRI 与 3D 资源，适用于游戏引擎与渲染。",
+      "license": "CC0 1.0",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Homepage states CC0; textures are free for commercial projects.",
+      "notes_zh": "首页声明 CC0，贴图可免费商用。"
+    },
+    {
+      "name": "Sketchfab",
+      "url": "https://sketchfab.com/",
+      "description": "3D model platform with a license filter; thousands of CC0 and CC-BY models download free.",
+      "description_zh": "3D 模型平台，可按许可筛选，含大量可免费下载的 CC0 与 CC BY 模型。",
+      "license": "Mixed (CC0 / CC BY per model)",
+      "license_family": "mixed",
+      "attribution": "varies",
+      "monetization": "varies",
+      "signup": "required",
+      "notes": "Downloads need a free account; always check the per-model license badge before shipping.",
+      "notes_zh": "下载需注册免费账号；使用前务必查看模型页的许可标签。"
+    },
+    {
+      "name": "BlenderKit",
+      "url": "https://www.blenderkit.com/",
+      "description": "Blender asset-library add-on: 150,000+ models, materials and HDRIs with a large free tier.",
+      "description_zh": "Blender 资产库插件：15 万+ 模型、材质与 HDRI，含大量免费资产。",
+      "license": "Mixed (CC0 and royalty-free, per asset)",
+      "license_family": "mixed",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "required",
+      "notes": "Requires the BlenderKit add-on and a free account; each asset page states its license.",
+      "notes_zh": "需安装 BlenderKit 插件并注册免费账号；每个资产页会标注其许可。"
     }
   ]
 }

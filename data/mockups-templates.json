@@ -140,6 +140,19 @@
       "signup": "not-required",
       "notes": "Most templates are free for commercial use; check each template's license note.",
       "notes_zh": "多数模板可免费商用；以每个模板的许可说明为准。"
+    },
+    {
+      "name": "GraphicBurger",
+      "url": "https://graphicburger.com/",
+      "description": "Mockups, UI kits and design resources; royalty-free for personal and commercial work, no attribution.",
+      "description_zh": "样机、UI 套件与设计资源；个人与商业项目均可免费使用，免署名。",
+      "license": "GraphicBurger free license",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "License page allows unlimited personal/commercial projects with no credit; reselling the resources themselves is prohibited.",
+      "notes_zh": "许可页允许不限量商用且无需署名；禁止转售资源本身。"
     }
   ]
 }

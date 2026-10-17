@@ -212,6 +212,32 @@
       "signup": "required",
       "notes": "Vendor opens commercial use to all individuals and merchants; the full agreement was unreachable, so verify before redistributing.",
       "notes_zh": "官网声明向所有个人和商家开放商用；完整协议本次未能抓取，再分发前请自行核对。"
+    },
+    {
+      "name": "MiSans",
+      "url": "https://hyperos.mi.com/font/",
+      "description": "Xiaomi's MiSans typeface family covering Chinese, Latin and more; free for commercial use.",
+      "description_zh": "小米 MiSans 字体家族，覆盖中文、拉丁等多语言；官方声明全球免费商用。",
+      "license": "MiSans Font License (free commercial use)",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Official page states global free commercial use; no attribution required.",
+      "notes_zh": "官方页面标注全球免费商用，无需署名。"
+    },
+    {
+      "name": "Fontsource",
+      "url": "https://fontsource.org/",
+      "description": "Self-host open-source fonts as npm packages or CDN files; 2,000+ families.",
+      "description_zh": "以 npm 包或 CDN 文件自托管开源字体，覆盖 2000+ 字体家族。",
+      "license": "OFL / Apache / MIT (per family); tooling under MIT",
+      "license_family": "mixed",
+      "attribution": "varies",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Font licenses follow each family (mostly OFL); the platform itself is MIT, and files are self-hosted.",
+      "notes_zh": "字体许可随各家族（多为 OFL）；平台本身为 MIT，文件自托管。"
     }
   ]
 }

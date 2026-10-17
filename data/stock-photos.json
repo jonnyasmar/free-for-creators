@@ -325,6 +325,45 @@
       "signup": "unknown",
       "notes": "Free for commercial use without attribution; you may not resell photos unmodified or compile them into a competing service.",
       "notes_zh": "可免费商用且无需署名；但不得原样转售照片，也不得汇编成竞争性服务。"
+    },
+    {
+      "name": "Paris Musees Collections",
+      "url": "https://www.parismuseescollections.paris.fr/",
+      "description": "Online collections of the Paris museums; tens of thousands of artworks released as CC0.",
+      "description_zh": "巴黎市博物馆联盟线上藏品库，数万件作品以 CC0 发布。",
+      "license": "CC0 1.0",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Filter results by CC0 (sans restriction) when browsing.",
+      "notes_zh": "检索时可筛选标注 CC0（sans restriction）的作品。"
+    },
+    {
+      "name": "Getty Open Content Program",
+      "url": "https://www.getty.edu/projects/open-content-program/",
+      "description": "Getty Museum open access: high-resolution public-domain artwork images, no restrictions.",
+      "description_zh": "盖蒂博物馆开放内容计划：公有领域艺术品高清图像，官方不限制使用。",
+      "license": "Public domain (Open Content Program)",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Getty places no restrictions on use and requests only an optional credit line.",
+      "notes_zh": "官方不限制使用，署名非必需（欢迎但非强制）。"
+    },
+    {
+      "name": "Pixnio",
+      "url": "https://pixnio.com/",
+      "description": "Thousands of free photos released into the public domain; no attribution required.",
+      "description_zh": "数千张公有领域免费照片；无需署名。",
+      "license": "Public domain",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Site states images are public domain and free to use.",
+      "notes_zh": "站点声明图片为公有领域，可自由使用。"
     }
   ]
 }

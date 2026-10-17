@@ -471,6 +471,58 @@
       "attribution": "not-required",
       "monetization": "allowed",
       "signup": "not-required"
+    },
+    {
+      "name": "OpenMoji",
+      "url": "https://openmoji.org/",
+      "description": "Open-source emoji set with 4,000+ icons in SVG and PNG; CC BY-SA 4.0.",
+      "description_zh": "开源 emoji 图标集，4000+ 图标，提供 SVG 与 PNG；CC BY-SA 4.0。",
+      "license": "CC BY-SA 4.0",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Attribution required; derivative emoji collections must keep the same CC BY-SA terms.",
+      "notes_zh": "必须署名；改编后的 emoji 集合需以相同 CC BY-SA 条款共享。"
+    },
+    {
+      "name": "Game-icons.net",
+      "url": "https://game-icons.net/",
+      "description": "4,000+ free game icons as SVG/PNG, CC BY 3.0; attribution required.",
+      "description_zh": "4000+ 免费游戏图标，提供 SVG/PNG，CC BY 3.0；需署名。",
+      "license": "CC BY 3.0",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Attribution (link to game-icons.net) is required; icons are free for commercial projects.",
+      "notes_zh": "必须署名（链接 game-icons.net）；可免费用于商业项目。"
+    },
+    {
+      "name": "Noto Emoji",
+      "url": "https://github.com/googlefonts/noto-emoji",
+      "description": "Google's open emoji set (Noto Emoji font and PNG/SVG artwork) under the SIL OFL.",
+      "description_zh": "Google 开源 emoji 集合（Noto Emoji 字体与 PNG/SVG 图形），SIL OFL 授权。",
+      "license": "SIL OFL 1.1",
+      "license_family": "permissive",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "GitHub LICENSE verified as OFL-1.1: free to use and embed including commercially; the font itself may not be sold standalone.",
+      "notes_zh": "GitHub LICENSE 核实为 OFL-1.1：可免费用与嵌入（含商业）；字体本身不得单独售卖。"
+    },
+    {
+      "name": "Twemoji",
+      "url": "https://github.com/jdecked/twemoji",
+      "description": "Open-source emoji artwork (SVG/PNG) and libraries; CC BY 4.0 graphics, MIT code.",
+      "description_zh": "开源 emoji 图形（SVG/PNG）与相关库；图形部分 CC BY 4.0，代码 MIT。",
+      "license": "CC BY 4.0 (graphics) / MIT (code)",
+      "license_family": "mixed",
+      "attribution": "required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Community-maintained fork of Twitter's Twemoji. Artwork requires attribution; the code is MIT.",
+      "notes_zh": "Twitter Twemoji 的社区维护分支；图形需署名，代码为 MIT。"
     }
   ]
 }
