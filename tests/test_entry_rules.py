@@ -22,6 +22,9 @@ BASE = {
     "license_family": "cc0",
     "attribution": "not-required",
     "monetization": "allowed",
+    # Provenance travels with every entry: the date it was read, and the page it was read at.
+    "license_checked": "2026-10-17",
+    "license_source": "https://example.com/license",
 }
 
 

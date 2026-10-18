@@ -35,6 +35,9 @@ ENTRY_A = {
     "attribution": "not-required",
     "monetization": "allowed",
     "signup": "not-required",
+    # Provenance: the date somebody read the licence, and the page they read it at.
+    "license_checked": "2026-10-17",
+    "license_source": "https://example.com/license",
 }
 ENTRY_B = dict(ENTRY_A, name="Example Two", url="https://two.example/",
                description="Two free clip library.", description_zh="另一个免费素材库。")
@@ -48,14 +51,24 @@ CATEGORY = {
 }
 
 
+#: A quote long enough to pass, and the page the entry says it came from.
+LICENCE_QUOTE = "Free for commercial and personal use under CC0"
+LICENCE_SOURCE = "https://example.com/license"
+
+
 def body_from_template(name="Example Two", url="https://two.example/",
-                       ownership="No", tick=True):
+                       ownership="No", tick=True, quote=LICENCE_QUOTE,
+                       source=LICENCE_SOURCE):
     text = TEMPLATE
     if tick:
         text = text.replace("- [ ]", "- [x]")
     text = text.replace("Resource name:", "Resource name: %s" % name)
     text = text.replace("Link: https://", "Link: %s" % url)
     text = text.replace("Is this your product? Yes / No", "Is this your product? %s" % ownership)
+    if quote is not None:
+        text = text.replace("License: \n", "License: %s\n" % quote)
+    if source is not None:
+        text = text.replace("License source: https://", "License source: %s" % source)
     return text
 
 
@@ -250,6 +263,68 @@ class ProposalTests(RepoFixture):
             "x")
         errors, _ = self.check("[Example Two] -> [Example]", body)
         self.assertTrue(any("expiring credit" in e for e in errors), errors)
+
+
+class LicenceProofTests(RepoFixture):
+    """An addition, or a change to a licence claim, must carry the wording somebody read.
+
+    Each test states its own base and head: the fixture is a real git repo, and "one entry
+    changed" is measured between two commits.
+    """
+
+    ADD = "[Example Two] -> [Example]"
+    FIX = "[Example One] -> [Example]"
+
+    def addition(self):
+        return self.base, self.add_entry(ENTRY_B)
+
+    def test_a_quote_and_its_source_are_accepted(self):
+        base, head = self.addition()
+        self.assertEqual(self.check(self.ADD, body_from_template(), base, head)[0], [])
+
+    def test_a_missing_quote_is_rejected(self):
+        base, head = self.addition()
+        errors, _ = self.check(self.ADD, body_from_template(quote=None), base, head)
+        self.assertTrue(any("licence wording you read" in e for e in errors), errors)
+
+    def test_a_too_short_quote_is_rejected(self):
+        base, head = self.addition()
+        errors, _ = self.check(self.ADD, body_from_template(quote="CC0"), base, head)
+        self.assertTrue(any("at least 20 characters" in e for e in errors), errors)
+
+    def test_a_missing_source_is_rejected(self):
+        base, head = self.addition()
+        errors, _ = self.check(self.ADD, body_from_template(source=None), base, head)
+        self.assertTrue(any("License source" in e for e in errors), errors)
+
+    def test_a_source_that_is_not_the_entrys_source_is_rejected(self):
+        base, head = self.addition()
+        errors, _ = self.check(self.ADD, body_from_template(
+            source="https://elsewhere.example/LICENSE"), base, head)
+        self.assertTrue(any("same page" in e for e in errors), errors)
+
+    def test_an_entry_without_provenance_is_rejected(self):
+        entry = dict(ENTRY_B)
+        del entry["license_checked"]
+        self.replace_entries([ENTRY_A, entry])
+        errors, _ = self.check(self.ADD, body_from_template(), self.base, self.rev())
+        self.assertTrue(any("license_source" in e for e in errors), errors)
+
+    def test_a_correction_that_changes_a_licence_claim_needs_proof_too(self):
+        self.replace_entries([dict(ENTRY_A, license="MIT", license_family="permissive")])
+        errors, _ = self.check(
+            self.FIX, body_from_template("Example One", "https://one.example/",
+                                         quote=None, source=None),
+            self.base, self.rev())
+        self.assertTrue(any("licence wording you read" in e for e in errors), errors)
+
+    def test_a_correction_that_leaves_the_licence_alone_does_not_need_one(self):
+        self.replace_entries([dict(ENTRY_A, description="One free clip library, reworded.")])
+        errors, _ = self.check(
+            self.FIX, body_from_template("Example One", "https://one.example/",
+                                         quote=None, source=None),
+            self.base, self.rev())
+        self.assertEqual(errors, [])
 
 
 class TemplateConsistencyTests(unittest.TestCase):

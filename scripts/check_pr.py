@@ -135,7 +135,8 @@ def describe_changes(base_docs, head_docs):
         added = [after[k] for k in after if k not in before]
         removed = [before[k] for k in before if k not in after]
         if len(added) == 1 and len(removed) == 1 and same_resource(added[0], removed[0]):
-            changes.append({"kind": "corrected", "file": name, "entry": added[0]})
+            changes.append({"kind": "corrected", "file": name, "entry": added[0],
+                            "previous": removed[0]})
             continue
         for entry in added:
             changes.append({"kind": "added", "file": name, "entry": entry})
@@ -199,6 +200,71 @@ def check_single_change(changes, errors):
     return changes[0]
 
 
+#: Fields whose value is a licence claim. Changing one of them re-opens the question the
+#: quote in the PR body answers, so those corrections need proof too.
+PROVENANCE_FIELDS = ("license", "license_family", "attribution", "monetization")
+# [ \t] rather than \s: an unanswered "License:" line must not swallow the line below it,
+# which is exactly how an empty placeholder would have passed this check.
+LICENSE_QUOTE_PATTERN = re.compile(r"^License:[ \t]*(\S.*?)[ \t]*$", re.MULTILINE)
+LICENSE_SOURCE_PATTERN = re.compile(r"^License source:[ \t]*(https://\S+)[ \t]*$", re.MULTILINE)
+
+
+def needs_licence_proof(change):
+    """An addition always needs it; a correction only when it changes a licence claim."""
+    if change["kind"] == "added":
+        return True
+    if change["kind"] == "removed":
+        return False
+    previous = change.get("previous") or {}
+    entry = change.get("entry") or {}
+    return any(previous.get(f) != entry.get(f) for f in PROVENANCE_FIELDS)
+
+
+def check_licence_proof(body, entry, errors):
+    """The PR must carry the wording somebody read, at the page they read it at.
+
+    A checked box that says "I verified the licence" is a claim about a claim. The quote is
+    the evidence, and tying its source URL to the entry's own license_source keeps the date
+    in data/ pointing at the same page as the quote in the PR — otherwise an audit a year
+    from now re-reads one page while the quote came from another.
+    """
+    quote = LICENSE_QUOTE_PATTERN.search(body or "")
+    if not quote or len(quote.group(1).strip()) < 20:
+        errors.append(
+            "Add the licence wording you read, verbatim, on its own line:\n"
+            "     License: <the exact wording, at least 20 characters>\n"
+            "     A link to the terms page is not the same as having read it, and the entry "
+            "has to carry the wording somebody can check against."
+        )
+        return
+    source = LICENSE_SOURCE_PATTERN.search(body or "")
+    if not source:
+        errors.append(
+            "Add the page you read that wording at, on its own line:\n"
+            "     License source: https://example.com/terms"
+        )
+        return
+    declared = (entry.get("license_source") or "").strip()
+    checked = (entry.get("license_checked") or "").strip()
+    if not declared or not checked:
+        # Both, not either: the URL says what was read, the date says when, and an audit a
+        # year from now needs the pair to decide whether the claim is still worth trusting.
+        errors.append(
+            "The entry must set license_checked (the date you read it, YYYY-MM-DD) and "
+            "license_source (the page above) — %s. Without both, the next person re-derives "
+            "the claim instead of re-checking it. check_entry.py --license-audit lists the "
+            "entries that still lack one."
+            % ("both are missing" if not declared and not checked
+               else "license_checked is missing" if not checked else "license_source is missing")
+        )
+    elif url_key(source.group(1)) != url_key(declared):
+        errors.append(
+            "The PR says the licence was read at %s, but the entry's license_source is %s — "
+            "the quote and the recorded date must point at the same page."
+            % (source.group(1), declared)
+        )
+
+
 def check_proposal(title, body, change, base_docs, errors):
     entry = change["entry"] or {}
     title_match = TITLE_PATTERN.match((title or "").strip())
@@ -242,6 +308,9 @@ def check_proposal(title, body, change, base_docs, errors):
         )
 
     check_confirmations(body, errors)
+
+    if needs_licence_proof(change):
+        check_licence_proof(body or "", entry, errors)
 
 
 def validate(base_ref, head_ref, pull_request, changed_files=None, write_report=True):
