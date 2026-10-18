@@ -286,13 +286,36 @@ def load_existing():
     return entries, seen_urls, seen_names
 
 
+def licence_risk(entry):
+    """How much a wrong licence claim on this entry would cost, 0-4, with the reason.
+
+    The backlog is 190 entries and nobody is going to read them in one sitting, so the useful
+    question is not "how many are left" but "which of these is a creator most likely to have
+    relied on already". An entry that promises monetized use and no attribution is exactly
+    that: the reader has no reason to go and check. One that says "conditional, credit me" has
+    already sent them to the source.
+    """
+    score, reasons = 0, []
+    if entry.get("monetization") == "allowed":
+        score += 2
+        reasons.append("claims monetized use")
+    if entry.get("attribution") == "not-required":
+        score += 1
+        reasons.append("claims no attribution needed")
+    if entry.get("license_family") == "cc0":
+        score += 1
+        reasons.append("claims CC0")
+    return score, ", ".join(reasons) or "no strong claim"
+
+
 def license_audit(max_age_days):
     """Return (total, checked, missing, stale) for the licence check dates in data/.
 
     `missing` is the honest backlog: entries that predate the field, whose licence wording
-    nobody has recorded reading. `stale` is the actionable set — a date that has aged past
-    the budget, which means somebody claimed to have read the source and that claim is now
-    old enough that the source may have changed under it.
+    nobody has recorded reading. It is ordered by licence_risk, so the first thing printed is
+    the claim that would hurt most if it were wrong. `stale` is the actionable set — a date
+    that has aged past the budget, which means somebody claimed to have read the source and
+    that claim is now old enough that the source may have changed under it.
     """
     existing, _, _ = load_existing()
     today = datetime.date.today()
@@ -301,7 +324,8 @@ def license_audit(max_age_days):
         where = "%s/%s" % (entry.get("_file", "?"), entry.get("name", "?"))
         raw = entry.get("license_checked")
         if not raw:
-            missing.append(where)
+            score, reason = licence_risk(entry)
+            missing.append((score, where, reason))
             continue
         try:
             when = datetime.date.fromisoformat(str(raw))
@@ -312,10 +336,11 @@ def license_audit(max_age_days):
         age = (today - when).days
         if age > max_age_days:
             stale.append((where, str(raw), "%d days old" % age))
+    missing.sort(key=lambda row: (-row[0], row[1]))
     return len(existing), checked, missing, stale
 
 
-def report_license_audit(max_age_days):
+def report_license_audit(max_age_days, show_all=False):
     total, checked, missing, stale = license_audit(max_age_days)
     print("Licence provenance: %d of %d entries carry a check date; %d are an unverified "
           "backlog." % (checked, total, len(missing)))
@@ -328,8 +353,15 @@ def report_license_audit(max_age_days):
         print("No checked entry is older than %d days." % max_age_days)
     if missing:
         print("")
-        print("Unverified (no license_checked yet, %d): %s%s"
-              % (len(missing), ", ".join(missing[:8]), " …" if len(missing) > 8 else ""))
+        print("Unverified: %d entries carry no check date. Nobody is going to read them in one "
+              "sitting, so they are ordered by what a wrong claim would cost — the ones that "
+              "promise monetized use and no attribution are the ones a reader has no reason to "
+              "verify themselves:" % len(missing))
+        for score, where, reason in (missing if show_all else missing[:12]):
+            print("  [risk %d] %-52s %s" % (score, where[:52], reason))
+        if not show_all and len(missing) > 12:
+            print("  … and %d more, in the same order (add --all-unverified to print every one)"
+                  % (len(missing) - 12))
     print("")
     print("%d stale, %d unverified." % (len(stale), len(missing)))
     return 1 if stale else 0
@@ -401,10 +433,13 @@ def main():
                     help="report which entries' licence wording is unverified or too old to trust")
     ap.add_argument("--max-age-days", type=int, default=365, metavar="N",
                     help="staleness budget for --license-audit (default 365)")
+    ap.add_argument("--all-unverified", action="store_true",
+                    help="with --license-audit, print every entry that lacks a check date "
+                         "instead of the twelve highest-stakes ones")
     args = ap.parse_args()
 
     if args.license_audit:
-        return report_license_audit(args.max_age_days)
+        return report_license_audit(args.max_age_days, args.all_unverified)
 
     if not args.all and not args.candidates:
         args.all = True

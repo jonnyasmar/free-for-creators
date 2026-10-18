@@ -201,6 +201,40 @@ class EvidenceTests(unittest.TestCase):
         self.assertEqual(errors, [])
 
 
+class LicenceRiskTests(unittest.TestCase):
+    """The backlog is worked in risk order, so the ordering is part of the contract."""
+
+    def test_monetized_with_no_attribution_is_the_top_risk(self):
+        score, reason = check_entry.licence_risk(
+            {"monetization": "allowed", "attribution": "not-required"})
+        self.assertEqual(score, 3)
+        self.assertIn("monetized", reason)
+        self.assertIn("no attribution", reason)
+
+    def test_a_cc0_claim_adds_weight(self):
+        score, reason = check_entry.licence_risk(
+            {"monetization": "allowed", "attribution": "not-required", "license_family": "cc0"})
+        self.assertEqual(score, 4)
+        self.assertIn("CC0", reason)
+
+    def test_an_entry_that_already_sends_you_to_the_source_scores_zero(self):
+        score, reason = check_entry.licence_risk(
+            {"monetization": "conditional", "attribution": "required"})
+        self.assertEqual(score, 0)
+        self.assertEqual(reason, "no strong claim")
+
+    def test_the_shipped_backlog_is_ordered_by_risk(self):
+        _, _, missing, _ = check_entry.license_audit(365)
+        scores = [row[0] for row in missing]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+
+    def test_every_unverified_row_explains_itself(self):
+        _, _, missing, _ = check_entry.license_audit(365)
+        for score, where, reason in missing:
+            self.assertTrue(reason.strip(), where)
+            self.assertTrue(0 <= score <= 4, where)
+
+
 class DataDirectoryTests(unittest.TestCase):
     """The shipped data must pass its own gate, offline."""
 
