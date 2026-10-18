@@ -71,14 +71,19 @@ WIDTHS = [
 ]
 
 # Every page in site/, with how to drive it: the views to measure (None = the page has no
-# client-side toggle) and which widths to use. main() fails if site/ contains an .html file
-# that is not listed here, so adding a page is a decision rather than a silent gap — the
-# whole point of this check is that a page nobody opened is where the bug hides.
+# client-side toggle), which widths to use, and whether the page renders entries at all.
+# main() fails if site/ contains an .html file that is not listed here, so adding a page is a
+# decision rather than a silent gap — the whole point of this check is that a page nobody
+# opened is where the bug hides.
+#
+# The last flag is not decoration: a page that renders no entries cannot overflow, which is
+# exactly how this check would pass on a page whose payload failed to build. Pages that never
+# read the payload must say so, or they are measured against an expectation they cannot meet.
 PAGES = [
-    ("index.html", ["table", "grid"], "all"),
-    ("all.html", [None], "all"),
-    ("404.html", [None], "static"),  # renders nothing client-side: a few widths will do
-    ("changelog.html", [None], "static"),  # prose and lists, no table
+    ("index.html", ["table", "grid"], "all", True),
+    ("all.html", [None], "all", True),
+    ("404.html", [None], "static", False),
+    ("changelog.html", [None], "static", False),
 ]
 
 
@@ -86,13 +91,14 @@ def frames_for(widths):
     """One iframe per (page, width); index.html is re-measured in place for its second view,
     because loading it costs a full 200-entry render."""
     frames = []
-    for page, views, width_set in PAGES:
+    for page, views, width_set, _ in PAGES:
         for width in (widths if width_set == "all" else (320, 768, 1280)):
             frames.append((width, page, views))
     return frames
 
 
 def probe_cases(frames):
+    expects = {page: expect for page, _, _, expect in PAGES}
     cases = []
     for width, page, views in frames:
         for view in views:
@@ -100,9 +106,7 @@ def probe_cases(frames):
                 "page": page,
                 "view": view,
                 "width": width,
-                # A page that rendered no entries cannot overflow, which is how this check
-                # would pass on a site whose payload failed to build.
-                "expect": page != "404.html",
+                "expect": expects.get(page, True),
             })
     return cases
 
@@ -388,7 +392,7 @@ def main():
         print("       Run: python3 scripts/build_site.py", file=sys.stderr)
         return 1
 
-    known = set(page for page, _, _ in PAGES)
+    known = set(page for page, _, _, _ in PAGES)
     unknown = sorted(p.name for p in site_dir.glob("*.html") if p.name not in known)
     if unknown:
         print("ERROR: %s contains page(s) this check does not drive: %s" % (site_dir, ", ".join(unknown)),
