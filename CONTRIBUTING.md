@@ -147,6 +147,21 @@ Single source of truth: `schema/entry.schema.json`. `scripts/build_readme.py` re
 python3 scripts/check_entry.py --license-audit --max-age-days 365
 ```
 
+**The backlog is worked in risk order, and nothing is dropped for being unverifiable.** With
+around 190 entries unchecked, the count alone says nothing about where to start, so the audit
+sorts them by what a wrong claim would cost: `[risk 4]` is an entry promising monetized use, no
+attribution and CC0 — a claim a reader has no reason to check for themselves — while one marked
+*conditional, credit me* has already sent them to the source. `--all-unverified` prints the
+whole list in that order, and the monthly [`license-audit.yml`](.github/workflows/license-audit.yml)
+run puts the top of it in an issue.
+
+Entries whose terms cannot be read **stay listed and stay counted**. A bot wall, a licence page
+that only renders in a browser, or no published terms at all is a fact about the *source*, not a
+reason to delete the entry — removing it would trade a visible gap for an invisible one, and this
+project's argument is that the licence column is worth more than the entry count. What such an
+entry does not get is a check date it has not earned. If somebody does eventually read the terms
+and they say something else, the entry is corrected or removed like any other wrong claim.
+
 Deliberately **one** credits list: the README's [Contributors](#contributors) section is derived from `submitted_by` alone. Corrections and dead-link fixes that add no entry are credited in the issue or PR that landed them, so there is never a second list to keep in sync with the first.
 
 Semantics we use consistently:
