@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-214-blue" alt="214 resources">
+  <img src="https://img.shields.io/badge/resources-219-blue" alt="219 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *Links last verified 2026-10-17: 147 ok · 52 need a browser · 0 broken.*
 
-> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 214 resources in 11 categories.
+> "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 219 resources in 11 categories.
 
-**At a glance:** 156 entries are 💚 safe for monetized content · 132 need ➖ no attribution · 170 need 🔓 no account · 33 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 161 entries are 💚 safe for monetized content · 137 need ➖ no attribution · 175 need 🔓 no account · 36 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -51,9 +51,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 - [Music](#music) — 21 resources · Royalty-free and copyright-safe music for videos, streams, podcasts and games.
 - [Sound Effects](#sound-effects) — 14 resources · Free SFX libraries, packs and ambience for video, games, podcasts and streams.
 - [Stock Footage](#stock-footage) — 17 resources · Free video clips and B-roll, including 4K, archival and public domain footage.
-- [Stock Photos](#stock-photos) — 30 resources · Free photography, from modern stock to museum-grade public domain archives.
+- [Stock Photos](#stock-photos) — 33 resources · Free photography, from modern stock to museum-grade public domain archives.
 - [Fonts](#fonts) — 21 resources · Typefaces free for commercial use, including CJK families.
-- [Graphics & Icons](#graphics--icons) — 47 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
+- [Graphics & Icons](#graphics--icons) — 49 resources · Illustrations, icons, vectors and clipart for thumbnails, sites, slides and branding.
 - [Colors & Gradients](#colors--gradients) — 6 resources · Palettes and gradients you can copy into a design, each with a stated license.
 - [Video Production](#video-production) — 10 resources · LUTs, color grading assets, transitions and editor templates.
 - [Mockups & Design Templates](#mockups--design-templates) — 12 resources · PSD/device mockups, thumbnail and social media templates.
@@ -172,6 +172,9 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Paris Musees Collections](https://www.parismuseescollections.paris.fr/) | Online collections of the Paris museums, with public-domain artworks released as CC0. _Filter results by CC0 (sans restriction) when browsing._ | CC0 1.0 | — | 💚 Allowed | — |
 | [Getty Open Content Program](https://www.getty.edu/projects/open-content-program/) | Getty Museum open access: high-resolution public-domain artwork images, no restrictions. _Getty places no restrictions on use and requests only an optional credit line._ | Public domain (Open Content Program) | — | 💚 Allowed | — |
 | [Pixnio](https://pixnio.com/) | Free photos released into the public domain; no attribution required. _Site states images are public domain and free to use._ | Public domain | — | 💚 Allowed | — |
+| [Magdeleine](https://magdeleine.co/) | Free stock photography, with a browse path that shows CC0 and public-domain images only. _The site's own summary is "Free high resolution stock images CC0 and Public Domain"; its CC0 browse path filters out the rest._ | CC0 / Public Domain | — | 💚 Allowed | — |
+| [New Old Stock](https://nos.twnsnd.co/) | Vintage photographs from public archives, free of known copyright restrictions. _The site says "free of known copyright restrictions" rather than asserting CC0 — accurate for archival photographs whose provenance is not always documented._ | Public domain (no known copyright restrictions) | — | 💚 Allowed | — |
+| [Picography](https://picography.co/) | CC0 stock photography that the site offers for any project. _The site states no attribution is needed and that the photos can be used for any project._ | CC0 | — | 💚 Allowed | — |
 
 ## Fonts
 
@@ -254,6 +257,8 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | [Eva Icons](https://akveo.github.io/eva-icons/) | Open-source icon set in outline and fill styles, with SVG, font and framework builds. | MIT | — | 💚 Allowed | — |
 | [Ionicons](https://ionic.io/ionicons) | Icon set with iOS and Material styles, as SVG, webfont and framework components. | MIT | — | 💚 Allowed | — |
 | [Radix Icons](https://www.radix-ui.com/icons) | 15x15 icon set drawn on a consistent grid, as React components and SVG. | MIT | — | 💚 Allowed | — |
+| [System UIcons](https://systemuicons.com/) | Icon set for systems and products, distributed as SVG and a webfont. _The site states its own terms rather than naming a licence: "Use how you want, without attribution."_ | Free use, no attribution (the site's own terms) | — | 💚 Allowed | — |
+| [UXWing](https://uxwing.com/) | Icon library with SVG and PNG downloads in several styles, plus an SVG editor. _Reselling the icons is not permitted; brand logos and icon names follow a separate section of the licence._ | Site licence (commercial use, no attribution) | — | 💚 Allowed | — |
 
 ## Colors & Gradients
 

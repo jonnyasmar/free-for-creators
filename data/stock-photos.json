@@ -364,6 +364,51 @@
       "signup": "not-required",
       "notes": "Site states images are public domain and free to use.",
       "notes_zh": "站点声明图片为公有领域，可自由使用。"
+    },
+    {
+      "name": "Magdeleine",
+      "url": "https://magdeleine.co/",
+      "description": "Free stock photography, with a browse path that shows CC0 and public-domain images only.",
+      "description_zh": "免费摄影素材，可按仅显示 CC0 与公有领域图片的路径浏览。",
+      "license": "CC0 / Public Domain",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The site's own summary is \"Free high resolution stock images CC0 and Public Domain\"; its CC0 browse path filters out the rest.",
+      "notes_zh": "站点自述为「CC0 与公有领域的高分辨率免费图库」；CC0 浏览路径可筛掉其余。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://magdeleine.co/"
+    },
+    {
+      "name": "New Old Stock",
+      "url": "https://nos.twnsnd.co/",
+      "description": "Vintage photographs from public archives, free of known copyright restrictions.",
+      "description_zh": "来自公共档案馆的复古照片，不存在已知的版权限制。",
+      "license": "Public domain (no known copyright restrictions)",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The site says \"free of known copyright restrictions\" rather than asserting CC0 — accurate for archival photographs whose provenance is not always documented.",
+      "notes_zh": "站点的措辞是「不存在已知版权限制」而非 CC0，对档案照片而言这是更准确的表述。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://nos.twnsnd.co/"
+    },
+    {
+      "name": "Picography",
+      "url": "https://picography.co/",
+      "description": "CC0 stock photography that the site offers for any project.",
+      "description_zh": "以 CC0 发布的摄影素材，站点表示可用于任何项目。",
+      "license": "CC0",
+      "license_family": "cc0",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The site states no attribution is needed and that the photos can be used for any project.",
+      "notes_zh": "站点声明无需署名，且可用于任何项目。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://picography.co/"
     }
   ]
 }

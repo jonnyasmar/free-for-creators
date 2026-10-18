@@ -12,16 +12,16 @@
   <a href="https://skyzhao1223.github.io/free-for-creators/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_website-browse-success" alt="Website"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml"><img src="https://github.com/skyzhao1223/free-for-creators/actions/workflows/linkcheck.yml/badge.svg" alt="Link check"></a>
-  <img src="https://img.shields.io/badge/resources-214-blue" alt="214 resources">
+  <img src="https://img.shields.io/badge/resources-219-blue" alt="219 resources">
   <img src="https://img.shields.io/badge/license-CC0-lightgrey" alt="License: CC0">
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs welcome">
 </p>
 
 *链接最近校验于 2026-10-17：147 正常 · 52 需人工确认 · 0 死链。*
 
-> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、214 个资源。
+> 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、219 个资源。
 
-**一眼看数据**：156 条 💚 可直接用于货币化内容 · 132 条 ➖ 无需署名 · 170 条 🔓 无需注册 · 33 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：161 条 💚 可直接用于货币化内容 · 137 条 ➖ 无需署名 · 175 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -51,9 +51,9 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 - [音乐](#音乐) — 21 个资源 · 适合视频、直播、播客与游戏的免版税、无版权风险音乐。
 - [音效](#音效) — 14 个资源 · 面向视频、游戏、播客与直播的免费音效库、音效包与氛围音。
 - [视频素材](#视频素材) — 17 个资源 · 免费视频片段与 B-roll，含 4K、历史档案与公有领域素材。
-- [图片素材](#图片素材) — 30 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
+- [图片素材](#图片素材) — 33 个资源 · 免费摄影图片，从现代图库到博物馆级公有领域档案。
 - [字体](#字体) — 21 个资源 · 可免费商用的字体，含中日韩字体家族。
-- [图形与图标](#图形与图标) — 47 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
+- [图形与图标](#图形与图标) — 49 个资源 · 用于封面、网站、幻灯片与品牌的插画、图标、矢量图与剪贴画。
 - [配色与渐变](#配色与渐变) — 6 个资源 · 可复制到设计中的配色与渐变，每项都注明许可证。
 - [视频制作](#视频制作) — 10 个资源 · LUT、调色资产、转场与剪辑软件模板。
 - [样机与设计模板](#样机与设计模板) — 12 个资源 · PSD/设备样机、封面图与社交媒体模板。
@@ -172,6 +172,9 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Paris Musees Collections](https://www.parismuseescollections.paris.fr/) | 巴黎市博物馆联盟线上藏品库，公有领域作品以 CC0 发布。 _检索时可筛选标注 CC0（sans restriction）的作品。_ | CC0 1.0 | — | 💚 可商用 | — |
 | [Getty Open Content Program](https://www.getty.edu/projects/open-content-program/) | 盖蒂博物馆开放内容计划：公有领域艺术品高清图像，官方不限制使用。 _官方不限制使用，署名非必需（欢迎但非强制）。_ | Public domain (Open Content Program) | — | 💚 可商用 | — |
 | [Pixnio](https://pixnio.com/) | 公有领域免费照片；无需署名。 _站点声明图片为公有领域，可自由使用。_ | Public domain | — | 💚 可商用 | — |
+| [Magdeleine](https://magdeleine.co/) | 免费摄影素材，可按仅显示 CC0 与公有领域图片的路径浏览。 _站点自述为「CC0 与公有领域的高分辨率免费图库」；CC0 浏览路径可筛掉其余。_ | CC0 / Public Domain | — | 💚 可商用 | — |
+| [New Old Stock](https://nos.twnsnd.co/) | 来自公共档案馆的复古照片，不存在已知的版权限制。 _站点的措辞是「不存在已知版权限制」而非 CC0，对档案照片而言这是更准确的表述。_ | Public domain (no known copyright restrictions) | — | 💚 可商用 | — |
+| [Picography](https://picography.co/) | 以 CC0 发布的摄影素材，站点表示可用于任何项目。 _站点声明无需署名，且可用于任何项目。_ | CC0 | — | 💚 可商用 | — |
 
 ## 字体
 
@@ -254,6 +257,8 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | [Eva Icons](https://akveo.github.io/eva-icons/) | 开源图标集，含线框与填充两种风格，提供 SVG、字体与框架版本。 | MIT | — | 💚 可商用 | — |
 | [Ionicons](https://ionic.io/ionicons) | 含 iOS 与 Material 两种风格的图标集，提供 SVG、Webfont 与框架组件。 | MIT | — | 💚 可商用 | — |
 | [Radix Icons](https://www.radix-ui.com/icons) | 统一的 15x15 图标集，提供 React 组件与 SVG。 | MIT | — | 💚 可商用 | — |
+| [System UIcons](https://systemuicons.com/) | 面向系统与产品的图标集，提供 SVG 与 Webfont。 _站点未指名许可证，而是声明自己的条款：「随意使用，无需署名」。_ | Free use, no attribution (the site's own terms) | — | 💚 可商用 | — |
+| [UXWing](https://uxwing.com/) | 提供多种风格 SVG/PNG 下载的图标库，内置 SVG 编辑器。 _不允许转售图标；品牌 logo 与图标名称适用许可中的单独条款。_ | Site licence (commercial use, no attribution) | — | 💚 可商用 | — |
 
 ## 配色与渐变
 
