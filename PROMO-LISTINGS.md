@@ -10,6 +10,27 @@ self-submission is normal; a hidden one gets closed.
 
 ---
 
+## Submitted
+
+| Repository | Pull request | State |
+| --- | --- | --- |
+| [neutraltone/awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) | [#435 — Add Free for Creators to Aggregated Content](https://github.com/neutraltone/awesome-stock-resources/pull/435) | Open, mergeable, no review comments yet. The body was rewritten on 2026-10-18 to stop quoting a hardcoded entry count — it said "172 assets" while the directory was already larger, which is the exact drift this project generates its own numbers to avoid |
+| [bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers) | [#1848 — [Teeny Icons] -> [Icons]](https://github.com/bradtraversy/design-resources-for-developers/pull/1848) | Open, mergeable, their mechanical `Contribution rules` check **passes**. Corrects the URL only (name retained, as their validator requires) because `teenyicons.com` now serves a gambling site |
+
+### What the Teeny Icons case taught us
+
+The entry was already in that list, and its domain had been taken over — the replacement site answers
+`200` with a normal title, so **it is indistinguishable from a live resource to any status-code
+checker**, including [`scripts/linkcheck.py`](scripts/linkcheck.py). That blind spot is now recorded in
+CONTRIBUTING.md's table of things a status code hides. The project itself survived under a different
+home (MIT, `smhmd/teenyicons`), which is also why the fix is a URL correction rather than a removal:
+their validator cannot express "this resource is gone", because a correction has to retain the name or
+the URL.
+
+The generalisable habits: when a listed domain looks wrong, check whether the *project* moved before
+concluding the resource is dead; prefer a repository home over a marketing domain; and do not trust a
+green link check for a domain whose content you have never actually read.
+
 ## Already listed
 
 | Repository | Where | Note |

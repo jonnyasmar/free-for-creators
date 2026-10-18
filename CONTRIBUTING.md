@@ -188,6 +188,8 @@ Semantics we use consistently:
   | redirect onto a different registrable domain | blocked (rebrand?) | e.g. `anthonyboyd.graphics` → `minimalmockups.com`, `freepik.com` → `magnific.com` |
   | any other redirect | ok, with the final URL in the report | so a silent move is still visible |
   | 404 on `HEAD` | re-checked with `GET` | some servers reject `HEAD` only |
+  | **an expired domain that now serves something else entirely** | **ok** — and this one is invisible | the replacement site answers 200 with its own healthy `<title>`, which is indistinguishable from the resource still being there. Found on 2026-10-18: `teenyicons.com` now serves a gambling site while the icon project lives on at its GitHub home. Nothing in this repo could have flagged it — the entry was never in our data, but the same takeover on one of ours would have looked exactly as green |
+
 
 ## Style
 
