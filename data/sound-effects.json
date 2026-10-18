@@ -17,7 +17,9 @@
       "monetization": "varies",
       "signup": "required",
       "notes": "Filter by license; CC-BY sounds need credit in your description.",
-      "notes_zh": "按许可证筛选；CC-BY 声音需在简介中署名。"
+      "notes_zh": "按许可证筛选；CC-BY 声音需在简介中署名。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://freesound.org/help/faq/"
     },
     {
       "name": "ZapSplat",
@@ -112,7 +114,9 @@
       "monetization": "conditional",
       "signup": "not-required",
       "notes": "Free for commercial and broadcast use, but the credit must include the freesfx.co.uk URL.",
-      "notes_zh": "可用于商业与广播制作，但署名中必须包含 freesfx.co.uk 网址。"
+      "notes_zh": "可用于商业与广播制作，但署名中必须包含 freesfx.co.uk 网址。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://www.freesfx.co.uk/"
     },
     {
       "name": "Kenney Audio",
@@ -123,7 +127,9 @@
       "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-18",
+      "license_source": "https://kenney.nl/support"
     },
     {
       "name": "Tabletop Audio",
@@ -150,7 +156,9 @@
       "signup": "not-required",
       "notes": "Library sounds are CC0; the separate AI generation feature has its own pricing — preview sounds before shipping.",
       "notes_zh": "站内音效素材均为 CC0；独立的 AI 生成功能另行计费——发布前请先试听确认。",
-      "submitted_by": "flreey"
+      "submitted_by": "flreey",
+      "license_checked": "2026-10-18",
+      "license_source": "https://sfxmint.com/"
     },
     {
       "name": "Soundza",
@@ -164,7 +172,9 @@
       "notes": "Downloads need a free account after the first three. May not redistribute sounds as standalone files, resell them, or use them to train AI models.",
       "notes_zh": "前 3 个下载免注册，之后需免费账号；不得把音效作为独立文件再分发、转售，或用于训练 AI 模型。",
       "license_family": "site-free",
-      "submitted_by": "vfseanm"
+      "submitted_by": "vfseanm",
+      "license_checked": "2026-10-18",
+      "license_source": "https://soundza.com/license"
     },
     {
       "name": "99Sounds",
@@ -177,7 +187,9 @@
       "monetization": "allowed",
       "signup": "not-required",
       "notes": "License page allows unlimited commercial use without credit, but the files may not be resold or redistributed on their own, nor used to build white-noise or sleep-sound apps.",
-      "notes_zh": "许可页允许不限量商用且免署名；但不得单独转售或再分发这些音频文件，也不得用其素材制作白噪音或助眠类 App。"
+      "notes_zh": "许可页允许不限量商用且免署名；但不得单独转售或再分发这些音频文件，也不得用其素材制作白噪音或助眠类 App。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://99sounds.org/license/"
     }
   ]
 }
