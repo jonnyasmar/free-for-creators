@@ -187,6 +187,13 @@ jobs:
           sys.exit(1 if bad else 0)
           PY
 
+      # Colour count, ink coverage and saturation cannot see this failure mode: one chip is
+      # drawn per category in a flex row with a fixed max-width, so adding a category wraps
+      # the row and only the geometry moves. The pixels stay colourful and every check above
+      # still passes. This reads the laid-out boxes back out of the DOM instead.
+      - name: Check the banner layout (chip row vs table card)
+        run: python3 scripts/check_banner.py --chrome "${{ steps.chrome.outputs.path }}"
+
       - name: Report drift against the committed images
         run: |
           set -euo pipefail
