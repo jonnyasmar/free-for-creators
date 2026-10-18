@@ -21,7 +21,7 @@
 
 > "Free" on an asset site rarely says whether it is free for a monetized video, a client project or a shipped game. This directory records that, for every entry. 219 resources in 11 categories.
 
-**At a glance:** 161 entries are 💚 safe for monetized content · 137 need ➖ no attribution · 175 need 🔓 no account · 36 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
+**At a glance:** 160 entries are 💚 safe for monetized content · 136 need ➖ no attribution · 175 need 🔓 no account · 36 are entirely CC0 / public domain · 14 more mix in CC0 items (filter per asset).
 
 Every entry answers three questions that decide whether a free asset is actually usable:
 
@@ -281,7 +281,7 @@ A weekly GitHub Action link-checks every URL and files an issue on a dead one. T
 | --- | --- | --- | --- | --- | --- |
 | [IWLTBAP Free LUTs](https://iwltbap.com/free-luts/) | Free filmic LUTs from a well-known color grading shop. | Free (IWLTBAP) | — | 💚 Allowed | 🔑 Yes |
 | [FreshLuts](https://freshluts.com/) | Community site for sharing and downloading free LUTs. _Community uploads: check the usage rights of each LUT._ | Various (community uploads) | ❓ Varies | 💚 Allowed | — |
-| [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | Open DNG/DCP profiles and LUTs matching Fujifilm film simulations. | Open (see repository) | — | 💚 Allowed | — |
+| [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | Open DNG/DCP profiles and LUTs matching Fujifilm film simulations. _CC BY-NC-SA 4.0 on the profiles: credit, share derivatives alike, no resale. The repository states photos graded with them are your own work, so the licence covers the profiles, not your output._ | CC BY-NC-SA 4.0 (the profiles; graded photos are your own work) | ✅ Required | ⚠️ Conditional | — |
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | Free After Effects, Premiere, DaVinci and Final Cut templates and transitions. | Mixkit License | — | 💚 Allowed | — |
 | [Motion Array](https://motionarray.com/) | Free templates, LUTs and presets section of a premium marketplace. _Free assets sit behind the on-site Free filter plus a free account; the free plan caps monthly downloads._ | Motion Array royalty-free license | — | 💚 Allowed | 🔑 Yes |
 | [Velosofy](https://www.velosofy.com/) | Community library of free video templates (AE, Premiere, Sony Vegas). | Various (per template) | ❓ Varies | ❓ Varies | Optional |

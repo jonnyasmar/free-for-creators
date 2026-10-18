@@ -21,7 +21,7 @@
 
 > 素材站上的「免费」很少说清：能否用在有广告收益的视频、客户项目或已发行的游戏里。这份目录把这件事逐条记录了下来。11 个分类、219 个资源。
 
-**一眼看数据**：161 条 💚 可直接用于货币化内容 · 137 条 ➖ 无需署名 · 175 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
+**一眼看数据**：160 条 💚 可直接用于货币化内容 · 136 条 ➖ 无需署名 · 175 条 🔓 无需注册 · 36 条整站属 CC0 / 公有领域 · 另有 14 条含 CC0 素材（需逐项筛选）。
 
 每条资源都回答了决定「免费」素材能否放心用的三个问题：
 
@@ -281,7 +281,7 @@ GitHub Action 每周检查全部链接，发现死链自动开 issue。所有条
 | --- | --- | --- | --- | --- | --- |
 | [IWLTBAP Free LUTs](https://iwltbap.com/free-luts/) | 知名调色商店的免费电影感 LUT。 | Free (IWLTBAP) | — | 💚 可商用 | 🔑 需注册 |
 | [FreshLuts](https://freshluts.com/) | 社区分享与下载免费 LUT 的站点。 _社区上传：请逐个核对使用权限。_ | Various (community uploads) | ❓ 逐项而定 | 💚 可商用 | — |
-| [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | 匹配富士胶片模拟的开放 DNG/DCP 配置与 LUT。 | Open (see repository) | — | 💚 可商用 | — |
+| [Fujifilm Camera Profiles](https://github.com/abpy/FujifilmCameraProfiles) | 匹配富士胶片模拟的开放 DNG/DCP 配置与 LUT。 _配置本身为 CC BY-NC-SA 4.0：需署名、演绎作品沿用同一许可、不得转售。仓库说明用它调色产出的照片完全属于你自己，因此该许可约束的是配置文件而非你的成片。_ | CC BY-NC-SA 4.0 (the profiles; graded photos are your own work) | ✅ 需署名 | ⚠️ 有条件 | — |
 | [Mixkit Templates](https://mixkit.co/free-after-effects-templates/) | 免费的 AE、Premiere、DaVinci 与 Final Cut 模板与转场。 | Mixkit License | — | 💚 可商用 | — |
 | [Motion Array](https://motionarray.com/) | 高端市场的免费模板、LUT 与预设专区。 _免费素材需通过站内 Free 筛选并登录免费账号获取；免费版每月下载有额度上限。_ | Motion Array royalty-free license | — | 💚 可商用 | 🔑 需注册 |
 | [Velosofy](https://www.velosofy.com/) | 社区免费视频模板库（AE、Premiere、Vegas）。 | Various (per template) | ❓ 逐项而定 | ❓ 逐项而定 | 可选 |

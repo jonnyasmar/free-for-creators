@@ -34,11 +34,15 @@
       "url": "https://github.com/abpy/FujifilmCameraProfiles",
       "description": "Open DNG/DCP profiles and LUTs matching Fujifilm film simulations.",
       "description_zh": "匹配富士胶片模拟的开放 DNG/DCP 配置与 LUT。",
-      "license": "Open (see repository)",
-      "license_family": "site-free",
-      "attribution": "not-required",
-      "monetization": "allowed",
-      "signup": "not-required"
+      "license": "CC BY-NC-SA 4.0 (the profiles; graded photos are your own work)",
+      "license_family": "cc-by",
+      "attribution": "required",
+      "monetization": "conditional",
+      "signup": "not-required",
+      "license_checked": "2026-10-18",
+      "license_source": "https://github.com/abpy/FujifilmCameraProfiles",
+      "notes": "CC BY-NC-SA 4.0 on the profiles: credit, share derivatives alike, no resale. The repository states photos graded with them are your own work, so the licence covers the profiles, not your output.",
+      "notes_zh": "配置本身为 CC BY-NC-SA 4.0：需署名、演绎作品沿用同一许可、不得转售。仓库说明用它调色产出的照片完全属于你自己，因此该许可约束的是配置文件而非你的成片。"
     },
     {
       "name": "Mixkit Templates",
@@ -73,7 +77,9 @@
       "license_family": "mixed",
       "attribution": "varies",
       "monetization": "varies",
-      "signup": "optional"
+      "signup": "optional",
+      "license_checked": "2026-10-18",
+      "license_source": "https://www.velosofy.com/terms"
     },
     {
       "name": "FootageCrate",
@@ -125,7 +131,9 @@
       "monetization": "allowed",
       "signup": "required",
       "notes": "CC BY-SA: credit is required and derivatives must carry the same licence. Downloads go through a free fylm.ai Lite account.",
-      "notes_zh": "CC BY-SA：需署名，且演绎作品须沿用同一许可。下载需注册免费的 fylm.ai Lite 账号。"
+      "notes_zh": "CC BY-SA：需署名，且演绎作品须沿用同一许可。下载需注册免费的 fylm.ai Lite 账号。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://lutify.me/free-luts/license"
     }
   ]
 }
