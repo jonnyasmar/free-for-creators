@@ -21,6 +21,7 @@ jobs:
       - name: Check all resource links
         env:
           LINKCHECK_REPORT: ${{ runner.temp }}/linkcheck-report.md
+          LINKCHECK_REVIEW: ${{ runner.temp }}/linkcheck-review.md
         run: python scripts/linkcheck.py --status-file linkcheck-status.json
       # Runs even when the check failed, so a red result is recorded rather than leaving the
       # previous week's "0 broken" on display. Regenerating the READMEs here is what keeps
@@ -33,7 +34,9 @@ jobs:
           python3 scripts/build_readme.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add linkcheck-status.json README.md README.zh-CN.md
+          # linkcheck-titles.json is the domain-takeover baseline: the <title> each URL
+          # served last time, so a 200 that now belongs to somebody else can be spotted.
+          git add linkcheck-status.json linkcheck-titles.json README.md README.zh-CN.md
           if git diff --cached --quiet; then echo "nothing to record"; exit 0; fi
           git commit -m "chore: record link check ($(python3 -c "import json;print(json.load(open('linkcheck-status.json'))['broken'])") broken) [skip ci]"
           git pull --rebase origin "${GITHUB_REF_NAME}"
@@ -45,6 +48,45 @@ jobs:
           echo "  - update/replace the URL in data/*.json, or"
           echo "  - remove the entry if the service is gone, or"
           echo "  - add \"skip_linkcheck\": true with justification (login walls etc)."
+      # Separate from the failure issue above, and deliberately not a failure: a title that
+      # changed beyond recognition is what a takeover looks like *and* what a rebrand looks
+      # like, so it asks for eyes rather than blocking anything.
+      #
+      # The whole point is the case a status code cannot see: teenyicons.com answered 200 with
+      # a gambling site's title for months, and every check in the world called it healthy.
+      - name: Open or update the takeover review issue
+        if: always()
+        uses: actions/github-script@v9
+        env:
+          LINKCHECK_REVIEW: ${{ runner.temp }}/linkcheck-review.md
+        with:
+          script: |
+            const fs = require("fs");
+            const p = process.env.LINKCHECK_REVIEW;
+            const report = (p && fs.existsSync(p)) ? fs.readFileSync(p, "utf8") : "";
+            const m = report.match(/^## Titles that changed \((\d+)\)/m);
+            const count = m ? Number(m[1]) : 0;
+            if (!count) {
+              console.log("No title moved far enough to review.");
+              return;
+            }
+            const { owner, repo } = context.repo;
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const body = `${report}\n\nRun: ${runUrl}`;
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner, repo, state: "open", labels: "needs-review", per_page: 1,
+            });
+            if (open.length) {
+              await github.rest.issues.createComment({ owner, repo, issue_number: open[0].number, body });
+            } else {
+              await github.rest.issues.create({
+                owner, repo,
+                title: "👀 Link check: titles that changed (possible domain takeover)",
+                body,
+                labels: ["needs-review"],
+              });
+            }
+
       - name: Open or update tracking issue
         if: failure()
         uses: actions/github-script@v9

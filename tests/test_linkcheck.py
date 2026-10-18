@@ -7,13 +7,19 @@ whether the weekly job files an issue, so they are worth pinning. License: CC0.
 """
 import os
 import sys
+import tempfile
 import unittest
 import urllib.error
+from pathlib import Path
 from unittest import mock
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "scripts"))
 
 import linkcheck  # noqa: E402
+
+#: Verbatim from the case that motivated the takeover check: another directory still lists
+#: Teeny Icons while teenyicons.com serves this, and every status-code check calls it fine.
+GAMBLING_TITLE = "Sòng Bạc 18BET: Thỏa Mãn Đam Mê Cá Cược Hiện Đại"
 
 
 class RegistrableTests(unittest.TestCase):
@@ -126,6 +132,110 @@ class CheckOneTests(unittest.TestCase):
     def test_an_ssl_error_is_indeterminate(self):
         import ssl
         self.assertEqual(self.run_check(ssl.SSLError("certificate verify failed"))[0], "blocked")
+
+
+class TitleFingerprintTests(unittest.TestCase):
+    """The domain-takeover check: a 200 whose content is no longer the resource."""
+
+    def test_tokens_drop_punctuation_short_words_and_bare_numbers(self):
+        self.assertEqual(linkcheck.title_tokens("Pixabay - Free Images (2024)!"),
+                         {"pixabay", "free", "images"})
+
+    def test_identical_titles_are_identical(self):
+        self.assertEqual(linkcheck.title_similarity("Nord", "Nord"), 1.0)
+
+    def test_nothing_in_common_is_zero(self):
+        self.assertEqual(linkcheck.title_similarity(
+            "TeenyIcons - 1px icon set", GAMBLING_TITLE), 0.0)
+
+    def test_a_suffix_or_redesign_keeps_enough_overlap(self):
+        for old, new in (("Pixabay", "Pixabay - Free Images"),
+                         ("Poly Haven", "Poly Haven | HDRIs, Textures, Models"),
+                         ("Openverse", "Openverse | WordPress.org")):
+            self.assertGreaterEqual(linkcheck.title_similarity(old, new),
+                                    linkcheck.TITLE_CHANGE_THRESHOLD, (old, new))
+
+    def test_an_empty_title_scores_zero_rather_than_crashing(self):
+        self.assertEqual(linkcheck.title_similarity("", "Nord"), 0.0)
+        self.assertEqual(linkcheck.title_similarity("Nord", ""), 0.0)
+
+
+class ReviewTitlesTests(unittest.TestCase):
+    def test_a_first_sighting_is_recorded_without_alarm(self):
+        changes, updated = linkcheck.review_titles({}, {"https://a/": "Nord"})
+        self.assertEqual(changes, [])
+        self.assertEqual(updated, {"https://a/": "Nord"})
+
+    def test_an_unchanged_title_is_just_refreshed(self):
+        changes, updated = linkcheck.review_titles({"https://a/": "Nord"}, {"https://a/": "Nord"})
+        self.assertEqual(changes, [])
+        self.assertEqual(updated["https://a/"], "Nord")
+
+    def test_a_takeover_is_flagged_and_the_old_title_is_kept(self):
+        old = "TeenyIcons - 1px icon set"
+        changes, updated = linkcheck.review_titles(
+            {"https://a/": old}, {"https://a/": GAMBLING_TITLE})
+        self.assertEqual(len(changes), 1)
+        url, was, now, similarity = changes[0]
+        self.assertEqual((url, was), ("https://a/", old))
+        self.assertLess(similarity, linkcheck.TITLE_CHANGE_THRESHOLD)
+        # Keeping the old fingerprint is what makes the alarm repeat next week instead of
+        # quietly rebasing onto whatever took the domain over.
+        self.assertEqual(updated["https://a/"], old)
+
+    def test_accepting_re_baselines_the_flagged_entry(self):
+        changes, updated = linkcheck.review_titles(
+            {"https://a/": "TeenyIcons"}, {"https://a/": "Sòng Bạc 18BET"}, accept=True)
+        self.assertEqual(changes, [])
+        self.assertEqual(updated["https://a/"], "Sòng Bạc 18BET")
+
+    def test_an_entry_we_could_not_reach_this_time_keeps_its_fingerprint(self):
+        _, updated = linkcheck.review_titles({"https://gone/": "Nord"}, {})
+        self.assertEqual(updated["https://gone/"], "Nord")
+
+    def test_loading_a_missing_or_broken_state_file_is_not_fatal(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(linkcheck.load_titles(Path(tmp, "nope.json")), {})
+            broken = Path(tmp, "broken.json")
+            broken.write_text("{ not json", encoding="utf-8")
+            self.assertEqual(linkcheck.load_titles(broken), {})
+
+
+class TitleSinkTests(unittest.TestCase):
+    """check_one keeps its (status, detail) shape; the title comes back out of band."""
+
+    URL = "https://example.com/page"
+
+    def run_check(self, value, expect_js=False):
+        sink = []
+        with mock.patch.object(linkcheck, "probe", fake_probe(value)), \
+             mock.patch.object(linkcheck.time, "sleep", lambda *_: None):
+            result = linkcheck.check_one(self.URL, expect_js, sink)
+        return result, sink
+
+    def test_a_healthy_page_reports_its_title(self):
+        (status, _), sink = self.run_check((200, self.URL, "<title>Nord</title>"))
+        self.assertEqual(status, "ok")
+        self.assertEqual(sink, ["Nord"])
+
+    def test_a_js_shell_reports_nothing_to_fingerprint(self):
+        (status, _), sink = self.run_check((200, self.URL, "<div id=app></div>"))
+        self.assertEqual(status, "blocked")
+        self.assertEqual(sink, [])
+
+    def test_a_cross_domain_redirect_reports_nothing(self):
+        (status, _), sink = self.run_check((200, "https://magnific.com/", "<title>Magnific</title>"))
+        self.assertEqual(status, "blocked")
+        self.assertEqual(sink, [])
+
+    def test_a_soft_404_reports_nothing(self):
+        (status, _), sink = self.run_check((200, self.URL, "<title>Page not found</title>"))
+        self.assertEqual(status, "broken")
+        self.assertEqual(sink, [])
+
+    def test_callers_that_do_not_ask_for_a_title_still_work(self):
+        with mock.patch.object(linkcheck, "probe", fake_probe((200, self.URL, "<title>Nord</title>"))):
+            self.assertEqual(linkcheck.check_one(self.URL)[0], "ok")
 
 
 class DataIntegrationTests(unittest.TestCase):

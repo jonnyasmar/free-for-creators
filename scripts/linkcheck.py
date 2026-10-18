@@ -75,6 +75,22 @@ MAX_WORKERS = 8
 # as `blocked`, so 501/503 no longer need special-casing here (they used to skip retries).
 BLOCKED_CODES = {401, 403, 405, 429, 999}
 
+# --- Domain takeovers ----------------------------------------------------------------
+# A status code cannot see the failure this guards: when a domain is taken over, the
+# replacement answers 200 with its own healthy <title>, which is indistinguishable from the
+# resource still being there. Found on 2026-10-18 in another directory — teenyicons.com had
+# been serving a gambling site for months while the icon project lived on under a GitHub
+# home. A green weekly check would have said "fine" the whole time.
+#
+# So each run records the <title> it saw, and a later run compares. The comparison is
+# deliberately crude and deliberately non-fatal: a title that loses almost every shared word
+# is *not* proof of anything — a rebrand looks the same — so it downgrades the entry to
+# `blocked` (which never fails the build) with a detail string a human can act on, and keeps
+# the old fingerprint so the item stays visible until somebody looks.
+TITLE_STATE_PATH = ROOT / "linkcheck-titles.json"
+TITLE_CHANGE_THRESHOLD = 0.2
+TITLE_STATE_VERSION = 1
+
 # A 2xx that carries no document. 202 means "accepted, still processing" — what a bot
 # queue or challenge returns instead of the page — and 204 is explicitly empty. Neither
 # proves the resource is alive, and neither proves it is gone.
@@ -166,7 +182,60 @@ def probe(url, method):
         return r.status, r.geturl(), body
 
 
-def check_one(url, expect_js=False):
+def title_tokens(text):
+    """Words worth comparing: lowercased, punctuation stripped, 1-2 char and numeric tokens
+    dropped."""
+    tokens = {t for t in re.split(r"[^0-9a-z]+", (text or "").lower())
+              if len(t) >= 3 and not t.isdigit()}
+    return tokens
+
+
+def title_similarity(previous, current):
+    """Jaccard overlap of the two titles' words. 1.0 identical, 0.0 nothing in common."""
+    a, b = title_tokens(previous), title_tokens(current)
+    if not a or not b:
+        return 0.0
+    return len(a & b) / float(len(a | b))
+
+
+def load_titles(path):
+    try:
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    titles = data.get("titles") if isinstance(data, dict) else None
+    return titles if isinstance(titles, dict) else {}
+
+
+def review_titles(previous, observed, accept=False, threshold=TITLE_CHANGE_THRESHOLD):
+    """Compare this run's titles with the stored ones.
+
+    previous/observed: {url: title}. Returns (changes, updated):
+      changes — [(url, old_title, new_title, similarity)] that moved too far to assume the
+                same site, unless `accept` (a human has looked, so take the new title)
+      updated — the fingerprint map to store; a flagged entry keeps its old title, so the
+                next run flags it again instead of quietly rebasing onto the takeover.
+    """
+    changes, updated = [], {}
+    for url, current in observed.items():
+        old = previous.get(url)
+        if not old:
+            updated[url] = current
+            continue
+        similarity = title_similarity(old, current)
+        if similarity >= threshold or accept:
+            updated[url] = current
+        else:
+            changes.append((url, old, current, similarity))
+            updated[url] = old
+    # Keep fingerprints for entries we could not observe this time: a site that is briefly
+    # behind a bot wall must not forget what it looked like when it comes back.
+    for url, old in previous.items():
+        updated.setdefault(url, old)
+    return changes, updated
+
+
+def check_one(url, expect_js=False, title_sink=None):
     """Return (status, detail). status in {ok, blocked, broken}.
 
     `expect_js` is the entry's `linkcheck_js` flag: the page is a known JavaScript app
@@ -248,6 +317,10 @@ def check_one(url, expect_js=False):
                     return ("broken", "soft 404 (page says: %s)" % text)
                 if not had_marker and not expect_js:
                     return ("blocked", "%d but HTML has no <title>/<h1> (JS shell?) — open in a browser" % code)
+                if title_sink is not None and had_marker and text:
+                    # Reported out of band so this function keeps its (status, detail) shape
+                    # for every other caller. See TITLE_STATE_PATH for what uses it.
+                    title_sink.append(text)
             moved = "" if (final or url).rstrip("/") == url.rstrip("/") else " -> %s" % final
             return ("ok", "%d%s" % (code, moved))
         if verdict:
@@ -270,6 +343,14 @@ def main():
     ap.add_argument("--status-file", metavar="PATH",
                     help="write a JSON summary (date/checked/ok/blocked/broken) for the "
                          "README's link-verification badge; linkcheck.yml commits it")
+    ap.add_argument("--titles-file", metavar="PATH", default=str(TITLE_STATE_PATH),
+                    help="where the domain-takeover fingerprints live (default: %s)"
+                         % TITLE_STATE_PATH.name)
+    ap.add_argument("--accept-titles", action="store_true",
+                    help="take this run's titles as the new baseline — use it after looking at "
+                         "an entry the takeover check flagged")
+    ap.add_argument("--no-titles", action="store_true",
+                    help="skip the domain-takeover check entirely (nothing is read or written)")
     args = ap.parse_args()
 
     global NO_PROXY
@@ -291,8 +372,10 @@ def main():
 
     print("Checking %d URLs (%d workers)..." % (len(items), MAX_WORKERS))
     results = []
+    sinks = {}  # url -> [title], filled in by check_one; one list per future, so no sharing
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-        futures = [(ex.submit(check_one, url, js), slug, name, url) for slug, name, url, js in items]
+        futures = [(ex.submit(check_one, url, js, sinks.setdefault(url, [])), slug, name, url)
+                   for slug, name, url, js in items]
         for fut, slug, name, url in futures:
             try:
                 status, detail = fut.result()
@@ -301,11 +384,51 @@ def main():
             results.append((status, slug, name, url, detail))
             print("  [%-7s] %-42s %s" % (status, name[:42], detail), flush=True)
 
+    # Domain-takeover pass. A title that lost almost every shared word proves nothing on its
+    # own, so it downgrades an `ok` to `blocked` — never to `broken`, and never a build
+    # failure — and the old fingerprint is kept so the item stays flagged until a human either
+    # fixes the entry or says --accept-titles.
+    observed = {url: seen[0] for url, seen in sinks.items() if seen}
+    previous = {} if args.no_titles else load_titles(args.titles_file)
+    changes, updated = review_titles(previous, observed, accept=args.accept_titles)
+    reviewed = []
+    if changes:
+        by_url = {url: (old, new) for url, old, new, _ in changes}
+        adjusted = []
+        for status, slug, name, url, detail in results:
+            if url in by_url:
+                old, new = by_url[url]
+                reviewed.append((slug, name, url, old, new))
+                if status == "ok":
+                    detail = ("title changed since a previous run: %r -> %r (domain takeover "
+                              "or rebrand?) — open it in a browser, then re-run with "
+                              "--accept-titles" % (old, new))
+                    status = "blocked"
+            adjusted.append((status, slug, name, url, detail))
+        results = adjusted
+
+    if reviewed:
+        print("\nTitles that moved too far to trust (old fingerprint kept):")
+        for slug, name, url, old, new in sorted(reviewed, key=lambda r: r[1]):
+            print("  %-40s %r -> %r" % (name[:40], old, new))
+
+    if not args.no_titles:
+        import datetime
+        import json as _json
+        Path(args.titles_file).write_text(
+            _json.dumps({"version": TITLE_STATE_VERSION,
+                         "date": datetime.date.today().isoformat(),
+                         "titles": updated}, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8")
+        print("Titles: recorded %d fingerprint(s) in %s" % (len(updated), args.titles_file))
+
     ok = [r for r in results if r[0] == "ok"]
     blocked = [r for r in results if r[0] == "blocked"]
     broken = [r for r in results if r[0] == "broken"]
 
-    print("\nSummary: %d ok, %d blocked (needs manual check), %d broken" % (len(ok), len(blocked), len(broken)))
+    print("\nSummary: %d ok, %d blocked (needs manual check), %d broken%s"
+          % (len(ok), len(blocked), len(broken),
+             ", %d title change(s) to review" % len(reviewed) if reviewed else ""))
 
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary_path:
@@ -317,6 +440,35 @@ def main():
                     for _, slug, name, url, detail in sorted(group, key=lambda r: (r[1], r[2])):
                         f.write("| %s | %s | %s | %s |\n" % (slug, name, url, detail))
                     f.write("\n")
+            if reviewed:
+                # Its own section, above the noise: a takeover is the one failure here that a
+                # green status code cannot express.
+                f.write("### Titles that changed (review)\n\n"
+                        "| Category | Resource | URL | Was | Now |\n"
+                        "| --- | --- | --- | --- | --- |\n")
+                for slug, name, url, old, new in sorted(reviewed, key=lambda r: r[1]):
+                    f.write("| %s | %s | %s | %s | %s |\n" % (slug, name, url, old, new))
+                f.write("\n")
+
+    review_path = os.environ.get("LINKCHECK_REVIEW")
+    if review_path:
+        lines = ["## Titles that changed (%d)" % len(reviewed), ""]
+        if reviewed:
+            lines += ["These entries answered 200 with a title that no longer resembles the one "
+                      "recorded last run. That is what a domain takeover looks like from here - "
+                      "and also what a rebrand looks like, which is why a human decides.", "",
+                      "| Category | Resource | URL | Was | Now |",
+                      "| --- | --- | --- | --- | --- |"]
+            for slug, name, url, old, new in sorted(reviewed, key=lambda r: r[1]):
+                lines.append("| %s | %s | %s | %s | %s |" % (slug, name, url, old, new))
+            lines += ["", "Open each one in a browser. If the resource is still there, accept the "
+                          "new title by re-running the check with --accept-titles (and the same "
+                          "--slug filters). If it is gone, or the domain changed hands, fix or "
+                          "remove the entry."]
+        else:
+            lines.append("No title moved far enough to review.")
+        with open(review_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
 
     report_path = os.environ.get("LINKCHECK_REPORT")
     if report_path:
@@ -342,6 +494,9 @@ def main():
             "ok": len(ok),
             "blocked": len(blocked),
             "broken": len(broken),
+            # Titles that changed beyond recognition this run. Informational: they are already
+            # counted inside blocked, and build_readme.py only reads the keys it knows.
+            "review": len(reviewed),
         }
         with open(status_path, "w", encoding="utf-8") as f:
             f.write(_json.dumps(payload, indent=2) + "\n")
