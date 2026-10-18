@@ -49,7 +49,9 @@
       "license_family": "cc0",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://www.openpeeps.com/"
     },
     {
       "name": "Open Doodles",
@@ -165,7 +167,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/tabler/tabler-icons/HEAD/LICENSE"
     },
     {
       "name": "Lucide",
@@ -176,7 +180,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/lucide-icons/lucide/HEAD/LICENSE"
     },
     {
       "name": "Bootstrap Icons",
@@ -250,7 +256,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/tailwindlabs/heroicons/HEAD/LICENSE"
     },
     {
       "name": "Phosphor Icons",
@@ -261,7 +269,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/phosphor-icons/phosphor-icons/HEAD/LICENSE"
     },
     {
       "name": "Iconoir",
@@ -398,7 +408,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/Templarian/MaterialDesign/HEAD/LICENSE"
     },
     {
       "name": "Font Awesome Free",
@@ -533,7 +545,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/akveo/eva-icons/HEAD/LICENSE.txt"
     },
     {
       "name": "Ionicons",
@@ -544,7 +558,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/ionic-team/ionicons/HEAD/LICENSE"
     },
     {
       "name": "Radix Icons",
@@ -555,7 +571,39 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/radix-ui/icons/HEAD/LICENSE"
+    },
+    {
+      "name": "System UIcons",
+      "url": "https://systemuicons.com/",
+      "description": "Icon set for systems and products, distributed as SVG and a webfont.",
+      "description_zh": "面向系统与产品的图标集，提供 SVG 与 Webfont。",
+      "license": "Free use, no attribution (the site's own terms)",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "The site states its own terms rather than naming a licence: \"Use how you want, without attribution.\"",
+      "notes_zh": "站点未指名许可证，而是声明自己的条款：「随意使用，无需署名」。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://systemuicons.com/"
+    },
+    {
+      "name": "UXWing",
+      "url": "https://uxwing.com/",
+      "description": "Icon library with SVG and PNG downloads in several styles, plus an SVG editor.",
+      "description_zh": "提供多种风格 SVG/PNG 下载的图标库，内置 SVG 编辑器。",
+      "license": "Site licence (commercial use, no attribution)",
+      "license_family": "site-free",
+      "attribution": "not-required",
+      "monetization": "allowed",
+      "signup": "not-required",
+      "notes": "Reselling the icons is not permitted; brand logos and icon names follow a separate section of the licence.",
+      "notes_zh": "不允许转售图标；品牌 logo 与图标名称适用许可中的单独条款。",
+      "license_checked": "2026-10-18",
+      "license_source": "https://uxwing.com/license/"
     }
   ]
 }

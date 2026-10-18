@@ -13,11 +13,17 @@ the same way every time and a regression cannot land quietly. Seventeen entries 
 one week reintroduced four unverifiable quantity claims and one over-long note, all of
 which this would have caught before review.
 
-Two modes:
+Three modes:
 
     python3 scripts/check_entry.py --all              audit every entry in data/
     python3 scripts/check_entry.py --candidates c.json  gate new entries, evidence required
     python3 scripts/check_entry.py --all --offline    skip the live link check
+    python3 scripts/check_entry.py --license-audit    which entries' licence wording is
+                                                      unverified, or older than a year
+
+The licence audit fails only on entries that *carry* a check date older than the budget.
+Entries with no date are reported as a backlog rather than a failure: they predate the
+field, and inventing a date for them would be worse than admitting there is none.
 
 Candidate file format (a JSON array):
 
@@ -34,6 +40,7 @@ Exit code is 1 on any error, so this can gate CI.
 """
 
 import argparse
+import datetime
 import glob
 import json
 import os
@@ -161,6 +168,42 @@ def check_coherence(entry, where, errors, warnings):
                       "the zh README falls back to English otherwise" % where)
     if entry.get("notes") and not entry.get("notes_zh"):
         warnings.append("%s: has English notes but no notes_zh" % where)
+    check_provenance(entry, where, errors)
+
+
+LICENSE_DATE = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
+
+
+def check_provenance(entry, where, errors):
+    """A licence check date and the page it came from travel together.
+
+    The weekly link check proves a URL resolves. Nothing proves the licence still says what
+    the entry claims it says — that takes a human reading the page, and a date is only worth
+    anything if it says *when* and *where*. So the two fields are all-or-nothing, and a date
+    in the future is a typo rather than a check.
+    """
+    checked = entry.get("license_checked")
+    source = entry.get("license_source")
+    if bool(checked) != bool(source):
+        absent = "license_source" if checked else "license_checked"
+        errors.append("%s: %s is set but %s is not — a date with no page behind it, or a "
+                      "page with no date, cannot be re-checked later"
+                      % (where, "license_checked" if checked else "license_source", absent))
+        return
+    if not checked:
+        return
+    if not LICENSE_DATE.match(str(checked)):
+        errors.append("%s: license_checked %r is not YYYY-MM-DD" % (where, checked))
+        return
+    try:
+        when = datetime.date.fromisoformat(str(checked))
+    except ValueError:
+        errors.append("%s: license_checked %r is not a real calendar date" % (where, checked))
+        return
+    if when > datetime.date.today():
+        errors.append("%s: license_checked %s is in the future" % (where, checked))
+    if not str(source).startswith("https://"):
+        errors.append("%s: license_source must be https:// (got %r)" % (where, str(source)[:60]))
 
 
 def check_url(entry, where, errors, seen_urls, seen_names):
@@ -222,6 +265,11 @@ def check_evidence(cand, where, errors):
         errors.append("%s: signup is %r but evidence.signup_how is empty. Say how it was "
                       "established (an anonymous download, a first-party statement, a "
                       "click-through) or set signup to \"unknown\"." % (where, signup))
+    entry = cand.get("entry") or {}
+    if not entry.get("license_checked") or not entry.get("license_source"):
+        errors.append("%s: a new entry must carry license_checked (the date you read the "
+                      "licence) and license_source (the page you read it at), so the next "
+                      "person can re-check the claim instead of re-deriving it" % where)
 
 
 def load_existing():
@@ -236,6 +284,55 @@ def load_existing():
             seen_urls[url_key(entry.get("url", ""))] = entry.get("name", "?")
             seen_names.add((entry.get("name") or "").strip().lower())
     return entries, seen_urls, seen_names
+
+
+def license_audit(max_age_days):
+    """Return (total, checked, missing, stale) for the licence check dates in data/.
+
+    `missing` is the honest backlog: entries that predate the field, whose licence wording
+    nobody has recorded reading. `stale` is the actionable set — a date that has aged past
+    the budget, which means somebody claimed to have read the source and that claim is now
+    old enough that the source may have changed under it.
+    """
+    existing, _, _ = load_existing()
+    today = datetime.date.today()
+    checked, missing, stale = 0, [], []
+    for entry in existing:
+        where = "%s/%s" % (entry.get("_file", "?"), entry.get("name", "?"))
+        raw = entry.get("license_checked")
+        if not raw:
+            missing.append(where)
+            continue
+        try:
+            when = datetime.date.fromisoformat(str(raw))
+        except ValueError:
+            stale.append((where, str(raw), "unreadable date"))
+            continue
+        checked += 1
+        age = (today - when).days
+        if age > max_age_days:
+            stale.append((where, str(raw), "%d days old" % age))
+    return len(existing), checked, missing, stale
+
+
+def report_license_audit(max_age_days):
+    total, checked, missing, stale = license_audit(max_age_days)
+    print("Licence provenance: %d of %d entries carry a check date; %d are an unverified "
+          "backlog." % (checked, total, len(missing)))
+    if stale:
+        print("")
+        print("Older than %d days — re-read the source, then update license_checked:" % max_age_days)
+        for where, when, age in stale:
+            print("  %-58s checked %s  (%s)" % (where[:58], when, age))
+    else:
+        print("No checked entry is older than %d days." % max_age_days)
+    if missing:
+        print("")
+        print("Unverified (no license_checked yet, %d): %s%s"
+              % (len(missing), ", ".join(missing[:8]), " …" if len(missing) > 8 else ""))
+    print("")
+    print("%d stale, %d unverified." % (len(stale), len(missing)))
+    return 1 if stale else 0
 
 
 def audit_all(offline):
@@ -300,7 +397,14 @@ def main():
     ap.add_argument("--candidates", metavar="FILE", help="gate a candidate JSON file")
     ap.add_argument("--offline", action="store_true", help="skip the live link check")
     ap.add_argument("--quiet", action="store_true", help="only print a summary line")
+    ap.add_argument("--license-audit", action="store_true",
+                    help="report which entries' licence wording is unverified or too old to trust")
+    ap.add_argument("--max-age-days", type=int, default=365, metavar="N",
+                    help="staleness budget for --license-audit (default 365)")
     args = ap.parse_args()
+
+    if args.license_audit:
+        return report_license_audit(args.max_age_days)
 
     if not args.all and not args.candidates:
         args.all = True

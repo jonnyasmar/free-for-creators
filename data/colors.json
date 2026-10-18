@@ -14,7 +14,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/yeun/open-color/HEAD/LICENSE"
     },
     {
       "name": "Nord",
@@ -25,7 +27,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/nordtheme/nord/HEAD/license"
     },
     {
       "name": "Catppuccin",
@@ -36,7 +40,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/catppuccin/catppuccin/HEAD/LICENSE"
     },
     {
       "name": "Radix Colors",
@@ -47,7 +53,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/radix-ui/colors/HEAD/LICENSE"
     },
     {
       "name": "WebGradients",
@@ -60,7 +68,9 @@
       "monetization": "allowed",
       "signup": "not-required",
       "notes": "The site states free commercial use; the repository carries an MIT licence.",
-      "notes_zh": "站点声明可免费商用；代码仓库采用 MIT 许可。"
+      "notes_zh": "站点声明可免费商用；代码仓库采用 MIT 许可。",
+      "license_checked": "2026-10-17",
+      "license_source": "https://webgradients.com/"
     },
     {
       "name": "uiGradients",
@@ -71,7 +81,9 @@
       "license_family": "permissive",
       "attribution": "not-required",
       "monetization": "allowed",
-      "signup": "not-required"
+      "signup": "not-required",
+      "license_checked": "2026-10-17",
+      "license_source": "https://raw.githubusercontent.com/ghosh/uiGradients/HEAD/LICENSE.md"
     }
   ]
 }

@@ -101,6 +101,16 @@
         "linkcheck_js": {
           "type": "boolean",
           "description": "Set true when the page is a JavaScript app whose HTML contains no <title>/<h1>, so scripts/linkcheck.py cannot confirm content from a plain fetch and would otherwise report it as needing a manual check. The URL is still checked for status, redirects and soft-404s."
+        },
+        "license_checked": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+          "description": "YYYY-MM-DD this entry's licence wording was last read at its source. The weekly link check proves a URL resolves; only a human reading the page proves the licence still says what the entry claims. Optional because the entries that predate the field have no honest date to carry — scripts/check_entry.py --license-audit lists them as a backlog."
+        },
+        "license_source": {
+          "type": "string",
+          "pattern": "^https://",
+          "description": "The page the licence wording was read at — the site's terms page, or a repository LICENSE file. Required whenever license_checked is set, so every date can be traced back to what was read."
         }
       }
     }
