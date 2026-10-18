@@ -64,7 +64,8 @@ def entry_line(e):
         e["license"],
         ATTRIBUTION.get(e["attribution"], e["attribution"]),
         MONETIZATION.get(e["monetization"], e["monetization"]),
-        SIGNUP.get(e.get("signup", "unknown"), e.get("signup", "?")),
+        # A null signup (the field is optional) must read as unknown, not as "None".
+        SIGNUP.get(e.get("signup") or "unknown", "sign-up unknown"),
         e["url"],
     )
 

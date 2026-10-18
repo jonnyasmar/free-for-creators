@@ -1,0 +1,141 @@
+"""Unit tests for the link checker's classification (scripts/linkcheck.py).
+
+Almost every rule here exists because a status code lied: a 200 whose own title says "page
+not found", a 200 that is an empty JavaScript shell, a redirect onto a different company's
+domain, a 403 that means "bot wall" rather than "gone". These are the branches that decide
+whether the weekly job files an issue, so they are worth pinning. License: CC0.
+"""
+import os
+import sys
+import unittest
+import urllib.error
+from unittest import mock
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "scripts"))
+
+import linkcheck  # noqa: E402
+
+
+class RegistrableTests(unittest.TestCase):
+    def test_two_label_hosts_pass_through(self):
+        self.assertEqual(linkcheck.registrable("freepik.com"), "freepik.com")
+        self.assertEqual(linkcheck.registrable("www.freepik.com"), "freepik.com")
+
+    def test_subdomains_collapse_to_the_same_identity(self):
+        self.assertEqual(linkcheck.registrable("a.b.example.com"), "example.com")
+
+    def test_port_is_ignored(self):
+        self.assertEqual(linkcheck.registrable("example.com:8443"), "example.com")
+
+    def test_single_label_host_is_returned_as_is(self):
+        self.assertEqual(linkcheck.registrable("localhost"), "localhost")
+
+
+class StripTagsTests(unittest.TestCase):
+    def test_tags_go_and_whitespace_collapses(self):
+        self.assertEqual(linkcheck.strip_tags("<b>Page</b>\n   not   found"), "Page not found")
+
+
+class InspectBodyTests(unittest.TestCase):
+    def test_a_200_that_says_not_found_is_a_soft_404(self):
+        soft, text, marker = linkcheck.inspect_body(
+            "<html><head><title>Page not found</title></head></html>")
+        self.assertTrue(soft)
+        self.assertIn("not found", text)
+        self.assertTrue(marker)
+
+    def test_an_h1_alone_can_say_it_too(self):
+        soft, _, _ = linkcheck.inspect_body("<html><body><h1>404 - Not Found</h1></body></html>")
+        self.assertTrue(soft)
+
+    def test_a_normal_page_is_not_soft(self):
+        soft, text, marker = linkcheck.inspect_body("<title>Poly Haven</title>")
+        self.assertFalse(soft)
+        self.assertEqual(text, "Poly Haven")
+        self.assertTrue(marker)
+
+    def test_no_title_and_no_h1_is_reported_as_markerless(self):
+        soft, text, marker = linkcheck.inspect_body("<html><body><div id=app></div></body></html>")
+        self.assertFalse(soft)
+        self.assertFalse(marker)
+        self.assertEqual(text, "")
+
+
+def fake_probe(return_value):
+    def _probe(url, method):
+        if isinstance(return_value, Exception):
+            raise return_value
+        return return_value
+    return _probe
+
+
+class CheckOneTests(unittest.TestCase):
+    URL = "https://example.com/page"
+
+    def run_check(self, value, expect_js=False):
+        with mock.patch.object(linkcheck, "probe", fake_probe(value)), \
+             mock.patch.object(linkcheck.time, "sleep", lambda *_: None):
+            return linkcheck.check_one(self.URL, expect_js)
+
+    def test_a_404_is_broken(self):
+        err = urllib.error.HTTPError(self.URL, 404, "Not Found", {}, None)
+        self.assertEqual(self.run_check(err)[0], "broken")
+
+    def test_a_403_is_a_bot_wall_not_a_dead_link(self):
+        err = urllib.error.HTTPError(self.URL, 403, "Forbidden", {}, None)
+        self.assertEqual(self.run_check(err)[0], "blocked")
+
+    def test_a_200_that_says_not_found_is_broken(self):
+        status, detail = self.run_check((200, self.URL, "<title>Page not found</title>"))
+        self.assertEqual(status, "broken")
+        self.assertIn("soft 404", detail)
+
+    def test_a_200_with_no_title_is_a_js_shell(self):
+        status, detail = self.run_check((200, self.URL, "<div id=app></div>"))
+        self.assertEqual(status, "blocked")
+        self.assertIn("JS shell", detail)
+
+    def test_the_same_page_is_ok_once_a_human_flagged_it_as_js(self):
+        status, _ = self.run_check((200, self.URL, "<div id=app></div>"), expect_js=True)
+        self.assertEqual(status, "ok")
+
+    def test_redirect_onto_another_domain_needs_a_human(self):
+        status, detail = self.run_check((200, "https://magnific.com/", "<title>Magnific</title>"))
+        self.assertEqual(status, "blocked")
+        self.assertIn("another domain", detail)
+
+    def test_same_domain_redirect_is_ok_but_reported(self):
+        status, detail = self.run_check(
+            (200, "https://example.com/page2", "<title>Moved</title>"))
+        self.assertEqual(status, "ok")
+        self.assertIn("->", detail)
+
+    def test_a_202_is_accepted_but_not_yet_a_document(self):
+        self.assertEqual(self.run_check((202, self.URL, ""))[0], "blocked")
+
+    def test_a_dns_failure_is_definitive(self):
+        err = OSError("nodename nor servname provided, or not known")
+        self.assertEqual(self.run_check(err)[0], "broken")
+
+    def test_a_connection_refusal_is_confirmed_on_the_other_method(self):
+        # Both methods refuse: the entry is reported broken, but only after the second
+        # method has had its say (one bad CDN edge must not fail the build).
+        err = OSError("[Errno 61] Connection refused")
+        self.assertEqual(self.run_check(err)[0], "broken")
+
+    def test_an_ssl_error_is_indeterminate(self):
+        import ssl
+        self.assertEqual(self.run_check(ssl.SSLError("certificate verify failed"))[0], "blocked")
+
+
+class DataIntegrationTests(unittest.TestCase):
+    def test_every_collected_entry_has_a_url_and_a_slug(self):
+        items = linkcheck.collect()
+        self.assertTrue(items)
+        for slug, name, url, js in items:
+            self.assertTrue(url.startswith("http"), "%s/%s" % (slug, name))
+            self.assertEqual(slug, slug.strip())
+
+
+if __name__ == "__main__":
+    unittest.main()
