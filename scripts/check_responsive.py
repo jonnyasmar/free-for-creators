@@ -78,6 +78,7 @@ PAGES = [
     ("index.html", ["table", "grid"], "all"),
     ("all.html", [None], "all"),
     ("404.html", [None], "static"),  # renders nothing client-side: a few widths will do
+    ("changelog.html", [None], "static"),  # prose and lists, no table
 ]
 
 

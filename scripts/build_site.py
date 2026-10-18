@@ -54,9 +54,20 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from build_readme import (  # noqa: E402
     ATTR_DISPLAY, CATEGORY_ORDER, MON_DISPLAY, PAGES_URL, REPO, SIGNUP_DISPLAY, load_categories,
 )
+# The entry-level diff of data/ between two refs is shared with the PR contract check on
+# purpose: "what changed" must mean the same thing to the changelog and to the gate that
+# allows one entry per pull request, or the changelog would announce edits the gate never saw.
+from check_pr import categories_at, describe_changes  # noqa: E402
 
 ALL_HTML = SITE_DIR / "all.html"
 SITEMAP = SITE_DIR / "sitemap.xml"
+CHANGELOG = SITE_DIR / "changelog.html"
+FEED = SITE_DIR / "feed.xml"
+#: How much history the feed and the changelog cover. The feed is capped by readers, the
+#: page is not — a reader subscribing to a directory wants the recent changes, a person
+#: reading the page wants the whole story.
+FEED_ENTRIES = 50
+HISTORY_COMMITS = 400
 SOCIAL_PNG_SRC = ROOT / "assets" / "social-preview.png"
 SOCIAL_PNG = SITE_DIR / "social-preview.png"
 
@@ -90,6 +101,8 @@ body {
 h1 { font-size: 26px; letter-spacing: -.02em; margin: 0 0 6px; }
 h2 { font-size: 19px; margin: 34px 0 4px; letter-spacing: -.01em; }
 p.lede { margin: 0 0 18px; color: #555a6b; }
+p.meta { margin: 6px 0 0; color: #6b7080; font-size: 12.5px; }
+ul.changes { margin: 6px 0 0; padding-left: 20px; }
 nav.toc { margin: 18px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
 nav.toc a { text-decoration: none; font-size: 13px; padding: 4px 10px; border-radius: 999px;
   border: 1px solid #dfe1ea; background: #fff; color: #2b2f3d; }
@@ -119,6 +132,7 @@ footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e4e6ef;
 @media (prefers-color-scheme: dark) {
   body { color: #e8eaf6; background: #0a0a12; }
   p.lede, p.cat, td.about { color: #a7adca; }
+  p.meta { color: #8b93b5; }
   td.about em { color: #8b93b5; }
   table { background: #12121c; border-color: #262636; }
   th { background: #191926; color: #a7adca; border-color: #262636; }
@@ -319,7 +333,164 @@ def render_sitemap(lastmod):
             "    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n"
             "  <url>\n    <loc>%sall.html</loc>\n    <lastmod>%s</lastmod>\n"
             "    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n"
-            "</urlset>\n" % (PAGES_URL, lastmod, PAGES_URL, lastmod))
+            "  <url>\n    <loc>%schangelog.html</loc>\n    <lastmod>%s</lastmod>\n"
+            "    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>\n"
+            "  <url>\n    <loc>%sfeed.xml</loc>\n    <lastmod>%s</lastmod>\n"
+            "    <changefreq>weekly</changefreq>\n    <priority>0.3</priority>\n  </url>\n"
+            "</urlset>\n" % (PAGES_URL, lastmod, PAGES_URL, lastmod,
+                             PAGES_URL, lastmod, PAGES_URL, lastmod))
+
+
+KIND_VERB = {"added": "Added", "corrected": "Corrected", "removed": "Removed"}
+
+
+def change_sentence(change):
+    """One line a reader can act on: what happened to which resource, and where."""
+    kind = change["kind"]
+    entry = change.get("entry") or {}
+    where = change.get("category") or change["file"].replace(".json", "")
+    if kind in ("category-added", "category-removed"):
+        return "%s the %s category" % ("Added" if kind == "category-added" else "Removed", where)
+    return "%s %s to %s" % (KIND_VERB.get(kind, kind.title()), entry.get("name", "?"), where)
+
+
+def feed_entry_title(changes):
+    if len(changes) == 1:
+        return change_sentence(changes[0])
+    seen = []
+    for change in changes:
+        if change.get("category") not in seen:
+            seen.append(change.get("category"))
+    tail = ", ".join(seen[:3]) + (" and more" if len(seen) > 3 else "")
+    return "%d entry changes in %s" % (len(changes), tail)
+
+
+def data_history(limit=HISTORY_COMMITS):
+    """Newest-first [{sha, date, subject, changes}] for commits that touched data/.
+
+    Derived from git history rather than from a hand-kept file, so it cannot be forgotten.
+    That is also why it is a deploy-time artifact and not a committed CHANGELOG.md: the
+    commit that regenerates such a file would change the history it is derived from, and a
+    pull request adding an entry would fail a sync check it cannot satisfy without knowing
+    how GitHub will merge it.
+    """
+    try:
+        log = git("log", "--format=%H%x1f%cs%x1f%s", "-n", str(limit), "--", "data/")
+    except Exception:
+        return []
+    if log.returncode != 0:
+        return []
+    commits = []
+    for line in log.stdout.splitlines():
+        parts = line.split("\x1f")
+        if len(parts) != 3:
+            continue
+        commits.append({"sha": parts[0], "date": parts[1], "subject": parts[2], "changes": []})
+    for commit in commits:
+        try:
+            head_docs = categories_at(commit["sha"])
+            base_docs = categories_at(commit["sha"] + "^")
+        except Exception:
+            continue  # the root commit has no parent to diff against
+        changes = describe_changes(base_docs, head_docs)
+        # To the gate, a brand-new category file is one change and a maintainer's business.
+        # To a reader it is however many resources it brings, so the changelog expands it —
+        # otherwise nine new entries appear as a single line about a heading.
+        expanded = []
+        for change in changes:
+            if change["kind"] in ("category-added", "category-removed"):
+                source = head_docs if change["kind"] == "category-added" else base_docs
+                kind = "added" if change["kind"] == "category-added" else "removed"
+                entries = (source.get(change["file"]) or {}).get("entries", [])
+                expanded += [{"kind": kind, "file": change["file"], "entry": entry}
+                             for entry in entries] or [change]
+            else:
+                expanded.append(change)
+        for change in expanded:
+            doc = head_docs.get(change["file"]) or base_docs.get(change["file"]) or {}
+            change["category"] = doc.get("category") or change["file"].replace(".json", "")
+        commit["changes"] = expanded
+    return [c for c in commits if c["changes"]]
+
+
+def render_feed(commits, lastmod):
+    """Atom, so a reader can subscribe to a directory that grows a few entries a week."""
+    if not commits:
+        updated = "%sT00:00:00Z" % lastmod
+    else:
+        updated = "%sT00:00:00Z" % max(c["date"] for c in commits)
+    out = []
+    a = out.append
+    a('<?xml version="1.0" encoding="utf-8"?>')
+    a('<feed xmlns="http://www.w3.org/2005/Atom">')
+    a("  <title>Free for Creators — new resources</title>")
+    a("  <subtitle>License-verified free assets added to the directory, with the licence, "
+      "attribution and monetization terms each one carries.</subtitle>")
+    a('  <link rel="alternate" type="text/html" href="%s"/>' % PAGES_URL)
+    a('  <link rel="self" type="application/atom+xml" href="%sfeed.xml"/>' % PAGES_URL)
+    a("  <id>%sfeed.xml</id>" % PAGES_URL)
+    a("  <updated>%s</updated>" % updated)
+    a("  <author><name>Free for Creators</name></author>")
+    for commit in commits[:FEED_ENTRIES]:
+        url = "https://github.com/%s/commit/%s" % (REPO, commit["sha"])
+        a("  <entry>")
+        a("    <title>%s</title>" % esc(feed_entry_title(commit["changes"])))
+        a("    <id>%s</id>" % url)
+        a('    <link rel="alternate" type="text/html" href="%s"/>' % url)
+        a("    <updated>%sT00:00:00Z</updated>" % commit["date"])
+        body = "\n".join("- %s" % change_sentence(c) for c in commit["changes"])
+        a('    <content type="text">%s</content>' % esc(body))
+        a("  </entry>")
+    a("</feed>")
+    return "\n".join(out) + "\n"
+
+
+def render_changelog(commits, total, lastmod):
+    out = []
+    a = out.append
+    a("<!doctype html>")
+    a('<html lang="en">')
+    a("<head>")
+    a('<meta charset="utf-8">')
+    a('<meta name="viewport" content="width=device-width, initial-scale=1">')
+    a("<title>What&#39;s new — Free for Creators</title>")
+    a('<meta name="description" content="Every resource added, corrected or removed from the '
+      'directory, newest first.">')
+    a('<link rel="canonical" href="%schangelog.html">' % PAGES_URL)
+    a('<link rel="alternate" type="application/atom+xml" href="feed.xml">')
+    a('<meta name="robots" content="index,follow">')
+    a("<style>%s</style>" % CSS)
+    a("</head>")
+    a("<body>")
+    a('<a class="skip" href="#main">Skip to the changes</a>')
+    a('<header><h1>What&#39;s new</h1>')
+    a('<p class="lede">Every entry added, corrected or removed, newest first — derived from the '
+      'commits that touched <code>data/</code>, so it cannot drift from the directory. '
+      '%d entries across %d categories today.</p>' % (total, len(CATEGORY_ORDER)))
+    a('<p><a href="index.html">Interactive directory</a> · <a href="all.html">All %d in one '
+      'table</a> · <a href="feed.xml">Atom feed</a> · <a href="../llms.txt">llms.txt</a></p>'
+      % total)
+    a("</header>")
+    a('<main id="main">')
+    if not commits:
+        a("<p>The history is unavailable in this checkout (a shallow clone has no log for "
+          "<code>data/</code>). The directory itself is unaffected.</p>")
+    for commit in commits:
+        url = "https://github.com/%s/commit/%s" % (REPO, commit["sha"])
+        a("<section>")
+        a('<h2><time datetime="%s">%s</time></h2>' % (commit["date"], commit["date"]))
+        a('<ul class="changes">')
+        for change in commit["changes"]:
+            a("<li>%s</li>" % esc(change_sentence(change)))
+        a("</ul>")
+        a('<p class="meta"><a href="%s">%s</a></p>' % (url, esc(commit["subject"][:90])))
+        a("</section>")
+    a("</main>")
+    a('<footer><p>Generated from git history by <code>scripts/build_site.py</code> — do not '
+      'edit by hand. Last data change: %s.</p></footer>' % lastmod)
+    a("</body>")
+    a("</html>")
+    return "\n".join(out) + "\n"
 
 
 def check_cat_colors(index_html, slugs):
@@ -349,7 +520,13 @@ def main():
     categories = load_categories()
     total = sum(len(c["entries"]) for c in categories)
     lastmod = data_lastmod()
-    pages = {ALL_HTML: render_all_html(categories, total, lastmod), SITEMAP: render_sitemap(lastmod)}
+    commits = data_history()
+    pages = {
+        ALL_HTML: render_all_html(categories, total, lastmod),
+        SITEMAP: render_sitemap(lastmod),
+        CHANGELOG: render_changelog(commits, total, lastmod),
+        FEED: render_feed(commits, lastmod),
+    }
     payload = payloads(categories)
 
     # The one gate that can fail CI: a hand-maintained map drifting from CATEGORY_ORDER.

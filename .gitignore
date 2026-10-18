@@ -10,6 +10,11 @@ __pycache__/
 site/data/
 site/all.html
 site/sitemap.xml
+# changelog.html and feed.xml are derived from git history, which a pull request cannot
+# know the shape of before GitHub merges it — a committed copy would fail its own sync
+# check on every data change (the same trap all.html documents above).
+site/changelog.html
+site/feed.xml
 # llms.txt / llms-full.txt embed today's counts, same reason as all.html above.
 site/llms.txt
 site/llms-full.txt
